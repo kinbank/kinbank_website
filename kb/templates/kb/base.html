@@ -1,0 +1,52 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Kinbank</title>
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        
+        <!-- Fonts -->
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> 
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        
+        <!-- My CSS -->
+        <link rel="stylesheet" href="{% static 'css/kb.css' %}">
+    </head>
+
+
+<body>
+    <div class="page-header">
+        <h1><a href="/">Kinbank</a></h1>
+    
+    
+    <div class="sidebar-nav">
+      <ul>
+          <li class="active"  id="homeLink">
+              <a href="/">Home</a>
+          </li>
+          <li id="tight">
+              <a href="/about">About</a>
+          </li>
+          <li id="tight">
+              <a href="/languages/">Languages</a>
+          </li>
+        <li id="tight" style="width:2%;"><a href="/phylogeny/">Compare Cultures</a></li>
+    </div>
+    </div>
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+
+            <!-- other code will be imported here -->
+
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

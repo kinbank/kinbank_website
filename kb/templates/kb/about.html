@@ -1,9 +1,6 @@
-<html>
-    <head>
-        <title>Kinbank</title>
-    </head>
-    <body>
-        <p>ABOUT</p>
-        <p>{{ test }} languages in kinbank</p>
-    </body>
-</html>
+{% extends 'kb/base.html' %}
+
+{% block content %}
+<p>ABOUT</p>
+<p>{{ test }} languages in kinbank</p>
+{% endblock %}

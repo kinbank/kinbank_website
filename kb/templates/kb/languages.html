@@ -1,9 +1,17 @@
-<html>
-    <head>
-        <title>Kinbank</title>
-    </head>
-    <body>
-        <p>Languages</p>
-        <p>{{ test }} languages in kinbank</p>
-    </body>
-</html>
+{% extends 'kb/base.html' %}
+
+{% block content %}
+
+<p>{{ test }} languages in kinbank</p>
+
+<p>Languages</p>
+
+{% for l in languages %}
+        <div class="post">
+           	<a href="{{ l.glottocode }}">{{ l.glottolog_name }}</a>
+        </div>
+
+
+{% endfor %}
+
+{% endblock %}
