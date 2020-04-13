@@ -1,17 +1,18 @@
 {% extends 'kb/base.html' %}
+{% load render_table from django_tables2 %}
 
 {% block content %}
 
-<p>{{ test }} languages in kinbank</p>
+<p> languages in kinbank</p>
 
 <p>Languages</p>
 
-{% for l in languages %}
+<!-- {% for l in languages %}
         <div class="post">
            	<a href="{{ l.glottocode }}">{{ l.glottolog_name }}</a>
         </div>
+{% endfor %} -->
 
-
-{% endfor %}
+{% render_table table %}
 
 {% endblock %}

@@ -16,8 +16,12 @@ env:
 install: env
 	git clone https://github.com/SimonGreenhill/kinbank.git
 
+open:
+	source ./myvenv/bin/activate
+
 data:
 	cd ./kinbank && git pull
+	RScript add_columnGlottocode.R
 	cd ./kinbank/kinbank/cldf/ && csvs-to-sqlite *.csv ../../../kinbank.sqlite3
 	# still need to get source.bib into the db
 
