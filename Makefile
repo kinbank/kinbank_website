@@ -22,6 +22,6 @@ open:
 data:
 	cd ./kinbank && git pull
 	RScript add_columnGlottocode.R
+	RScript bib_tocsv.R
 	cd ./kinbank/kinbank/cldf/ && csvs-to-sqlite *.csv ../../../kinbank.sqlite3
-	# still need to get source.bib into the db
-
+	cd ./kb/static/ && csvs-to-sqlite about.csv ../../kinbank.sqlite3

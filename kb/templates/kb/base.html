@@ -4,9 +4,12 @@
     <head>
         <title>Kinbank</title>
         
+        <!-- favicon -->
+        <link rel="shortcut icon" type="image/png" shape-rendering="crispEdges" href="{% static 'favicon.ico' %}"/>
+
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
         
         <!-- Fonts -->
         <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> 
@@ -14,32 +17,63 @@
         
         <!-- My CSS -->
         <link rel="stylesheet" href="{% static 'css/kb.css' %}">
+
+        <!-- Javascript -->
+        <script src="{% static "js/jquery.js" %}"></script>
+        <script src="{% static "js/OpenLayers.js" %}"></script>
+        <script src="{% static "js/FeaturePopups.js" %}"></script>
+        <script src="{% static "js/culture_detail.js" %}"></script>
+        <script src="{% static "js/compare_cultures.js" %}"> </script>
+        <script src="{% static "js/select2.js" %}"></script>
+        <script src="{% static "js/select2.min.js" %}"></script>
+        <script src="{% static "js/jquery.autosize.js" %}"></script>
+        <script src="{% static "js/jquery.autosize.min.js" %}"></script>
+
+        {% block extrahead %}
+
+        <!-- Extra head goes here -->
+
+        {% endblock %}
+
     </head>
 
 
 <body>
-    <div class="page-header">
-        <h1><a href="/">Kinbank</a></h1>
+<div id="wrap">
+  <div class="page-header">
+
+    <div class="logo-container">
+      <div class = "header-img">
+        <img src="{% static "img/logo-header.png" %}" height="57" />
+      </div>
+      <div class="logo-text">
+        <div class="logo-title">KinBank</div>
+    </div>
+    </div>
+
     
     
     <div class="sidebar-nav">
       <ul>
-          <li class="active"  id="homeLink">
+          <li id="home">
               <a href="/">Home</a>
           </li>
-          <li id="tight">
-              <a href="/about">About</a>
-          </li>
-          <li id="tight">
+          <li id="language">
               <a href="/languages/">Languages</a>
           </li>
-        <li id="tight" style="width:2%;"><a href="/phylogeny/">Compare Cultures</a></li>
+          <li id="about">
+              <a href="/about">About</a>
+          </li>
+          <!-- <li id="tight" style="width:2%;">
+            <a href="/phylogeny/">Compare Cultures</a>
+          </li> -->
+      </div>
     </div>
-    </div>
+    
 
-    <div class="content container">
+    <div class="content" id="content">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md">
             {% block content %}
 
             <!-- other code will be imported here -->
@@ -48,5 +82,6 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>

@@ -1,9 +1,85 @@
 {% extends 'kb/base.html' %}
+{% load static %}
 
-{% block content %}
-<p>ABOUT</p>
-<p>{{ test }} languages in kinbank</p>
+{% block extrahead %}
 
-
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+<script type="text/javascript" src="{% static "js/about.js" %}"></script>
 
 {% endblock %}
+
+
+{% block content %}
+
+
+
+<div id="aboutText">
+Kinbank is a database of kinship terminologies to be used for exploring cross-linguistic diversity in kinship organisation and how that relates to behaviour. The database includes {{ n_languages }} languages and a set of 100 core kin types between Grandparents and Grandchildren, and between Parent's siblings, and Parent's siblings’ children. A major advantage of Kinbank is the focused language family sampling and sampling based on occurrence in existing anthropological databases (e.g. <a href"www.dplace.org">d-place.org</a>, allowing us to test the relationship between languages and behaviour. This allows the use of phylogenetic methods to reconstruct the states of proto-kinship, account for common ancestry in models of kinship change, and test for correlated evolution between linguistic and behavioural patterns.
+</div>
+
+<div class="divider"></div>
+
+
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
+Database Content
+<a id="database-content" class="expand-button" href="">+</a>
+</div>
+<div class="data-table" id="database-content-table">
+<p>Cultures</p>
+Being expert voyagers, Austronesians settled as far west as Madagascar and as far east as Rapanui - an area spanning over half the world’s longitude. The physical environments they inhabited ranged from tiny atolls such as Tongareva to the isolated mountainous interiors of large islands such as Taiwan. The social and religious features of these cultures were no less diverse. Social structures ranged from acephalous nomadic bands to large, complex states. Supernatural beliefs systems included localised nature spirits and the spirits of recent ancestors, as well as structured pantheons of powerful gods. Supernatural practices include ritual dances, human sacrifice and headhunting. It was this diversity of religious belief and practice that inspired the first comparative studies of religion (Swain, & Trompf, 1995). 
+<p>Variables</p>
+Pulotu contains a total of  variables of which  concern religious belief, religious practice, the social environment and  the physical environment. This set of variables is divided into three major sections, each covering a distinct time period in a cultures history. The first and largest section is the traditional state section, which contains information on the state of the culture prior to large-scale modernisation. The second section covers the post-contact history, the time period spanning from the traditional state of the cultures to their contemporary state. The third section is the contemporary state, documenting the contemporary state of the culture. 
+<p>Further Information</p>
+Definitions of the terms used throughout Pulotu can be found in our <a href="">glossary section</a>. For all other enquiries please visit our <a href="">contact page</a>.  
+</div>
+<div class="divider"></div>
+
+
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
+The Team
+<a id="the-team" class="expand-button" href="">+</a>
+</div>
+<div id="the-team-table" class="data-table">
+
+
+<table class="teamPhotos">
+	{% for value in about %}
+		<div class = "row">
+		<tr>
+		{% if value.img != None %}
+			<td style="width:10px;"> <img class="teamPhoto" src="{% static 'img/TeamPhotos/' %}{{ value.img }}"></td>
+		{% endif %}
+		<td class="person"> {{ value.name }} <br>
+		<div class="personDescription">
+		<em class="shortDesc">{{ value.position }}</em>
+		</div>
+		</td>
+		<td style="text-align:right; font-weight:normal;">
+		{% if value.webpage != None %}
+			<a href="{{ value.webpage }}" target="blank">Website</a>
+		{% endif %}
+		{% if value.email != None %}
+			<br><a href="mailto:{{ value.email }}">Email</a>
+		{% endif %}
+		{% if value.twitter != None %}
+			<br><a href="https://twitter.com/{{ value.twitter }}">@{{ value.twitter }}</a>
+		{% endif %}
+		</td>
+		</tr>
+		</div>
+	{% endfor %}
+</table>
+</div>
+
+<div class="divider"></div>
+
+<div id = "table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95% ">
+Funding and Affiliations
+<a id="funding" class="expand-button" href="">+</a>
+</div>
+<div id="funding-table" class="data-table">
+<p>Funding</p>
+Kinbank was constructed thanks to funding from the European Research Council and [other grants]
+
+{% endblock %}
+

@@ -1,9 +1,34 @@
 {% extends 'kb/base.html' %}
+{% load static %}
+
+{% block extrahead %}
+
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+
+
+	<script type="text/javascript" src="{% static "js/fillKinshipDiagram.js" %}"></script>
+	<script type="text/javascript">
+			console.log(4 + 10);
+			var terms = {{ terms|safe }};
+			window.onload = function() {
+				main(terms);
+			};
+	</script>
+
+{% endblock %}
+
 
 {% block content %}
-<div class="introduction">
-	<p>Hi there!</p>
-    <p>It works!</p>
-    <p>{{ test }} languages in kinbank</p>
+
+<div class="home-content">
+
+	<div class = "home-text">
+		<div id = "home-text"class="logo-title">KinBank</div>
+		<p>Database of kinship terminologies</p>
+	</div>
+
+
+	<object type="image/svg+xml" data="{% static "img/diagrams/nuclear_diagram.svg" %}" id="kinshipdiagram"></object>
 </div>
 {% endblock %}
