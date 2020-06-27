@@ -18,17 +18,23 @@
 
 {% endblock %}
 
+{% block logo %}
+{% endblock %}
 
 {% block content %}
 
 <div class="home-content">
 
 	<div class = "home-text">
-		<div id = "home-text"class="logo-title">KinBank</div>
-		<p>Database of kinship terminologies</p>
+		<div class = "homelogo-container">
+	        <img id = "logo-img" src="{% static "img/logo-header.png" %}" height="57"/>
+	      	<div id = "home-text" class="logo-title">KinBank</div>	
+      	</div>
+      	<p class="subtitle">Database of Kinship terminology</p>
+		<p class="description">Kinbank is a database of kinship terminologies ranging from grandparents to grandchildren, parent's siblings and their children. You will find terminologies for 1,000+ languages, ranging from the XX of XX to the YY of YY </p>
 	</div>
 
 
-	<object type="image/svg+xml" data="{% static "img/diagrams/nuclear_diagram.svg" %}" id="kinshipdiagram"></object>
+	<object type="image/svg+xml" data="{% static "img/diagrams/home_diagram.svg" %}" id="kinshipdiagram"></object>
 </div>
 {% endblock %}

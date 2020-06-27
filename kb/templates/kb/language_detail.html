@@ -1,10 +1,897 @@
 {% extends 'kb/base.html' %}
 {% load render_table from django_tables2 %}
 
+{% load static %}
+
+
+{% block extrahead %}
+
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">
+	<link rel="stylesheet" href="{% static 'css/about.css' %}">
+	<script type="text/javascript" src="{% static "js/about.js" %}"></script>
+
+	<script type="text/javascript" src="{% static "js/fillKinshipDiagram.js" %}"></script>
+	<script type="text/javascript">
+			var grandparents 	= {{ grandparents|safe }};
+			var nuclear 		= {{ nuclear|safe }};
+			var children 		= {{ children|safe }};
+
+
+			console.log(children)
+			window.onload = function() {
+				main(grandparents, 'grandparents');
+				main(nuclear, 'nuclear');
+				main(children, 'children');
+			};
+	</script>
+
+{% endblock %}
+
 {% block content %}
-<div class="introduction">
-	<div class="django_table">
-		{% render_table table %}
+
+
+ <div class="row">
+   <div class="col-xs-7">
+	   	<div class = "aboutText">
+			<h1> {{metadata.name}} </h1>
+
+			<h3>Glottocode: {{metadata.glottocode}}</h3>
+
+			<h3>Language family: {{metadata.family}}</h3>
+		</div>
 	</div>
+   <div class="col-xs-5">
+		MAP
+   </div>
+ </div>
+
+
+
+
+<div id="table-title" class="table-title" style=>
+Grandparents
+<a id="grandparents-box" class="expand-button" href="">+</a>
 </div>
+<div class="data-table" id="grandparents-box-table">
+<object type="image/svg+xml" data="{% static "img/diagrams/grandparents.svg" %}" id="grandparents" class = "center"></object>
+</div>
+<div class="divider"></div>
+
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
+Big Family
+<a id="big-box" class="expand-button" href="">+</a>
+</div>
+<div class="data-table" id="big-box-table">
+		<object type="image/svg+xml" data="{% static "img/diagrams/bigfamily_diagram.svg" %}" id="" class = "center"></object>
+</div>
+<div class="divider"></div>
+
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
+Nuclear family
+<a id="nuclear-box" class="expand-button" href="">+</a>
+</div>
+<div class="data-table" id="nuclear-box-table">
+		<object type="image/svg+xml" data="{% static "img/diagrams/nuclear_diagram.svg" %}" id="nuclear" class = "center"></object>
+</div>
+<div class="divider"></div>
+
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
+Children and Niblings
+<a id="children-box" class="expand-button" href="">+</a>
+</div>
+<div class="data-table" id="children-box-table">
+		<object type="image/svg+xml" data="{% static "img/diagrams/children.svg" %}" id="children" class = "center"></object>
+</div>
+<div class="divider"></div>
+
+
+<!-- <div class="parabox">
+	<table>
+	  <tr>
+		<th>SIBLINGS</th>    
+		<th>eB</th>
+		<th>yB</th>
+		<th>eZ</th>
+		<th>yZ</th>
+	  </tr>
+	  
+	  <tr>
+		<td>male ego</td>
+		<td id ="meB"></td>
+		<td id ="myB"></td>
+		<td id ="meZ"></td>
+		<td id ="myZ"></td>
+	  </tr>
+	  <tr>
+		<td>female ego</td>
+		<td id ="feB"></td>
+		<td id ="fyB"></td>
+		<td id ="feZ"></td>
+		<td id ="fyZ"></td>
+	  </tr>
+	</table>
+</div>
+<br>
+<div class="parabox">
+	<table>
+	  <tr>
+		<th>COUSINS</th>
+		<th>FBS</th>    
+		<th>FBD</th>
+		<th>FZS</th>
+		<th>FZD</th>
+		<th>MBS</th>
+		<th>MBD</th>    
+		<th>MZS</th>
+		<th>MZD</th>
+	  </tr>
+	  
+	  <tr>
+		<td>male ego (older cous.)</td>
+		<td id ="exmFBSx"></td>
+		<td id ="exmFBDx"></td>
+		<td id ="exmFZSx"></td>
+		<td id ="exmFZDx"></td>
+		<td id ="exmMBSx"></td>
+		<td id ="exmMBDx"></td>
+		<td id ="exmMZSx"></td>
+		<td id ="exmMZDx"></td>
+	  </tr>
+	  <tr>
+		<td>male ego (younger cous.)</td>
+		<td id ="yxmFBSx"></td>
+		<td id ="yxmFBDx"></td>
+		<td id ="yxmFZSx"></td>
+		<td id ="yxmFZDx"></td>
+		<td id ="yxmMBSx"></td>
+		<td id ="yxmMBDx"></td>
+		<td id ="yxmMZSx"></td>
+		<td id ="yxmMZDx"></td>
+	  </tr>
+	  	  <tr>
+		<td>female ego (older cous.)</td>
+		<td id ="exfFBSx"></td>
+		<td id ="exfFBDx"></td>
+		<td id ="exfFZSx"></td>
+		<td id ="exfFZDx"></td>
+		<td id ="exfMBSx"></td>
+		<td id ="exfMBDx"></td>
+		<td id ="exfMZSx"></td>
+		<td id ="exfMZDx"></td>
+	  </tr>
+	  <tr>
+		<td>female ego (younger cous.)</td>
+		<td id ="yxfFBSx"></td>
+		<td id ="yxfFBDx"></td>
+		<td id ="yxfFZSx"></td>
+		<td id ="yxfFZDx"></td>
+		<td id ="yxfMBSx"></td>
+		<td id ="yxfMBDx"></td>
+		<td id ="yxfMZSx"></td>
+		<td id ="yxfMZDx"></td>
+	  </tr>
+	</table>
+</div>
+
+<br>
+
+<div class="parabox">
+	<table>
+	  <tr>
+		<th>PARENTS GEN.</th>
+		<th>F</th>    
+		<th>FeB</th>
+		<th>FyB</th>
+		<th>FeZ</th>
+		<th>FyZ</th>
+		<th>M</th>    
+		<th>MeZ</th>
+		<th>MyZ</th>
+		<th>MeB</th>
+		<th>MyB</th>
+	  </tr>
+	  
+	  <tr>
+		<td>male ego</td>
+		<td id ="mF"></td>
+		<td id ="mFeB"></td>
+		<td id ="mFyB"></td>
+		<td id ="mFeZ"></td>
+		<td id ="mFyZ"></td>
+		<td id ="mM"></td>
+		<td id ="mMeZ"></td>
+		<td id ="mMyZ"></td>
+		<td id ="mMeB"></td>
+		<td id ="mMyB"></td>
+	  </tr>
+	  <tr>
+		<td>female ego</td>
+		<td id ="fF"></td>
+		<td id ="fFeB"></td>
+		<td id ="fFyB"></td>
+		<td id ="fFeZ"></td>
+		<td id ="fFyZ"></td>
+		<td id ="fM"></td>
+		<td id ="fMeZ"></td>
+		<td id ="fMyZ"></td>
+		<td id ="fMeB"></td>
+		<td id ="fMyB"></td>
+	  </tr>
+	</table>
+</div>
+<br>
+
+<div class="parabox">
+	<table>
+	  <tr>
+		<th>+2 & -2 GEN.</th>
+		<th>FF</th>    
+		<th>FM</th>
+		<th>MF</th>
+		<th>MM</th>
+		<th>SS</th>
+		<th>SD</th>    
+		<th>DS</th>
+		<th>DD</th>
+	  </tr>
+	  
+	  <tr>
+		<td>male ego</td>
+		<td id="mFF"></td>
+		<td id="mFM"></td>
+		<td id="mMF"></td>
+		<td id="mMM"></td>
+		<td id="mSS"></td>
+		<td id="mSD"></td>
+		<td id="mDS"></td>
+		<td id="mDD"></td>
+	  </tr>
+	  <tr>
+		<td>female ego</td>
+		<td id ="fFF"></td>
+		<td id ="fFM"></td>
+		<td id ="fMF"></td>
+		<td id ="fMM"></td>
+		<td id ="fSS"></td>
+		<td id ="fSD"></td>
+		<td id ="fDS"></td>
+		<td id ="fDD"></td>
+	  </tr>
+	</table>
+</div>
+<br>
+<div class="parabox">
+	<table>
+	  <tr>
+		<th>CHILDREN GEN.</th>
+		<th>eBS</th>    
+		<th>eBD</th>
+		<th>yBS</th>
+		<th>yBD</th>
+		<th>S</th>
+		<th>D</th>    
+		<th>eZS</th>
+		<th>eZD</th>
+		<th>eZS</th>
+		<th>eZD</th>
+	  </tr>
+	  
+	  <tr>
+		<td>male ego</td>
+		<td id ="meBS"></td>
+		<td id ="meBD"></td>
+		<td id ="myBS"></td>
+		<td id ="myBD"></td>
+		<td id ="mS"></td>
+		<td id ="mD"></td>
+		<td id ="meZS"></td>
+		<td id ="meZD"></td>
+		<td id ="myZS"></td>
+		<td id ="myZD"></td>
+	  </tr>
+	  <tr>
+		<td>female ego</td>
+		<td id ="feBS"></td>
+		<td id ="feBD"></td>
+		<td id ="fyBS"></td>
+		<td id ="fyBD"></td>
+		<td id ="fS"></td>
+		<td id ="fD"></td>
+		<td id ="feZS"></td>
+		<td id ="feZD"></td>
+		<td id ="fyZS"></td>
+		<td id ="fyZD"></td>
+	  </tr>
+	</table>
+</div>
+
+<br>
+<div class="parabox">
+	<table>
+	  <tr>
+		<th>IN-LAWS</th>
+		<th>H / W</th>    
+		<th>HF / WF</th>
+		<th>HM / WM</th>
+		<th>SW</th>
+		<th>DH</th>
+
+	  </tr>
+	  
+	  <tr>
+		<td>male ego</td>
+		<td id ="mW"></td>
+		<td id ="mWF"></td>
+		<td id ="mWM"></td>
+		<td id ="mSW"></td>
+		<td id ="mDH"></td>
+	  </tr>
+	  <tr>
+		<td>female ego</td>
+		<td id ="fH"></td>
+		<td id ="fHF"></td>
+		<td id ="fHM"></td>
+		<td id ="fSW"></td>
+		<td id ="fDH"></td>
+	  </tr>
+	</table>
+</div>
+
+<script>
+
+var lableCells = ['male ego', 'female ego', 'male ego (older cous.)', 'male ego (younger cous.)', 'female ego (older cous.)', 'female ego (younger cous.)'];
+
+
+// languages = {} ## kin term data goes here 
+
+
+function fillIt(language) {
+    
+    var meB = document.getElementById("meB");
+	meB.innerHTML = languages[language]['meB'].join(', ');
+		
+	var myB = document.getElementById("myB");
+	myB.innerHTML = languages[language]['myB'].join(', ');
+	
+	var meZ = document.getElementById("meZ");
+	meZ.innerHTML = languages[language]['meZ'].join(', ');
+	
+	var myZ = document.getElementById("myZ");
+	myZ.innerHTML = languages[language]['myZ'].join(', ');
+	
+	var feB = document.getElementById("feB");
+	feB.innerHTML = languages[language]['feB'].join(', ');
+	
+	var fyB = document.getElementById("fyB");
+	fyB.innerHTML = languages[language]['fyB'].join(', ');
+	
+	var feZ = document.getElementById("feZ");
+	feZ.innerHTML = languages[language]['feZ'].join(', ');
+	
+	var fyZ = document.getElementById("fyZ");
+	fyZ.innerHTML = languages[language]['fyZ'].join(', ');
+	
+	var mF = document.getElementById("mF");
+	mF.innerHTML = languages[language]['mF'].join(', ');
+	
+	var mM = document.getElementById("mM");
+	mM.innerHTML = languages[language]['mM'].join(', ');
+	
+	var fF = document.getElementById("fF");
+	fF.innerHTML = languages[language]['fF'].join(', ');
+	
+	var fM = document.getElementById("fM");
+	fM.innerHTML = languages[language]['fM'].join(', ');
+	
+	var mFeB = document.getElementById("mFeB");
+	mFeB.innerHTML = languages[language]["mFeB"].join(", ");
+
+	var mFyB = document.getElementById("mFyB");
+	mFyB.innerHTML = languages[language]["mFyB"].join(", ");
+
+	var mFeZ = document.getElementById("mFeZ");
+	mFeZ.innerHTML = languages[language]["mFeZ"].join(", ");
+
+	var mFyZ = document.getElementById("mFyZ");
+	mFyZ.innerHTML = languages[language]["mFyZ"].join(", ");
+
+	var mMeB = document.getElementById("mMeB");
+	mMeB.innerHTML = languages[language]["mMeB"].join(", ");
+
+	var mMyB = document.getElementById("mMyB");
+	mMyB.innerHTML = languages[language]["mMyB"].join(", ");
+
+	var mMeZ = document.getElementById("mMeZ");
+	mMeZ.innerHTML = languages[language]["mMeZ"].join(", ");
+
+	var mMyZ = document.getElementById("mMyZ");
+	mMyZ.innerHTML = languages[language]["mMyZ"].join(", ");
+
+	var fFeB = document.getElementById("fFeB");
+	fFeB.innerHTML = languages[language]["fFeB"].join(", ");
+
+	var fFyB = document.getElementById("fFyB");
+	fFyB.innerHTML = languages[language]["fFyB"].join(", ");
+
+	var fFeZ = document.getElementById("fFeZ");
+	fFeZ.innerHTML = languages[language]["fFeZ"].join(", ");
+
+	var fFyZ = document.getElementById("fFyZ");
+	fFyZ.innerHTML = languages[language]["fFyZ"].join(", ");
+
+	var fMeB = document.getElementById("fMeB");
+	fMeB.innerHTML = languages[language]["fMeB"].join(", ");
+
+	var fMyB = document.getElementById("fMyB");
+	fMyB.innerHTML = languages[language]["fMyB"].join(", ");
+
+	var fMeZ = document.getElementById("fMeZ");
+	fMeZ.innerHTML = languages[language]["fMeZ"].join(", ");
+
+	var fMyZ = document.getElementById("fMyZ");
+	fMyZ.innerHTML = languages[language]["fMyZ"].join(", ");
+	
+	var mFF = document.getElementById("mFF");
+	mFF.innerHTML = languages[language]["mFF"].join(", ");
+
+	var mFM = document.getElementById("mFM");
+	mFM.innerHTML = languages[language]["mFM"].join(", ");
+
+	var mMF = document.getElementById("mMF");
+	mMF.innerHTML = languages[language]["mMF"].join(", ");
+
+	var mMM = document.getElementById("mMM");
+	mMM.innerHTML = languages[language]["mMM"].join(", ");
+
+	var fFF = document.getElementById("fFF");
+	fFF.innerHTML = languages[language]["fFF"].join(", ");
+
+	var fFM = document.getElementById("fFM");
+	fFM.innerHTML = languages[language]["fFM"].join(", ");
+
+	var fMF = document.getElementById("fMF");
+	fMF.innerHTML = languages[language]["fMF"].join(", ");
+
+	var fMM = document.getElementById("fMM");
+	fMM.innerHTML = languages[language]["fMM"].join(", ");
+
+	var mSS = document.getElementById("mSS");
+	mSS.innerHTML = languages[language]["mSS"].join(", ");
+
+	var mSD = document.getElementById("mSD");
+	mSD.innerHTML = languages[language]["mSD"].join(", ");
+
+	var mDS = document.getElementById("mDS");
+	mDS.innerHTML = languages[language]["mDS"].join(", ");
+
+	var mDD = document.getElementById("mDD");
+	mDD.innerHTML = languages[language]["mDD"].join(", ");
+
+	var fSS = document.getElementById("fSS");
+	fSS.innerHTML = languages[language]["fSS"].join(", ");
+
+	var fSD = document.getElementById("fSD");
+	fSD.innerHTML = languages[language]["fSD"].join(", ");
+
+	var fDS = document.getElementById("fDS");
+	fDS.innerHTML = languages[language]["fDS"].join(", ");
+
+	var fDD = document.getElementById("fDD");
+	fDD.innerHTML = languages[language]["fDD"].join(", ");
+	
+	var meBS = document.getElementById("meBS");
+	meBS.innerHTML = languages[language]["meBS"].join(", ");
+
+	var meBD = document.getElementById("meBD");
+	meBD.innerHTML = languages[language]["meBD"].join(", ");
+
+	var myBS = document.getElementById("myBS");
+	myBS.innerHTML = languages[language]["myBS"].join(", ");
+
+	var myBD = document.getElementById("myBD");
+	myBD.innerHTML = languages[language]["myBD"].join(", ");
+
+	var meZS = document.getElementById("meZS");
+	meZS.innerHTML = languages[language]["meZS"].join(", ");
+
+	var meZD = document.getElementById("meZD");
+	meZD.innerHTML = languages[language]["meZD"].join(", ");
+
+	var myZS = document.getElementById("myZS");
+	myZS.innerHTML = languages[language]["myZS"].join(", ");
+
+	var myZD = document.getElementById("myZD");
+	myZD.innerHTML = languages[language]["myZD"].join(", ");
+
+	var feBS = document.getElementById("feBS");
+	feBS.innerHTML = languages[language]["feBS"].join(", ");
+
+	var feBD = document.getElementById("feBD");
+	feBD.innerHTML = languages[language]["feBD"].join(", ");
+
+	var fyBS = document.getElementById("fyBS");
+	fyBS.innerHTML = languages[language]["fyBS"].join(", ");
+
+	var fyBD = document.getElementById("fyBD");
+	fyBD.innerHTML = languages[language]["fyBD"].join(", ");
+
+	var feZS = document.getElementById("feZS");
+	feZS.innerHTML = languages[language]["feZS"].join(", ");
+
+	var feZD = document.getElementById("feZD");
+	feZD.innerHTML = languages[language]["feZD"].join(", ");
+
+	var fyZS = document.getElementById("fyZS");
+	fyZS.innerHTML = languages[language]["fyZS"].join(", ");
+
+	var fyZD = document.getElementById("fyZD");
+	fyZD.innerHTML = languages[language]["fyZD"].join(", ");
+	
+	var mS = document.getElementById("mS");
+	mS.innerHTML = languages[language]["mS"].join(", ");
+
+	var mD = document.getElementById("mD");
+	mD.innerHTML = languages[language]["mD"].join(", ");
+
+	var fS = document.getElementById("fS");
+	fS.innerHTML = languages[language]["fS"].join(", ");
+
+	var fD = document.getElementById("fD");
+	fD.innerHTML = languages[language]["fD"].join(", ");
+	
+	var mW = document.getElementById("mW");
+	mW.innerHTML = languages[language]["mW"].join(", ");
+
+	var fH = document.getElementById("fH");
+	fH.innerHTML = languages[language]["fH"].join(", ");
+
+	var fHF = document.getElementById("fHF");
+	fHF.innerHTML = languages[language]["fHF"].join(", ");
+
+	var fHM = document.getElementById("fHM");
+	fHM.innerHTML = languages[language]["fHM"].join(", ");
+
+	var mWF = document.getElementById("mWF");
+	mWF.innerHTML = languages[language]["mWF"].join(", ");
+
+	var mWM = document.getElementById("mWM");
+	mWM.innerHTML = languages[language]["mWM"].join(", ");
+
+	var mSW = document.getElementById("mSW");
+	mSW.innerHTML = languages[language]["mSW"].join(", ");
+
+	var mDH = document.getElementById("mDH");
+	mDH.innerHTML = languages[language]["mDH"].join(", ");
+
+	var fSW = document.getElementById("fSW");
+	fSW.innerHTML = languages[language]["fSW"].join(", ");
+
+	var fDH = document.getElementById("fDH");
+	fDH.innerHTML = languages[language]["fDH"].join(", ");
+	
+	var exmFBSx = document.getElementById("exmFBSx");
+	exmFBSx.innerHTML = languages[language]["exmFBSx"].join(", ");
+
+	var exmFBSx = document.getElementById("exmFBSx");
+	exmFBSx.innerHTML = languages[language]["exmFBSx"].join(", ");
+
+	var exmFBDx = document.getElementById("exmFBDx");
+	exmFBDx.innerHTML = languages[language]["exmFBDx"].join(", ");
+
+	var exmFZSx = document.getElementById("exmFZSx");
+	exmFZSx.innerHTML = languages[language]["exmFZSx"].join(", ");
+
+	var exmFZDx = document.getElementById("exmFZDx");
+	exmFZDx.innerHTML = languages[language]["exmFZDx"].join(", ");
+
+	var exmMBSx = document.getElementById("exmMBSx");
+	exmMBSx.innerHTML = languages[language]["exmMBSx"].join(", ");
+
+	var exmMBDx = document.getElementById("exmMBDx");
+	exmMBDx.innerHTML = languages[language]["exmMBDx"].join(", ");
+
+	var exmMZSx = document.getElementById("exmMZSx");
+	exmMZSx.innerHTML = languages[language]["exmMZSx"].join(", ");
+
+	var exmMZDx = document.getElementById("exmMZDx");
+	exmMZDx.innerHTML = languages[language]["exmMZDx"].join(", ");
+		
+	var yxmFBSx = document.getElementById("yxmFBSx");
+	yxmFBSx.innerHTML = languages[language]["yxmFBSx"].join(", ");
+
+	var yxmFBDx = document.getElementById("yxmFBDx");
+	yxmFBDx.innerHTML = languages[language]["yxmFBDx"].join(", ");
+
+	var yxmFZSx = document.getElementById("yxmFZSx");
+	yxmFZSx.innerHTML = languages[language]["yxmFZSx"].join(", ");
+
+	var yxmFZDx = document.getElementById("yxmFZDx");
+	yxmFZDx.innerHTML = languages[language]["yxmFZDx"].join(", ");
+
+	var yxmMBSx = document.getElementById("yxmMBSx");
+	yxmMBSx.innerHTML = languages[language]["yxmMBSx"].join(", ");
+
+	var yxmMBDx = document.getElementById("yxmMBDx");
+	yxmMBDx.innerHTML = languages[language]["yxmMBDx"].join(", ");
+
+	var yxmMZSx = document.getElementById("yxmMZSx");
+	yxmMZSx.innerHTML = languages[language]["yxmMZSx"].join(", ");
+
+	var yxmMZDx = document.getElementById("yxmMZDx");
+	yxmMZDx.innerHTML = languages[language]["yxmMZDx"].join(", ");	
+		
+	var exfFBSx = document.getElementById("exfFBSx");
+	exfFBSx.innerHTML = languages[language]["exfFBSx"].join(", ");
+
+	var exfFBDx = document.getElementById("exfFBDx");
+	exfFBDx.innerHTML = languages[language]["exfFBDx"].join(", ");
+
+	var exfFZSx = document.getElementById("exfFZSx");
+	exfFZSx.innerHTML = languages[language]["exfFZSx"].join(", ");
+
+	var exfFZDx = document.getElementById("exfFZDx");
+	exfFZDx.innerHTML = languages[language]["exfFZDx"].join(", ");
+
+	var exfMBSx = document.getElementById("exfMBSx");
+	exfMBSx.innerHTML = languages[language]["exfMBSx"].join(", ");
+
+	var exfMBDx = document.getElementById("exfMBDx");
+	exfMBDx.innerHTML = languages[language]["exfMBDx"].join(", ");
+
+	var exfMZSx = document.getElementById("exfMZSx");
+	exfMZSx.innerHTML = languages[language]["exfMZSx"].join(", ");
+
+	var exfMZDx = document.getElementById("exfMZDx");
+	exfMZDx.innerHTML = languages[language]["exfMZDx"].join(", ");
+
+	var yxfFBSx = document.getElementById("yxfFBSx");
+	yxfFBSx.innerHTML = languages[language]["yxfFBSx"].join(", ");
+
+	var yxfFBDx = document.getElementById("yxfFBDx");
+	yxfFBDx.innerHTML = languages[language]["yxfFBDx"].join(", ");
+
+	var yxfFZSx = document.getElementById("yxfFZSx");
+	yxfFZSx.innerHTML = languages[language]["yxfFZSx"].join(", ");
+
+	var yxfFZDx = document.getElementById("yxfFZDx");
+	yxfFZDx.innerHTML = languages[language]["yxfFZDx"].join(", ");
+
+	var yxfMBSx = document.getElementById("yxfMBSx");
+	yxfMBSx.innerHTML = languages[language]["yxfMBSx"].join(", ");
+
+	var yxfMBDx = document.getElementById("yxfMBDx");
+	yxfMBDx.innerHTML = languages[language]["yxfMBDx"].join(", ");
+
+	var yxfMZSx = document.getElementById("yxfMZSx");
+	yxfMZSx.innerHTML = languages[language]["yxfMZSx"].join(", ");
+
+	var yxfMZDx = document.getElementById("yxfMZDx");
+	yxfMZDx.innerHTML = languages[language]["yxfMZDx"].join(", ");	
+	
+	var ID = document.getElementById("ID");
+    ID.innerHTML = languages[language]["ID"];
+	
+    var Name = document.getElementById("Name");
+	Name.innerHTML = languages[language]["Name"];
+	
+	var headName = document.getElementById("headName");
+	headName.innerHTML = languages[language]["Name"];
+
+	var Glottocode = document.getElementById("Glottocode");
+	Glottocode.innerHTML = languages[language]["Glottocode"];
+
+	var Glottolog_Name = document.getElementById("Glottolog_Name");
+	Glottolog_Name.innerHTML = languages[language]["Glottolog_Name"];
+
+	var ISO639P3code = document.getElementById("ISO639P3code");
+	ISO639P3code.innerHTML = languages[language]["ISO639P3code"];
+
+	var Macroarea = document.getElementById("Macroarea");
+	Macroarea.innerHTML = languages[language]["Macroarea"];
+
+	var Latitude = document.getElementById("Latitude");
+	Latitude.innerHTML = languages[language]["Latitude"];
+
+	var Longitude = document.getElementById("Longitude");
+	Longitude.innerHTML = languages[language]["Longitude"];
+
+	var Family = document.getElementById("Family");
+	Family.innerHTML = languages[language]["Family"];
+
+	var Label = document.getElementById("Label");
+	Label.innerHTML = languages[language]["Label"];
+
+	var Project = document.getElementById("Project");
+	Project.innerHTML = languages[language]["Project"];
+
+	var ProjectFile = document.getElementById("ProjectFile");
+	ProjectFile.innerHTML = languages[language]["ProjectFile"];
+
+	var ProjectName = document.getElementById("ProjectName");
+	ProjectName.innerHTML = languages[language]["ProjectName"];
+
+	var EntryDate = document.getElementById("EntryDate");
+	EntryDate.innerHTML = languages[language]["EntryDate"];
+
+	var Comment = document.getElementById("Comment");
+	Comment.innerHTML = languages[language]["Comment"];
+
+	var Link = document.getElementById("Link");
+	Link.innerHTML = languages[language]["Link"];	
+		
+	
+	spanCells()
+	
+}
+
+
+function getTableCells() {
+    // get all parabox divs and table cells in them
+    var cells = [];
+    var divs = document.getElementsByClassName("parabox");
+    for (var j = 0; j < divs.length; j++)
+    {
+        var cellsInP = divs[j].getElementsByTagName('td');
+        for (var p = 0; p < cellsInP.length; p++) {
+            cells.push(cellsInP[p])
+        }
+    }
+    return cells;
+}
+
+
+function getCssValuePrefix() {
+    // different prefix for different browsers
+    var rtrnVal = '';    //default to standard syntax
+    var prefixes = ['-o-', '-ms-', '-moz-', '-webkit-'];
+    var dom = document.createElement('div'); // Create a temporary DOM object for testing
+
+    for (var i = 0; i < prefixes.length; i++) {
+        // Attempt to set the style
+        dom.style.background = prefixes[i] + 'linear-gradient(#000000, #ffffff)';
+
+        // Detect if the style was successfully set
+        if (dom.style.background) {
+            rtrnVal = prefixes[i];
+        }
+    }
+    dom = null;
+    delete dom;
+    return rtrnVal;
+}
+
+function colorTheCells(cellColorList, cell) {
+    // divides the cell background and colors in the sections
+    //alert(cellColorList)
+	//alert(cell.innerHTML)
+	
+    if (cellColorList.length > 0) {
+
+		cell.style.background = 'none'; // remove old background image
+        cell.style.backgroundColor = cellColorList[0]
+    }
+
+    if (cellColorList.length > 1) {
+        cell.style.backgroundImage = getCssValuePrefix() +
+                                     'linear-gradient(top left,' +
+                                     cellColorList[0] + ' 50%, ' +
+                                     cellColorList[1] +' 51%)';
+    }
+
+    if (cellColorList.length > 2) {
+        cell.style.backgroundImage = getCssValuePrefix() +
+                                     'linear-gradient(top left,' +
+                                     cellColorList[0] + ' 32%, ' +
+                                     cellColorList[1] + ' 33%, ' +
+                                     cellColorList[1] + ' 65%, ' +
+                                     cellColorList[2] +' 66%)';
+    }
+
+    if (cellColorList.length > 3) {
+        cell.style.backgroundImage = getCssValuePrefix() +
+                                     'linear-gradient(top left,' +
+                                     cellColorList[0] + ' 24%, ' +
+                                     cellColorList[1] + ' 25%, ' +
+                                     cellColorList[1] + ' 50%, ' +
+                                     cellColorList[2] +' 51%,' +
+                                     cellColorList[2] +' 75%,' +
+                                     cellColorList[3] +' 76%)';
+    }	
+}
+
+
+function increaseBrightness(hex, percent){
+    // strip the leading # if it's there
+    hex = hex.replace(/^\s*#|\s*$/g, '');
+
+    var r = parseInt(hex.substr(0, 2), 16),
+        g = parseInt(hex.substr(2, 2), 16),
+        b = parseInt(hex.substr(4, 2), 16);
+
+    return '#' +
+       ((0|(1<<8) + r + (256 - r) * percent / 100).toString(16)).substr(1) +
+       ((0|(1<<8) + g + (256 - g) * percent / 100).toString(16)).substr(1) +
+       ((0|(1<<8) + b + (256 - b) * percent / 100).toString(16)).substr(1);
+}
+
+function intToRGB(i){
+    // turns number into hexColor
+    var c = (i & 0x00FFFFFF)
+        .toString(16)
+        .toUpperCase();
+
+    return "00000".substring(0, 6 - c.length) + c;
+}
+
+function hashCode(str) { // java String#hashCode
+    // turn string into number
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+       hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return hash;
+}
+
+function rainbow() {
+
+    var cells = getTableCells();    // all table cells in document
+    
+    for (var g = 0, len = cells.length; g < len; g++) {
+        var text = (cells[g].innerText);
+        var cellColorList = [];
+        if (lableCells.indexOf(text) > -1){         // cell is a lable cell
+
+        } else {
+
+            var spans = cells[g].getElementsByTagName('span');
+            for (var l = 0, len1 = spans.length; l < len1; l++) {
+                var backclr = intToRGB(hashCode(spans[l].innerText.trim()));
+                var hexclr = increaseBrightness(backclr, 50);
+                cellColorList.push(hexclr);
+            }
+        }
+
+        colorTheCells(cellColorList, cells[g]);
+    }
+}
+
+
+
+function spanCells() {
+
+    var cells = getTableCells();
+
+    for (var k = 0, len = cells.length; k < len; k++) {
+	    
+
+        var text = (cells[k].innerText);
+
+       
+
+
+        if (lableCells.indexOf(text) > -1) {  // all label cells are grayed
+            cells[k].style.backgroundColor = "#F2F2F2";
+            cells[k].style.borderRight = "thin solid #696969";
+
+        } else {
+
+            var textByWord = text.split(/[,/]/g);
+
+
+            cells[k].style.border = "thin solid #696969";
+
+            for (var n = 0, len2 = textByWord.length; n < len2; n++) {
+
+                textByWord[n] = "<span onclick='levenshteinSelect(this.innerText)'>" + textByWord[n] + "</span>";
+            }
+		
+        cells[k].innerHTML = textByWord.join();
+        }
+    }
+    rainbow()
+}
+
+
+</script> -->
+
 {% endblock %}

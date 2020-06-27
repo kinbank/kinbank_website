@@ -3,3 +3,7 @@ csvs-to-sqlite~=1.0
 django-tables2~=2.3.1
 collections
 string
+collections
+random
+re
+json

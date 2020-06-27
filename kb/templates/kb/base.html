@@ -38,9 +38,14 @@
     </head>
 
 
+
 <body>
 <div id="wrap">
   <div class="page-header">
+
+{% block logo %}
+
+  <!-- This is to remove the logo in the home page -->
 
     <div class="logo-container">
       <div class = "header-img">
@@ -48,9 +53,10 @@
       </div>
       <div class="logo-text">
         <div class="logo-title">KinBank</div>
-    </div>
+      </div>
     </div>
 
+{% endblock %}
     
     
     <div class="sidebar-nav">
@@ -69,7 +75,7 @@
           </li> -->
       </div>
     </div>
-    
+  
 
     <div class="content" id="content">
         <div class="row">

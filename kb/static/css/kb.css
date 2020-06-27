@@ -2,15 +2,24 @@ body{
     background-color: #F4E9DA;
 }
 
+div ul li input {
+    height: 25px;
+    border:2px solid;
+    width:100px;
+    font-family:sans-serif;
+    font-size:20px;
+    text-align:right;
+}
+
 /* Header */
 
 .page-header {
     background-color: #F4E9DA;
     margin-top: 0;
-    padding: 20px 20px 20px 40px;
+    padding: 20px 20px 20px 30px;
     font-size: 75px;
     text-transform:uppercase;
-    color:#321f10;
+    color:#273253;
     font-family: BerlinSansDemi;
     letter-spacing: 25px;
     text-align:center;
@@ -28,6 +37,13 @@ body{
     line-height:normal;
     margin-top:-10px;
 }
+
+
+h1, h2, h3, h4, h5, h6
+{
+    color: #273253;
+}
+
 
 
 .culture-link{
@@ -196,4 +212,19 @@ li{
     font-size:22px;
     color:#003366;
     font-family:BerlinSansDemi;
+}
+
+/* Map */
+
+#map {
+    height:450px;
+    font-family:Verdana;
+    cursor: pointer;
+    font-size:12px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

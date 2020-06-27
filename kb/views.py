@@ -6,6 +6,7 @@ from collections import defaultdict, OrderedDict
 from string import ascii_uppercase
 from django.db.models import Count
 from django.core.serializers.json import DjangoJSONEncoder
+from django.core import serializers
 import json
 import re
 import random
@@ -13,6 +14,9 @@ import random
 #import django_tables2 as tables
 # django_tables2 test
 #from django_tables2 import SingleTableView
+
+colour_set = ['#297AB1', '#57B5ED', '#71AB7F', '#FBBE4B', "#FF9438", "#8980D4", "#ED8F57",
+				'#BFD7E8', '#BCE1F8', '#C6DDCC', '#FDE5B7', '#FFD4AF', "#D0CCEE", "#F8D2BC"]
 
 
 class DefaultListOrderedDict(OrderedDict):
@@ -28,12 +32,20 @@ def home(request):
 		# pick a language at random
 		languages = list(Languages.objects.values('id', 'name'))
 		random_language = random.choice(list(languages))
+		# subset the appropriate data
 		terms = Forms.objects.filter(parameter_id__in = ['mF', 'mM', 'meB', 'meZ', 'myB', 'myZ'], language_id = random_language['id'], form__isnull=False).values('parameter_id', 'form')
+		# re format 
 		terms_list = list(terms)
 		terms_list = list({t['parameter_id']:t for t in terms_list}.values())
+
+	# get colours
+	forms = list(set([x['form'] for x in terms_list]))
+	forms_cols = dict(zip(forms, colour_set))
+	for t in terms_list:
+		t['colour'] = forms_cols[t['form']]
 	
-	terms_list.append({'language_name': random_language['name']})
 	print(terms_list)
+	terms_list.append({'language_name': random_language['name']})
 	terms_json = json.dumps(terms_list, cls=DjangoJSONEncoder)
 	return render(request, 'kb/home.html', {'terms': terms_json})
 
@@ -71,6 +83,7 @@ def home(request):
 
 def languages(request):
 	"""Culture Index"""
+	loca = []
 	locations = []
 	cultures = []
 	for c in Languages.objects.values('name', 'glottocode').distinct():
@@ -83,12 +96,17 @@ def languages(request):
 		cultures.sort(key=lambda x: x['culture'], reverse=False)
 
 		lat = Languages.objects.filter(name=c['name']).values_list('latitude', flat=True)[0]
-		longi = Languages.objects.filter(name=c['name']).values_list('latitude', flat=True)[0]
+		longi = Languages.objects.filter(name=c['name']).values_list('longitude', flat=True)[0]
+
+		# if lat is not None and longi is not None:		
+		# 	loca.append(Feature(geometry=Point((lat, longi)), properties={"name": c['name'].replace("'", "\'"), "glottocode": c['glottocode']}))
+
 
 		if lat is not None and longi is not None:
 		    locations.append(
-		        {"lat": lat, "long": longi, "culture": c['name']}) # , "slug": c.slug
+		        {"lat": lat, "long": longi, "culture": c['name'].replace("'", "\'"), "glottocode": c['glottocode']}) # , "slug": c.slug
 
+	# locations = FeatureCollection(loca)
 	ethonymDict = DefaultListOrderedDict()
 	for a in ascii_uppercase:
 		ethonymDict[a].append(None)
@@ -97,8 +115,98 @@ def languages(request):
 
 	return render(request, 
 		'kb/languages.html',
-		{'ethonyms': OrderedDict(ethonymDict), 'latlong': locations}
+		{'ethonyms': OrderedDict(ethonymDict), 'latlong': json.dumps(locations)}
 		)
+
+
+
+def get_svginfo(parameters, pk):
+	terms = Forms.objects.filter(glottocode = pk, parameter_id__in = parameters).values('parameter_id', 'form')
+
+	# re format 
+	terms_list = list(terms)
+	terms_list = list({t['parameter_id']:t for t in terms_list}.values())
+
+	parameter_list = defaultdict()
+	for t in terms_list:
+		key = t['parameter_id']
+		value = t['form']
+		if key in parameter_list:
+			parameter_list[key]['extra'] = parameter_list[key]['extra'] + "; " + value
+		else:
+			parameter_list[key] = {'parameter_id': key, 'form': value, 'extra': value}
+
+	for p in parameters:
+		if p not in parameter_list:
+			print("got here")
+			parameter_list[p] = {'parameter_id': p, 'form': "", 'colour': "#D0D0D0"}
+
+	parameter_list = list(parameter_list.values())
+
+	# get colours (need a way of auto generating more colours.)
+	forms = list(set([x['form'] for x in parameter_list]))
+	# print(forms)
+	forms_cols = dict(zip(forms, colour_set))
+	for t in parameter_list:
+		if 'colour' not in t:
+			t['colour'] = forms_cols[t['form']]
+	return parameter_list
+
+# for languages detail
+def language_detail(request, pk):
+
+	metadata = Languages.objects.filter(glottocode = pk).first()
+
+	grandparents = get_svginfo(['mF', 'mM', "mFF", "mMF", "mFM", "mMM"], pk)
+	children = get_svginfo(['mF', 'mM', "meB", "meZ", "mBS", "mBD", "mZS", "mZD", "mS", "mD"], pk)
+	nuclear = get_svginfo(['mF', 'mM', "meB", "meZ", "myB", "myZ"], pk)
+	
+	grandparents_json = json.dumps(grandparents, cls=DjangoJSONEncoder)
+	children_json = json.dumps(children, cls=DjangoJSONEncoder)
+	nuclear_json = json.dumps(nuclear, cls=DjangoJSONEncoder)
+	return render(request, 'kb/language_detail.html', {'metadata': metadata, 'grandparents': grandparents_json, 'children': children_json, 'nuclear': nuclear_json})
+
+# for languages detail
+# def language_detail(request, pk):
+# 	# get terms
+# 	# subset the appropriate data
+# 	terms = Forms.objects.filter(glottocode = pk).values('parameter_id', 'form')
+
+# 	# re format 
+# 	terms_list = list(terms)
+# 	terms_list = list({t['parameter_id']:t for t in terms_list}.values())
+
+# 	parameter_list = defaultdict()
+# 	for t in terms_list:
+# 		key = t['parameter_id']
+# 		value = t['form']
+# 		if key in parameter_list:
+# 			parameter_list[key]['extra'] = parameter_list[key]['extra'] + "; " + value
+# 		else:
+# 			parameter_list[key] = {'form': value, 'extra': value}
+
+# 	# get colours (need a way of auto generating more colours.)
+# 	forms = list(set([x['form'] for x in terms_list]))
+# 	print(forms)
+# 	# forms_cols = dict(zip(forms, colour_set))
+# 	# for t in terms_list:
+# 	# 	t['colour'] = forms_cols[t['form']]
+	
+# 	# terms_list.append({'language_name': language_name[1]})
+# 	terms_json = json.dumps(terms_list, cls=DjangoJSONEncoder)
+# 	return render(request, 'kb/language_detail.html', {'terms': terms_json})
+
+def phylogeny(request):
+	n_languages = Forms.objects.values('language_id').distinct().count()
+	return render(request, 'kb/phylogeny.html', {'test': n_languages})
+
+def about(request): 
+	about = About.objects.all()
+	n_languages = Forms.objects.values('language_id').distinct().count()
+	return render(request, 'kb/about.html', {'about': about, 'n_languages' : n_languages})
+
+
+
 
 # -- Functions for Language detail -- # 
 # def PrettyLanguageDetail(df):
@@ -143,24 +251,3 @@ def languages(request):
 # 	#display_table.columns = [['kin_category', 'woman_speaking', 'man_speaking']]
 
 # 	return(display_table)
-
-# for languages detail
-def language_detail(request, pk):
-	table = LanguageDetailTable(Forms.objects.filter(glottocode=pk).values())
-
-	return render(request, "kb/language_detail.html", {
-		"table": table
-	})
-
-def phylogeny(request):
-	n_languages = Forms.objects.values('language_id').distinct().count()
-	return render(request, 'kb/phylogeny.html', {'test': n_languages})
-
-def about(request): 
-	about = About.objects.all()
-	n_languages = Forms.objects.values('language_id').distinct().count()
-	return render(request, 'kb/about.html', {'about': about, 'n_languages' : n_languages})
-
-
-
-
