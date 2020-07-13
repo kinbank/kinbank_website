@@ -10,8 +10,7 @@ function main(markers){
 	    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 	    subdomains: ['a','b','c']
 	}).addTo( map );
-	
-	console.log(markers[1])
+
 	for ( var i=0; i < markers.length; ++i ) 
 	{
 
@@ -40,3 +39,23 @@ function main(markers){
 	});
 
 }
+
+function detail_map(lat, lon){
+
+	var map = L.map( 'map_detail', {
+	    center: [lat, lon],
+	    minZoom: 2,
+	    zoom: 3,
+	    zoomControl: false,
+	});
+
+	L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+	    subdomains: ['a','b','c']
+	}).addTo( map );
+	
+	L.circle( [lat, lon] , 200000, {color: '#ED5C4D', fillColor: '#ED5C4D', fillOpacity : 0.7})
+	      .addTo( map );
+}
+
+

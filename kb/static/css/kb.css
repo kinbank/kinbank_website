@@ -11,6 +11,15 @@ div ul li input {
     text-align:right;
 }
 
+
+.metadata{
+    width: 53%;
+    display:block;
+    margin-left:auto; 
+    margin-right:auto; 
+    margin-bottom: 10px;
+}
+
 /* Header */
 
 .page-header {
@@ -218,7 +227,14 @@ li{
 
 #map {
     height:450px;
-    font-family:Verdana;
+    font-family:BerlinSansDemi;
+    cursor: pointer;
+    font-size:12px;
+}
+
+#map_detail{
+    height:200px;
+    font-family:BerlinSansDemi;
     cursor: pointer;
     font-size:12px;
 }
@@ -227,4 +243,8 @@ li{
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+#bigfamily{
+    width: 95%;    
 }

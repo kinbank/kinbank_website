@@ -6,22 +6,38 @@
 
 {% block extrahead %}
 
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   	integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   	crossorigin=""></script>
+      
+	<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+
+
+	<script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
+	<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
+
+
 	<link rel="stylesheet" href="{% static 'css/home.css' %}">
 	<link rel="stylesheet" href="{% static 'css/about.css' %}">
 	<script type="text/javascript" src="{% static "js/about.js" %}"></script>
 
+	<script type='text/javascript' src="{% static 'js/maps.js' %}"></script>
 	<script type="text/javascript" src="{% static "js/fillKinshipDiagram.js" %}"></script>
 	<script type="text/javascript">
 			var grandparents 	= {{ grandparents|safe }};
 			var nuclear 		= {{ nuclear|safe }};
 			var children 		= {{ children|safe }};
 
-
-			console.log(children)
 			window.onload = function() {
 				main(grandparents, 'grandparents');
 				main(nuclear, 'nuclear');
 				main(children, 'children');
+				detail_map({{metadata.latitude}}, {{metadata.longitude}});
 			};
 	</script>
 
@@ -30,18 +46,25 @@
 {% block content %}
 
 
- <div class="row">
-   <div class="col-xs-7">
-	   	<div class = "aboutText">
+ <div class="row" style="margin-bottom: 10px; text-align:justify;
+	margin-bottom:30px;
+	margin-left:20px;
+	margin-right:40px;">
+   <div class="col-xs-7 metadata">
 			<h1> {{metadata.name}} </h1>
 
-			<h3>Glottocode: {{metadata.glottocode}}</h3>
+			<h3>{{metadata.glottocode}}</h3>
 
-			<h3>Language family: {{metadata.family}}</h3>
-		</div>
+			<h3>{{metadata.family}}</h3>
 	</div>
-   <div class="col-xs-5">
-		MAP
+    <div class="col-xs-5">
+	<div id="map_detail"></div>
+	
+<!-- 		<script type="text/javascript">
+		      window.onload = function() {
+		        detail_map({{metadata.latitude}}, {{metadata.longitude}});
+		      };
+		</script> -->
    </div>
  </div>
 
@@ -62,7 +85,7 @@ Big Family
 <a id="big-box" class="expand-button" href="">+</a>
 </div>
 <div class="data-table" id="big-box-table">
-		<object type="image/svg+xml" data="{% static "img/diagrams/bigfamily_diagram.svg" %}" id="" class = "center"></object>
+		<object type="image/svg+xml" data="{% static "img/diagrams/bigfamily_diagram.svg" %}" id="bigfamily" class = "center"></object>
 </div>
 <div class="divider"></div>
 

@@ -1,6 +1,5 @@
 KINBANK_REPO=https://github.com/SimonGreenhill/kinbank.git
 
-
 $(KINBANK):
 	mkdir -p data
 	git clone $(KINBANK_REPO) $@
@@ -23,5 +22,7 @@ data:
 	cd ./kinbank && git pull
 	RScript add_columnGlottocode.R
 	RScript bib_tocsv.R
+	rm ./kinbank.sqlite3
 	cd ./kinbank/kinbank/cldf/ && csvs-to-sqlite *.csv ../../../kinbank.sqlite3
 	cd ./kb/static/ && csvs-to-sqlite about.csv ../../kinbank.sqlite3
+	echo "Remember to makemigrations and migrate"

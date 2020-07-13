@@ -48,6 +48,7 @@
 }
 
 #aboutText{
+	color: #273253;
     margin-top:-15px;
 	text-align:justify;
 	margin-bottom:30px;
@@ -98,6 +99,7 @@
 	margin-left:0px;
 	margin-top:5px;
 	font-style:italic;
+	width: 100%;
 }
 
 .divider {
