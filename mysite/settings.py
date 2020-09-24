@@ -56,7 +56,8 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,3 +125,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static') # path for static files
 
 # Django tables 2
 DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap.html"
+
+LOGIN_REDIRECT_URL = ''
