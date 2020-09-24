@@ -32,11 +32,13 @@
 			var grandparents 	= {{ grandparents|safe }};
 			var nuclear 		= {{ nuclear|safe }};
 			var children 		= {{ children|safe }};
+			var cousin 			= {{ cousin|safe }};
 
 			window.onload = function() {
 				main(grandparents, 'grandparents');
 				main(nuclear, 'nuclear');
 				main(children, 'children');
+				main(cousin, 'cousin');
 				detail_map({{metadata.latitude}}, {{metadata.longitude}});
 			};
 	</script>
@@ -81,15 +83,6 @@ Grandparents
 <div class="divider"></div>
 
 <div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
-Big Family
-<a id="big-box" class="expand-button" href="">+</a>
-</div>
-<div class="data-table" id="big-box-table">
-		<object type="image/svg+xml" data="{% static "img/diagrams/bigfamily_diagram.svg" %}" id="bigfamily" class = "center"></object>
-</div>
-<div class="divider"></div>
-
-<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
 Nuclear family
 <a id="nuclear-box" class="expand-button" href="">+</a>
 </div>
@@ -97,6 +90,16 @@ Nuclear family
 		<object type="image/svg+xml" data="{% static "img/diagrams/nuclear_diagram.svg" %}" id="nuclear" class = "center"></object>
 </div>
 <div class="divider"></div>
+
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
+Siblings and Cousins
+<a id="cousin-box" class="expand-button" href="">+</a>
+</div>
+<div class="data-table" id="cousin-box-table">
+		<object type="image/svg+xml" data="{% static "img/diagrams/cousin_siblings.svg" %}" id="cousin" class = "center"></object>
+</div>
+<div class="divider"></div>
+
 
 <div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
 Children and Niblings

@@ -157,14 +157,21 @@ def language_detail(request, pk):
 
 	metadata = Languages.objects.filter(glottocode = pk).first()
 
-	grandparents = get_svginfo(['mF', 'mM', "mFF", "mMF", "mFM", "mMM"], pk)
-	children = get_svginfo(['mF', 'mM', "meB", "meZ", "mBS", "mBD", "mZS", "mZD", "mS", "mD"], pk)
-	nuclear = get_svginfo(['mF', 'mM', "meB", "meZ", "myB", "myZ"], pk)
+	grandparents 	= get_svginfo(['mF', 'mM', "mFF", "mMF", "mFM", "mMM"], pk)
+	children 		= get_svginfo(['mF', 'mM', "meB", "meZ", "mBS", "mBD", "mZS", "mZD", "mS", "mD"], pk)
+	nuclear 		= get_svginfo(['mF', 'mM', "meB", "meZ", "myB", "myZ"], pk)
+	cousin 			= get_svginfo(['mF', 'mM', "mFeB", "mFeZ", "mMeB", "mMeZ", "meB", "meZ", "myB", "myZ", 
+									"mFBeS", "mFByS", "mFBeD", "mFByD", 
+									"mFZeS", "mFZyS", "mFZeD", "mFZyD",
+									"mMBeS", "mMByS", "mMBeD", "mMByD",
+									"mMZeS", "mMZyS", "mMZeD", "mMZyD"], pk)
 	
 	grandparents_json = json.dumps(grandparents, cls=DjangoJSONEncoder)
 	children_json = json.dumps(children, cls=DjangoJSONEncoder)
 	nuclear_json = json.dumps(nuclear, cls=DjangoJSONEncoder)
-	return render(request, 'kb/language_detail.html', {'metadata': metadata, 'grandparents': grandparents_json, 'children': children_json, 'nuclear': nuclear_json})
+	cousin_json = json.dumps(cousin, cls=DjangoJSONEncoder)
+	return render(request, 'kb/language_detail.html', {'metadata': metadata, 'grandparents': grandparents_json, 
+		'children': children_json, 'nuclear': nuclear_json, 'cousin': cousin_json})
 
 # for languages detail
 # def language_detail(request, pk):
