@@ -10,3 +10,7 @@ db.sqlite3
 kinbank/
 setup-notes
 .Rproj.user
+.bash_profile
+
+kb/etc
+etc/

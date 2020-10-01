@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Forms, Languages, About
-from .tables import LanguagesTable, LanguageDetailTable
+# from .tables import LanguagesTable, LanguageDetailTable
 import pandas as pd
 from collections import defaultdict, OrderedDict
 from string import ascii_uppercase
@@ -49,7 +49,6 @@ def home(request):
 	for t in terms_list:
 		t['colour'] = forms_cols[t['form']]
 	
-	print(terms_list)
 	terms_list.append({'language_name': random_language['name']})
 	terms_json = json.dumps(terms_list, cls=DjangoJSONEncoder)
 	return render(request, 'kb/home.html', {'terms': terms_json})
@@ -143,7 +142,6 @@ def get_svginfo(parameters, pk):
 
 	for p in parameters:
 		if p not in parameter_list:
-			print("got here")
 			parameter_list[p] = {'parameter_id': p, 'form': "", 'colour': "#D0D0D0"}
 
 	parameter_list = list(parameter_list.values())

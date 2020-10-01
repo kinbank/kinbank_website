@@ -7,6 +7,7 @@ $(KINBANK):
 
 help:
 	@echo "1. Run 'make install' to install the python requirements & set up virtual environment"
+	@echo "2. open the environment by running source ./myvenv/bin/activate"
 
 env:
 	python3 -m venv myvenv
