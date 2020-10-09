@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'kb.apps.KbConfig',
-    "django_tables2",
 ]
 
 MIDDLEWARE = [
@@ -127,8 +126,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static') # path for static files
 
-
-# Django tables 2
-DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap.html"
 
 LOGIN_REDIRECT_URL = ''
