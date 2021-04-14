@@ -42,7 +42,7 @@ function main(markers){
 
 function detail_map(lat, lon){
 
-	var map = L.map( 'map_detail', {
+	var map = L.map("map_detail", {
 	    center: [lat, lon],
 	    minZoom: 2,
 	    zoom: 3,

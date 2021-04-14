@@ -1,5 +1,5 @@
 {% extends 'kb/base.html' %}
-<!-- {% load render_table from django_tables2 %} -->
+{% load render_table from django_tables2 %}
 
 {% load static %}
 
@@ -15,7 +15,7 @@
    	integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
    	crossorigin=""></script>
       
-	<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+	<!-- <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script> -->
 
 
 	<script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
@@ -39,7 +39,6 @@
 				main(nuclear, 'nuclear');
 				main(children, 'children');
 				main(cousin, 'cousin');
-				detail_map({{metadata.latitude}}, {{metadata.longitude}});
 			};
 	</script>
 
@@ -61,12 +60,9 @@
 	</div>
     <div class="col-xs-5">
 	<div id="map_detail"></div>
-	
-<!-- 		<script type="text/javascript">
-		      window.onload = function() {
+		<script type="text/javascript">
 		        detail_map({{metadata.latitude}}, {{metadata.longitude}});
-		      };
-		</script> -->
+		</script>
    </div>
  </div>
 
@@ -96,7 +92,7 @@ Siblings and Cousins
 <a id="cousin-box" class="expand-button" href="">+</a>
 </div>
 <div class="data-table" id="cousin-box-table">
-		<object type="image/svg+xml" data="{% static "img/diagrams/cousin_siblings.svg" %}" id="cousin" class = "center"></object>
+		<object type="image/svg+xml" data="{% static "img/diagrams/cousin_siblings.svg" %}" id="cousin" class = "center" style="margin-left:20px; margin-right:20px; width:91%"></object>
 </div>
 <div class="divider"></div>
 
