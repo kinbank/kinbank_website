@@ -10,7 +10,7 @@ from django.core import serializers
 import json
 import re
 import random
-from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.decorators import login_required
 
 #import django_tables2 as tables
 # django_tables2 test
@@ -20,16 +20,13 @@ colour_set = ['#297AB1', '#57B5ED', '#71AB7F', '#FBBE4B', "#FF9438", "#8980D4", 
 				'#BFD7E8', '#BCE1F8', '#C6DDCC', '#FDE5B7', '#FFD4AF', "#D0CCEE", "#F8D2BC"]
 
 
-
-
-
 class DefaultListOrderedDict(OrderedDict):
 	def __missing__(self, k):
 		self[k] = []
 		return self[k]
 
 # Create your views here.
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def home(request):
 	# get terms
 	terms_list = []
@@ -84,7 +81,7 @@ def home(request):
 # 	language = Languages.objects.values().order('name')
 # 	return render(request, 'kb/languages.html', {'languages': language})
 
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def languages(request):
 	"""Culture Index"""
 	loca = []
@@ -156,7 +153,7 @@ def get_svginfo(parameters, pk):
 	return parameter_list
 
 # for languages detail
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def language_detail(request, pk):
 
 	metadata = Languages.objects.filter(glottocode = pk).first()
@@ -211,7 +208,7 @@ def phylogeny(request):
 	n_languages = Forms.objects.values('language_id').distinct().count()
 	return render(request, 'kb/phylogeny.html', {'test': n_languages})
 
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def about(request): 
 	about = About.objects.all()
 	n_languages = Forms.objects.values('language_id').distinct().count()
