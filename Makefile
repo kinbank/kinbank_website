@@ -14,7 +14,7 @@ env:
 	./myvenv/bin/python ./myvenv/bin/pip3 install -r requirements.txt
 
 install: env
-	git clone https://github.com/SimonGreenhill/kinbank.git
+	git clone https://github.com/kinbank/kinbank.git
 
 open:
 	source ./myvenv/bin/activate
