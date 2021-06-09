@@ -10,6 +10,7 @@ from django.core import serializers
 import json
 import re
 import random
+from mysite.settings import BASE_DIR
 # from django.contrib.auth.decorators import login_required
 
 #import django_tables2 as tables
@@ -29,6 +30,7 @@ class DefaultListOrderedDict(OrderedDict):
 # @login_required(login_url='/accounts/login/')
 def home(request):
 	# get terms
+	# print(BASE_DIR)
 	terms_list = []
 	while(len(terms_list) < 6):
 		# pick a language at random
