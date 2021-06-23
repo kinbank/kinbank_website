@@ -3,7 +3,7 @@ services:
   web:
     build: .
     ports:
-      - "8020:8020"
+      - "8000:8000"
     volumes:
       - .:/website
 volumes:
