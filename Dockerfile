@@ -24,6 +24,7 @@ RUN chown -R www-data:www-data /opt/app
 
 # Build Kinbank database
 RUN git clone https://github.com/kinbank/kinbank.git /opt/app/website/kinbank
+RUN cd /opt/app/website/kinbank && git pull
 RUN python /opt/app/website/add_columnGlottocode.py 
 RUN csvs-to-sqlite /opt/app/website/kinbank/kinbank/cldf/*.csv /opt/app/website/kinbank.sqlite3
 RUN csvs-to-sqlite  /opt/app/website/kb/static/about.csv /opt/app/website/kinbank.sqlite3
