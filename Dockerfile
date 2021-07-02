@@ -8,7 +8,7 @@ RUN mkdir -p /opt/app
 RUN mkdir -p /opt/app/pip_cache
 RUN mkdir -p /opt/app/website
 
-COPY requirements.txt start-server.sh /opt/app/
+COPY requirements.txt gunicorn_starter.sh /opt/app/
 COPY website /opt/app/website/
 WORKDIR /opt/app/website
 RUN pip install -r /opt/app/requirements.txt --cache-dir /opt/app/pip_cache
@@ -25,4 +25,4 @@ RUN python /opt/app/website/manage.py migrate
 
 # run gunicorn
 EXPOSE 8010
-CMD cd /opt/app/website && gunicorn --bind 127.0.0.1:8010 mysite.wsgi:application
+ENTRYPOINT ["/opt/app/gunicorn_starter.sh"]
