@@ -3,18 +3,10 @@
 # FROM directive instructing base image to build upon
 FROM python:3.7-buster
 
-
-# Install NGINX
-RUN apt-get update && apt-get install nginx vim -y --no-install-recommends
-COPY nginx.default /etc/nginx/sites-available/default
-RUN ln -sf /dev/stdout /var/log/nginx/access.log \
-    && ln -sf /dev/stderr /var/log/nginx/error.log
-
 # Install Source scripts
 RUN mkdir -p /opt/app
 RUN mkdir -p /opt/app/pip_cache
 RUN mkdir -p /opt/app/website
-
 
 COPY requirements.txt start-server.sh /opt/app/
 COPY website /opt/app/website/
@@ -31,8 +23,6 @@ RUN csvs-to-sqlite  /opt/app/website/kb/static/about.csv /opt/app/website/kinban
 RUN python /opt/app/website/manage.py makemigrations
 RUN python /opt/app/website/manage.py migrate
 
-EXPOSE 8020
-STOPSIGNAL SIGTERM
-CMD ["/opt/app/start-server.sh"]
-
-
+# run gunicorn
+EXPOSE 8010
+CMD cd /opt/app/website && gunicorn --bind 127.0.0.1:8010 mysite.wsgi:application
