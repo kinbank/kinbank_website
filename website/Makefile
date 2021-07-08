@@ -11,7 +11,7 @@ help:
 
 env:
 	python3 -m venv myvenv
-	./myvenv/bin/python ./myvenv/bin/pip3 install -r requirements.txt
+	./myvenv/bin/python ./myvenv/bin/pip3 install -r ../requirements.txt
 
 install: env
 	git clone https://github.com/kinbank/kinbank.git
@@ -21,8 +21,7 @@ open:
 
 data:
 	cd ./kinbank && git pull
-	RScript add_columnGlottocode.R
-	RScript bib_tocsv.R
+	python add_columnGlottocode.py
 	./myvenv/bin/csvs-to-sqlite ./kinbank/kinbank/cldf/*.csv ./kinbank.sqlite3
 	./myvenv/bin/csvs-to-sqlite  ./kb/static/about.csv ./kinbank.sqlite3
 	echo "Remember to makemigrations and migrate"

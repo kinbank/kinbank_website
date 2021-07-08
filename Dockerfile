@@ -24,5 +24,8 @@ RUN python /opt/app/website/manage.py makemigrations
 RUN python /opt/app/website/manage.py migrate
 
 # run gunicorn
-EXPOSE $PORT
+# EXPOSE $PORT
+# ENTRYPOINT ["/opt/app/gunicorn_starter.sh"]
+
+EXPOSE 8020
 ENTRYPOINT ["/opt/app/gunicorn_starter.sh"]
