@@ -30,12 +30,14 @@
 	<script type="text/javascript" src="{% static "js/fillKinshipDiagram.js" %}"></script>
 	<script type="text/javascript">
 			var grandparents 	= {{ grandparents|safe }};
+			var parents 		= {{ parents|safe }};
 			var nuclear 		= {{ nuclear|safe }};
 			var children 		= {{ children|safe }};
 			var cousin 			= {{ cousin|safe }};
 
 			window.onload = function() {
 				main(grandparents, 'grandparents');
+				main(parents, 'parents');
 				main(nuclear, 'nuclear');
 				main(children, 'children');
 				main(cousin, 'cousin');
@@ -69,12 +71,21 @@
 
 
 
-<div id="table-title" class="table-title" style=>
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
 Grandparents
 <a id="grandparents-box" class="expand-button" href="">+</a>
 </div>
 <div class="data-table" id="grandparents-box-table">
-<object type="image/svg+xml" data="{% static "img/diagrams/grandparents.svg" %}" id="grandparents" class = "center"></object>
+<object type="image/svg+xml" data="{% static "img/diagrams/grandparents.svg" %}" id="grandparents" class = "center" style = "height: 250px"></object>
+</div>
+<div class="divider"></div>
+
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
+Parent's and Parent's siblings
+<a id="parents-box" class="expand-button" href="">+</a>
+</div>
+<div class="data-table" id="parents-box-table">
+		<object type="image/svg+xml" data="{% static "img/diagrams/parents_siblings.svg" %}" id="parents" class = "center" style="margin: 20px; width:91%; height: 200px"></object>
 </div>
 <div class="divider"></div>
 
@@ -83,7 +94,7 @@ Nuclear family
 <a id="nuclear-box" class="expand-button" href="">+</a>
 </div>
 <div class="data-table" id="nuclear-box-table">
-		<object type="image/svg+xml" data="{% static "img/diagrams/nuclear_diagram.svg" %}" id="nuclear" class = "center"></object>
+		<object type="image/svg+xml" data="{% static "img/diagrams/nuclear_diagram.svg" %}" id="nuclear" class = "center" style = "height: 250px"></object>
 </div>
 <div class="divider"></div>
 
@@ -92,7 +103,7 @@ Siblings and Cousins
 <a id="cousin-box" class="expand-button" href="">+</a>
 </div>
 <div class="data-table" id="cousin-box-table">
-		<object type="image/svg+xml" data="{% static "img/diagrams/cousin_siblings.svg" %}" id="cousin" class = "center" style="margin-left:20px; margin-right:20px; width:91%"></object>
+		<object type="image/svg+xml" data="{% static "img/diagrams/cousin_siblings.svg" %}" id="cousin" class = "center" style="margin: 20px; width:91%"></object>
 </div>
 <div class="divider"></div>
 
@@ -102,7 +113,7 @@ Children and Niblings
 <a id="children-box" class="expand-button" href="">+</a>
 </div>
 <div class="data-table" id="children-box-table">
-		<object type="image/svg+xml" data="{% static "img/diagrams/children.svg" %}" id="children" class = "center"></object>
+		<object type="image/svg+xml" data="{% static "img/diagrams/children.svg" %}" id="children" class = "center" style = "height: 250px"></object>
 </div>
 <div class="divider"></div>
 
