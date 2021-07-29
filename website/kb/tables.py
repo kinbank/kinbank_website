@@ -1,11 +1,11 @@
-import django_tables2 as tables
-from .models import Languages, Forms
+# import django_tables2 as tables
+# from .models import Languages, Forms
 
-class LanguageDetailTable(tables.Table):
-    class Meta:
-        model = Languages
-        template_name = "django_tables2/bootstrap.html"
-        fields = ("name", )
+# class LanguageDetailTable(tables.Table):
+#     class Meta:
+#         model = Languages
+#         template_name = "django_tables2/bootstrap.html"
+#         fields = ("name", )
 
 
 # import django_tables2 as tables

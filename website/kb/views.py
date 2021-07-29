@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Forms, Languages, About
-from .tables import LanguageDetailTable
+# from .tables import LanguageDetailTable
 from django_tables2 import SingleTableView
 import pandas as pd
 from collections import defaultdict, OrderedDict
