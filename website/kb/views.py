@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Forms, Languages, About
-# from .tables import LanguagesTable, LanguageDetailTable
+from .tables import LanguageDetailTable
+from django_tables2 import SingleTableView
 import pandas as pd
 from collections import defaultdict, OrderedDict
 from string import ascii_uppercase
@@ -11,15 +12,19 @@ import json
 import re
 import random
 from mysite.settings import BASE_DIR
-# from django.contrib.auth.decorators import login_required
 
-#import django_tables2 as tables
-# django_tables2 test
-#from django_tables2 import SingleTableView
 
 colour_set = ['#297AB1', '#57B5ED', '#71AB7F', '#FBBE4B', "#FF9438", "#8980D4", "#ED8F57",
 				'#BFD7E8', '#BCE1F8', '#C6DDCC', '#FDE5B7', '#FFD4AF', "#D0CCEE", "#F8D2BC"]
 
+
+
+from django.views.generic import ListView
+from .models import Person
+
+class PersonListView(ListView):
+    model = Person
+    template_name = 'tutorial/people.html'
 
 class DefaultListOrderedDict(OrderedDict):
 	def __missing__(self, k):
@@ -155,7 +160,6 @@ def get_svginfo(parameters, pk):
 	return parameter_list
 
 # for languages detail
-# @login_required(login_url='/accounts/login/')
 def language_detail(request, pk):
 
 	metadata = Languages.objects.filter(glottocode = pk).first()
@@ -179,89 +183,8 @@ def language_detail(request, pk):
 	return render(request, 'kb/language_detail.html', {'metadata': metadata, 'grandparents': grandparents_json, 
 		'children': children_json, 'nuclear': nuclear_json, 'cousin': cousin_json, 'parents':parents_json})
 
-# for languages detail
-# def language_detail(request, pk):
-# 	# get terms
-# 	# subset the appropriate data
-# 	terms = Forms.objects.filter(glottocode = pk).values('parameter_id', 'form')
-
-# 	# re format 
-# 	terms_list = list(terms)
-# 	terms_list = list({t['parameter_id']:t for t in terms_list}.values())
-
-# 	parameter_list = defaultdict()
-# 	for t in terms_list:
-# 		key = t['parameter_id']
-# 		value = t['form']
-# 		if key in parameter_list:
-# 			parameter_list[key]['extra'] = parameter_list[key]['extra'] + "; " + value
-# 		else:
-# 			parameter_list[key] = {'form': value, 'extra': value}
-
-# 	# get colours (need a way of auto generating more colours.)
-# 	forms = list(set([x['form'] for x in terms_list]))
-# 	print(forms)
-# 	# forms_cols = dict(zip(forms, colour_set))
-# 	# for t in terms_list:
-# 	# 	t['colour'] = forms_cols[t['form']]
-	
-# 	# terms_list.append({'language_name': language_name[1]})
-# 	terms_json = json.dumps(terms_list, cls=DjangoJSONEncoder)
-# 	return render(request, 'kb/language_detail.html', {'terms': terms_json})
-
-def phylogeny(request):
-	n_languages = Forms.objects.values('language_id').distinct().count()
-	return render(request, 'kb/phylogeny.html', {'test': n_languages})
-
 # @login_required(login_url='/accounts/login/')
 def about(request): 
 	about = About.objects.all()
 	n_languages = Forms.objects.values('language_id').distinct().count()
 	return render(request, 'kb/about.html', {'about': about, 'n_languages' : n_languages})
-
-
-
-
-# -- Functions for Language detail -- # 
-# def PrettyLanguageDetail(df):
-#     #df = df[df.glottocode == pk]
-# 	df = pd.DataFrame(df)
-
-# 	## Seperate M & F speakers
-# 	# F Speakers
-# 	f_speaker = df[df['parameter_id'].str.contains(r'^f')]
-# 	f_speaker = f_speaker[['language_id', 'form', 'comment', 'source', 'parameter_id']]
-# 	f_speaker['parameter'] = f_speaker['parameter_id'].str[1:]
-
-# 	# M Speakers
-# 	m_speaker = df[df['parameter_id'].str.contains(r'^m')]
-# 	m_speaker = m_speaker[['language_id', 'form', 'comment', 'source', 'parameter_id']]
-# 	m_speaker['parameter'] = m_speaker['parameter_id'].str[1:]
-
-
-# 	display_table = pd.merge(f_speaker, m_speaker, on='parameter', how='outer')
-
-# 	display_table = display_table[['parameter', 'form_x', 'form_y', 'source_x', 'source_y']]
-# 	# display_table = display_table[['parameter', 'form_x', 'form_y']]
-
-# 	source = []
-# 	for index, row in display_table.iterrows():
-# 	    if row['source_x'] == row['source_y']:
-# 	    	source.append(row['source_x'])
-# 	    if row['source_x'] is None:
-# 	    	source.append(row['source_y'])
-# 	    if row['source_y'] is None:
-# 	    	source.append(row['source_x'])
-# 	    else:
-# 	    	source.append("what?")
-# 	    	#source.append(row["source_x"] + "; " + row["source_y"])
-
-# 	#print(source.shape())
-
-# 	display_table['source'] = pd.Series(source)
-# 	del display_table['source_x']
-# 	del display_table['source_y']
-# 	display_table.columns = [['kin_category', 'woman_speaking', 'man_speaking', 'source']]
-# 	#display_table.columns = [['kin_category', 'woman_speaking', 'man_speaking']]
-
-# 	return(display_table)

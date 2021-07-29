@@ -7,7 +7,8 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
-
+class Person(models.Model):
+    name = models.CharField(max_length=100, verbose_name="full name")
 
 class Languages(models.Model):
     id = models.TextField(db_column='ID', blank=True, primary_key = True)  # Field name made lowercase.
