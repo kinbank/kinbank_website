@@ -159,6 +159,33 @@ def get_svginfo(parameters, pk):
 			t['colour'] = forms_cols[t['form']]
 	return parameter_list
 
+def get_kinterms(pk):
+	terms = Forms.objects.filter(glottocode = pk).values('parameter_id', 'form')
+	terms_list = list(terms)
+	terms_list = list({t['parameter_id']:t for t in terms_list}.values())
+
+	for i, row in enumerate(terms_list):
+		element = terms_list[i]
+		# seperate speaker
+		element['speaker'] = element['parameter_id'][0] 
+		# seperate kinterm
+		element['display_parameter'] = element['parameter_id'][1:]
+		terms_list[i] = element
+
+	kinterm_df = pd.DataFrame(terms_list, columns = ["parameter_id", "form", "speaker", "display_parameter"])
+	kinterm_table = kinterm_df.pivot(
+		index='display_parameter',
+		columns='speaker', 
+		values='form')
+
+	kinterm_table.index.name = 'Parameter'
+	kinterm_table.reset_index(inplace=True)
+	
+	print(kinterm_table)
+	return kinterm_table.to_dict('records')
+	
+
+
 # for languages detail
 def language_detail(request, pk):
 
@@ -174,6 +201,8 @@ def language_detail(request, pk):
 									"mFZeS", "mFZyS", "mFZeD", "mFZyD",
 									"mMBeS", "mMByS", "mMBeD", "mMByD",
 									"mMZeS", "mMZyS", "mMZeD", "mMZyD"], pk)
+
+	kinterms 		= get_kinterms(pk)
 	
 	grandparents_json = json.dumps(grandparents, cls=DjangoJSONEncoder)
 	parents_json = json.dumps(parents, cls=DjangoJSONEncoder)
@@ -181,7 +210,8 @@ def language_detail(request, pk):
 	nuclear_json = json.dumps(nuclear, cls=DjangoJSONEncoder)
 	cousin_json = json.dumps(cousin, cls=DjangoJSONEncoder)
 	return render(request, 'kb/language_detail.html', {'metadata': metadata, 'grandparents': grandparents_json, 
-		'children': children_json, 'nuclear': nuclear_json, 'cousin': cousin_json, 'parents':parents_json})
+		'children': children_json, 'nuclear': nuclear_json, 'cousin': cousin_json, 'parents':parents_json,
+		'kinterms': kinterms})
 
 # @login_required(login_url='/accounts/login/')
 def about(request): 

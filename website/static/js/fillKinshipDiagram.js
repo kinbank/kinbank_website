@@ -1,4 +1,4 @@
-function main(terms, diagram='kinshipdiagram'){
+function fill_diagram(terms, diagram='kinshipdiagram'){
     var svgDocument
     svgObject = document.getElementById(diagram);
     svgDocument = svgObject.contentDocument;
