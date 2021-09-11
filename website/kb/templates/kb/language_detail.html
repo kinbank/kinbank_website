@@ -16,7 +16,8 @@
 	<link rel="stylesheet" href="{% static 'css/home.css' %}">
 	<link rel="stylesheet" href="{% static 'css/about.css' %}">
 	<link rel="stylesheet" href="{% static 'css/detail.css' %}">
-	<script type="text/javascript" src="{% static 'js/about.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'css/button_toggle.css' %}">
+	<!-- <script type="text/javascript" src="{% static 'js/about.js' %}"></script> -->
 
 	<!-- Map script -->
 	<script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
@@ -36,7 +37,6 @@
 
 	<script type="text/javascript" src="{% static 'js/fillKinshipDiagram.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/kinterm_table.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/button_toggle.js' %}"></script>
 	<script type="text/javascript">
 			var grandparents 	= {{ grandparents|safe }};
 			var parents 		= {{ parents|safe }};
@@ -88,16 +88,18 @@
  </div>
 
 
-
+ <div class="switch-button">
+	<input class="switch-button-checkbox" type="checkbox"></input>
+	<label class="switch-button-label" for=""><span class="switch-button-label-span">Female Ego</span></label>
+</div>
 
 <div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
 Grandparents
 <a id="grandparents-box" class="expand-button" href="">+</a>
 </div>
 <div class="data-table" id="grandparents-box-table">
-	<button onclick="myFunction()">Click Me</button>
-	<div id="myDIV">Hello</div> 
-<object type="image/svg+xml" data="{% static "img/diagrams/grandparents.svg" %}" id="grandparents" class = "center" style = "height: 250px"></object>
+
+	<object type="image/svg+xml" data="{% static "img/diagrams/grandparents.svg" %}" id="grandparents" class = "center" style = "height: 250px"></object>
 </div>
 <div class="divider"></div>
 
