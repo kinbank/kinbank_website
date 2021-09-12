@@ -4,7 +4,7 @@
   overflow: hidden;
   width: 240px;
   text-align: center;
-  font-size: 18px;
+  font-size: 10px;
   letter-spacing: 1px;
   color: #155FFF;
   position: relative;
@@ -12,7 +12,7 @@
   position: relative;
 }
 .switch-button:before {
-  content: "Male Ego";
+  content: "Female Ego";
   position: absolute;
   top: 0;
   bottom: 0;
