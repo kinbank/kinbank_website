@@ -30,10 +30,10 @@ function fill_diagram(terms, diagram='kinshipdiagram'){
     }
 
     //  mouse over example code
-    svgDocument.getElementById("mMShape")
-          .addEventListener('click', function(e) {
-          e.currentTarget.setAttribute('fill', '#ff00cc');
-        });
+    // svgDocument.getElementById("mMShape")
+    //       .addEventListener('click', function(e) {
+    //       e.currentTarget.setAttribute('fill', '#ff00cc');
+    //     });
 
 
 

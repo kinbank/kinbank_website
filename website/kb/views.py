@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.http import Http404
 from .models import Forms, Languages, About
 # from .tables import LanguageDetailTable
 from django_tables2 import SingleTableView
@@ -56,37 +57,6 @@ def home(request):
 	terms_list.append({'language_name': random_language['name']})
 	terms_json = json.dumps(terms_list, cls=DjangoJSONEncoder)
 	return render(request, 'kb/home.html', {'terms': terms_json})
-
-# def home(request):
-# 	counts = Forms.objects.all().values('parameter_id').annotate(total=Count('parameter_id'))
-# 	counts_list = list(counts)
-
-# 	# subset to parameters in the graphic
-# 	counts_subset = [c['parameter_id'] for c in counts_list if re.match(r'^(f|m)', c['parameter_id'])]
-
-# 	# sum across male and female speakers
-# 	counts_list = []
-# 	for c in counts_subset:
-# 		print(c['total'])
-# 		base_id = re.sub(r'^(f|m)', '', c['parameter_id'])
-# 		matching_ids = [c2 for c2 in counts_list if c2['parameter_id'] == base_id]
-# 		totals = [m['total'] for m in matching_ids]
-# 		new_total = sum(totals)
-# 		counts_list.append({'parameter_id': base_id, 'total': new_total})
-
-# 	counts_json = json.dumps(counts_list, cls=DjangoJSONEncoder)
-# 	return render(request, 'kb/home.html', {'counts': counts_json})
-
-# for list of languages
-# class LanguagesTable(SingleTableView):
-# 	model = Languages
-# 	table_class = LanguagesTable
-# 	template_name = 'kb/languages.html'
-
-
-# def languages(request):
-# 	language = Languages.objects.values().order('name')
-# 	return render(request, 'kb/languages.html', {'languages': language})
 
 # @login_required(login_url='/accounts/login/')
 def languages(request):
@@ -155,7 +125,7 @@ def get_svginfo(parameters, pk):
 	# print(forms)
 	forms_cols = dict(zip(forms, colour_set))
 	for t in parameter_list:
-		if 'colour' not in t:
+		if 'colour' not in t and t['form'] in forms_cols.keys():
 			t['colour'] = forms_cols[t['form']]
 	return parameter_list
 
@@ -188,6 +158,7 @@ def get_kinterms(pk):
 
 # for languages detail
 def language_detail(request, pk):
+	languages = get_list_or_404(Languages, glottocode=pk)
 
 	metadata = Languages.objects.filter(glottocode = pk).first()
 
@@ -209,6 +180,7 @@ def language_detail(request, pk):
 	children_json = json.dumps(children, cls=DjangoJSONEncoder)
 	nuclear_json = json.dumps(nuclear, cls=DjangoJSONEncoder)
 	cousin_json = json.dumps(cousin, cls=DjangoJSONEncoder)
+
 	return render(request, 'kb/language_detail.html', {'metadata': metadata, 'grandparents': grandparents_json, 
 		'children': children_json, 'nuclear': nuclear_json, 'cousin': cousin_json, 'parents':parents_json,
 		'kinterms': kinterms})
