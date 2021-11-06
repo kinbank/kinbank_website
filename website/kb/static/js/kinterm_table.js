@@ -5,8 +5,8 @@ function fill_table(data){
         layout:"fitColumns", //fit columns to width of table (optional)
         columns:[ //Define Table Columns
             {title:"Parameter", field:"Parameter", sorter:"string"},
-            {title:"Female speaker", field:"f", sorter:"string"},
             {title:"Male speaker", field:"m", sorter:"string"},
+            {title:"Female speaker", field:"f", sorter:"string"}
         ]
     });
 

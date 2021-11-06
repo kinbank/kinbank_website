@@ -101,6 +101,9 @@ def languages(request):
 def get_svginfo(parameters, pk):
 	terms = Forms.objects.filter(glottocode = pk, parameter_id__in = parameters).values('parameter_id', 'form')
 
+	# filter terms that are nan 
+
+
 	# re format 
 	terms_list = list(terms)
 	terms_list = list({t['parameter_id']:t for t in terms_list}.values())
@@ -147,6 +150,9 @@ def get_kinterms(pk):
 		index='display_parameter',
 		columns='speaker', 
 		values='form')
+
+	# Nan should be empty strings
+	kinterm_table.fillna('-', inplace=True)
 
 	kinterm_table.index.name = 'Parameter'
 	kinterm_table.reset_index(inplace=True)
