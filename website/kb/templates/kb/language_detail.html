@@ -10,8 +10,6 @@
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
 
- 	
-   
 	<!-- Style sheets  -->
 	<link rel="stylesheet" href="{% static 'css/home.css' %}">
 	<link rel="stylesheet" href="{% static 'css/about.css' %}">
@@ -85,9 +83,13 @@
 		        detail_map({{metadata.latitude}}, {{metadata.longitude}});
 		</script>
    </div>
+   
  </div>
 
-
+ <label class="switch">
+	<input type="checkbox" id="togBtn">
+	<div class="slider round"></div>
+	</label>
 
 <div class="switch-button" style="margin-left:20px; margin-right:20px; margin-bottom: 20px;">
 	<input class="switch-button-checkbox" type="checkbox"></input>
@@ -145,8 +147,8 @@ Children and Niblings
 
 
 <div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
-All Kinterms
-<a id="all-box" class="expand-button" href="">+</a>
+	All Kinterms
+	<a id="all-box" class="expand-button" href="">+</a>
 </div>
 <div class="data-table" id="all-box-table">
 		<div id="example-table" class = "center"></div>
@@ -154,7 +156,7 @@ All Kinterms
 				fill_table(tabledata);
 			</script>
 </div>
-<div class="divider"></div>
 
+<div class="divider"></div>
 
 {% endblock %}
