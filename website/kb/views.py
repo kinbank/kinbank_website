@@ -156,8 +156,7 @@ def get_kinterms(pk):
 
 	kinterm_table.index.name = 'Parameter'
 	kinterm_table.reset_index(inplace=True)
-	
-	print(kinterm_table)
+
 	return kinterm_table.to_dict('records')
 	
 
@@ -168,28 +167,66 @@ def language_detail(request, pk):
 
 	metadata = Languages.objects.filter(glottocode = pk).first()
 
-	grandparents 	= get_svginfo(['mF', 'mM', "mFF", "mMF", "mFM", "mMM"], pk)
-	parents 	    = get_svginfo(['mF', 'mM', "mFeB", "mFyB", "mFeZ", "mFyZ", 
-									"mMeB", "mMyB", "mMeZ", "mMyZ"], pk)
-	children 		= get_svginfo(['mF', 'mM', "meB", "meZ", "mBS", "mBD", "mZS", "mZD", "mS", "mD"], pk)
-	nuclear 		= get_svginfo(['mF', 'mM', "meB", "meZ", "myB", "myZ"], pk)
-	cousin 			= get_svginfo(['mF', 'mM', "mFeB", "mFeZ", "mMeB", "mMeZ", "meB", "meZ", "myB", "myZ", 
-									"mFBeS", "mFByS", "mFBeD", "mFByD", 
-									"mFZeS", "mFZyS", "mFZeD", "mFZyD",
-									"mMBeS", "mMByS", "mMBeD", "mMByD",
-									"mMZeS", "mMZyS", "mMZeD", "mMZyD"], pk)
+	ego = 'm'
 
-	kinterms 		= get_kinterms(pk)
+	grandparent_terms = ['F', 'M', "FF", "MF", "FM", "MM"]
+	grandparent_diagram = [ego+ct for ct in grandparent_terms]
 	
-	grandparents_json = json.dumps(grandparents, cls=DjangoJSONEncoder)
-	parents_json = json.dumps(parents, cls=DjangoJSONEncoder)
-	children_json = json.dumps(children, cls=DjangoJSONEncoder)
-	nuclear_json = json.dumps(nuclear, cls=DjangoJSONEncoder)
-	cousin_json = json.dumps(cousin, cls=DjangoJSONEncoder)
+	parent_terms = ['F', 'M', "FeB", "FyB", "FeZ", "FyZ", "MeB", "MyB", "MeZ", "MyZ"]
+	parent_diagram = [ego+ct for ct in parent_terms]
 
-	return render(request, 'kb/language_detail.html', {'metadata': metadata, 'grandparents': grandparents_json, 
-		'children': children_json, 'nuclear': nuclear_json, 'cousin': cousin_json, 'parents':parents_json,
-		'kinterms': kinterms})
+	nuclear_terms = ['F', 'M', "eB", "eZ", "yB", "yZ"]
+	nuclear_diagram = [ego+ct for ct in nuclear_terms]
+
+	cousin_terms = ['F', 'M', "FeB", "FeZ", "MeB", "MeZ", "eB", "eZ", "yB", "yZ", 
+					"FBeS", "FByS", "FBeD", "FByD", 
+					"FZeS", "FZyS", "FZeD", "FZyD",
+					"MBeS", "MByS", "MBeD", "MByD",
+					"MZeS", "MZyS", "MZeD", "MZyD"]
+	cousin_diagram = [ego+ct for ct in cousin_terms]
+
+	children_terms = ['F', 'M', "eB", "eZ", "yB", "yZ", "BS", "BD", "ZS", "ZD", "S", "D",
+						"eBS", "eBD", "eZS", "eZD",
+						"yBS", "yBD", "yZS", "yZD"]
+	children_diagram = [ego+ct for ct in children_terms]
+
+	grandparents 	= get_svginfo(grandparent_diagram, pk)
+	parents 	    = get_svginfo(parent_diagram, pk)
+	children 		= get_svginfo(children_diagram, pk)
+	nuclear 		= get_svginfo(nuclear_diagram, pk)
+	cousin 			= get_svginfo(cousin_diagram, pk)
+
+	kinterms 			= get_kinterms(pk)
+	grandparents_table 	= [kt for kt in kinterms if kt["Parameter"] in grandparent_terms]
+	parents_table		= [kt for kt in kinterms if kt["Parameter"] in parent_terms]
+	nuclear_table		= [kt for kt in kinterms if kt["Parameter"] in nuclear_terms]
+	cousin_table		= [kt for kt in kinterms if kt["Parameter"] in cousin_terms]
+	children_table 		= [kt for kt in kinterms if kt["Parameter"] in children_terms]
+	
+	# [print(kt["Parameter"] in children_terms) for kt in kinterms]
+	# print("Childrens table")
+	# print(children_table)
+
+	grandparents_json 	= json.dumps(grandparents, cls=DjangoJSONEncoder)
+	parents_json 		= json.dumps(parents, cls=DjangoJSONEncoder)
+	children_json 		= json.dumps(children, cls=DjangoJSONEncoder)
+	nuclear_json 		= json.dumps(nuclear, cls=DjangoJSONEncoder)
+	cousin_json 		= json.dumps(cousin, cls=DjangoJSONEncoder)
+
+	return render(request, 'kb/language_detail.html', 
+	{'metadata': metadata, 
+	'grandparents': grandparents_json,
+	'grandparents_table': grandparents_table, 
+	'children': children_json, 
+	'children_table': children_table,
+	'nuclear': nuclear_json, 
+	'nuclear_table': nuclear_table,
+	'cousin': cousin_json, 
+	'cousin_table': cousin_table, 
+	'parents': parents_json,
+	'parents_table': parents_table,
+	'all': kinterms, 
+	})
 
 # @login_required(login_url='/accounts/login/')
 def about(request): 
