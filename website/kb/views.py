@@ -100,10 +100,6 @@ def languages(request):
 
 def get_svginfo(parameters, pk):
 	terms = Forms.objects.filter(glottocode = pk, parameter_id__in = parameters).values('parameter_id', 'form')
-
-	# filter terms that are nan 
-
-
 	# re format 
 	terms_list = list(terms)
 	terms_list = list({t['parameter_id']:t for t in terms_list}.values())
@@ -134,9 +130,19 @@ def get_svginfo(parameters, pk):
 
 def get_kinterms(pk):
 	terms = Forms.objects.filter(glottocode = pk).values('parameter_id', 'form')
+	
 	terms_list = list(terms)
-	terms_list = list({t['parameter_id']:t for t in terms_list}.values())
+	terms_list = pd.DataFrame(terms_list)
+	terms_list.groupby(['parameter_id']).\
+		agg({'form': lambda x: ','.join(x)
+			}
+		)
 
+	print(terms_list)
+
+	# print(terms_list)
+	# terms_list = list({t['parameter_id']:t for t in terms_list}.values())
+	
 	for i, row in enumerate(terms_list):
 		element = terms_list[i]
 		# seperate speaker
@@ -146,10 +152,11 @@ def get_kinterms(pk):
 		terms_list[i] = element
 
 	kinterm_df = pd.DataFrame(terms_list, columns = ["parameter_id", "form", "speaker", "display_parameter"])
-	kinterm_table = kinterm_df.pivot(
+	kinterm_table = kinterm_df.pivot_table(
 		index='display_parameter',
 		columns='speaker', 
-		values='form')
+		values='form',
+		aggfunc = '+')
 
 	# Nan should be empty strings
 	kinterm_table.fillna('-', inplace=True)
