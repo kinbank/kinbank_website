@@ -129,19 +129,10 @@ def get_svginfo(parameters, pk):
 	return parameter_list
 
 def get_kinterms(pk):
+	print("here")
 	terms = Forms.objects.filter(glottocode = pk).values('parameter_id', 'form')
-	
 	terms_list = list(terms)
-	terms_list = pd.DataFrame(terms_list)
-	terms_list.groupby(['parameter_id']).\
-		agg({'form': lambda x: ','.join(x)
-			}
-		)
-
-	print(terms_list)
-
-	# print(terms_list)
-	# terms_list = list({t['parameter_id']:t for t in terms_list}.values())
+	terms_list = list({t['parameter_id']:t for t in terms_list}.values())
 	
 	for i, row in enumerate(terms_list):
 		element = terms_list[i]
@@ -151,12 +142,13 @@ def get_kinterms(pk):
 		element['display_parameter'] = element['parameter_id'][1:]
 		terms_list[i] = element
 
+	
 	kinterm_df = pd.DataFrame(terms_list, columns = ["parameter_id", "form", "speaker", "display_parameter"])
 	kinterm_table = kinterm_df.pivot_table(
 		index='display_parameter',
 		columns='speaker', 
-		values='form',
-		aggfunc = '+')
+		values='form', 
+		aggfunc = 'first')
 
 	# Nan should be empty strings
 	kinterm_table.fillna('-', inplace=True)
@@ -166,7 +158,6 @@ def get_kinterms(pk):
 
 	return kinterm_table.to_dict('records')
 	
-
 
 # for languages detail
 def language_detail(request, pk):
