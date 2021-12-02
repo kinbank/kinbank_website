@@ -129,10 +129,11 @@ def get_svginfo(parameters, pk):
 	return parameter_list
 
 def get_kinterms(pk):
-	print("here")
 	terms = Forms.objects.filter(glottocode = pk).values('parameter_id', 'form')
+	print("asdf", pk)
 	terms_list = list(terms)
 	terms_list = list({t['parameter_id']:t for t in terms_list}.values())
+	print("here", terms)
 	
 	for i, row in enumerate(terms_list):
 		element = terms_list[i]
@@ -142,7 +143,8 @@ def get_kinterms(pk):
 		element['display_parameter'] = element['parameter_id'][1:]
 		terms_list[i] = element
 
-	
+	print("here speaker", terms_list)
+
 	kinterm_df = pd.DataFrame(terms_list, columns = ["parameter_id", "form", "speaker", "display_parameter"])
 	kinterm_table = kinterm_df.pivot_table(
 		index='display_parameter',
@@ -155,6 +157,7 @@ def get_kinterms(pk):
 
 	kinterm_table.index.name = 'Parameter'
 	kinterm_table.reset_index(inplace=True)
+	print("kinterm_df", kinterm_table.to_dict('records'))
 
 	return kinterm_table.to_dict('records')
 	
@@ -162,10 +165,11 @@ def get_kinterms(pk):
 # for languages detail
 def language_detail(request, pk):
 	languages = get_list_or_404(Languages, glottocode=pk)
-
 	metadata = Languages.objects.filter(glottocode = pk).first()
-
 	ego = 'm'
+
+	if request.GET.get("ego"):
+		ego = request.GET["ego"]
 
 	grandparent_terms = ['F', 'M', "FF", "MF", "FM", "MM"]
 	grandparent_diagram = [ego+ct for ct in grandparent_terms]
@@ -223,7 +227,8 @@ def language_detail(request, pk):
 	'cousin_table': cousin_table, 
 	'parents': parents_json,
 	'parents_table': parents_table,
-	'all': kinterms, 
+	'all': kinterms,
+	'ego': ego,
 	})
 
 # @login_required(login_url='/accounts/login/')
