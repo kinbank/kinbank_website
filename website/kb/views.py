@@ -106,6 +106,7 @@ def get_svginfo(parameters, pk):
 
 	parameter_list = defaultdict()
 	for t in terms_list:
+		
 		key = t['parameter_id']
 		value = t['form']
 		if key in parameter_list:
@@ -130,22 +131,23 @@ def get_svginfo(parameters, pk):
 
 def get_kinterms(pk):
 	terms = Forms.objects.filter(glottocode = pk).values('parameter_id', 'form')
-	print("asdf", pk)
 	terms_list = list(terms)
-	terms_list = list({t['parameter_id']:t for t in terms_list}.values())
-	print("here", terms)
-	
+	# terms_list = list({t['parameter_id']:t for t in terms_list}.values())
+	data_items = []
 	for i, row in enumerate(terms_list):
 		element = terms_list[i]
-		# seperate speaker
 		element['speaker'] = element['parameter_id'][0] 
 		# seperate kinterm
 		element['display_parameter'] = element['parameter_id'][1:]
-		terms_list[i] = element
 
-	print("here speaker", terms_list)
+		if any(d['parameter_id'] == element['parameter_id'] for d in data_items):
+			for i, d in enumerate(data_items):
+				if d['parameter_id'] == element['parameter_id']:
+					data_items[i]["form"] = data_items[i]["form"] +", "+ element["form"]
+		else:
+			data_items.append(element)
 
-	kinterm_df = pd.DataFrame(terms_list, columns = ["parameter_id", "form", "speaker", "display_parameter"])
+	kinterm_df = pd.DataFrame(data_items, columns = ["parameter_id", "form", "speaker", "display_parameter"])
 	kinterm_table = kinterm_df.pivot_table(
 		index='display_parameter',
 		columns='speaker', 
@@ -157,8 +159,6 @@ def get_kinterms(pk):
 
 	kinterm_table.index.name = 'Parameter'
 	kinterm_table.reset_index(inplace=True)
-	print("kinterm_df", kinterm_table.to_dict('records'))
-
 	return kinterm_table.to_dict('records')
 	
 
