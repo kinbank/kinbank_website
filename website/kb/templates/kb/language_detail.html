@@ -81,6 +81,10 @@
     color: #155FFF;
 	}
 </style>
+
+<!-- Top section: Language metadata -->
+<div>
+<div>
  <div class="row" style="margin-bottom: 10px; text-align:justify;
 	margin-bottom:30px;
 	margin-left:20px;
@@ -92,126 +96,114 @@
 
 			<h3>{{metadata.family}}</h3>
 	</div>
-    <div class="col-xs-5">
-	<div id="map_detail"></div>
-		<script type="text/javascript">
-		        detail_map({{metadata.latitude}}, {{metadata.longitude}});
-		</script>
-   </div>
-   
- </div>
-
-<!--  <label class="switch">
-	<input type="checkbox" id="togBtn">
-	<div class="slider round"></div>
-	</label> -->
-
-<!-- <div class="switch-button" style="margin-left:20px; margin-right:20px; margin-bottom: 20px;"> -->
-<form method="get">
-<div id="color-switch" class="btn-group" data-toggle="buttons" style="margin-left:20px; margin-right:20px; margin-bottom: 20px;">
-
-	<label class="btn btn-default adjust_switch_button {% if ego == 'm' %} active {% endif %}" style="    border-radius: 30px 0 0px 30px;">
-	        <input type="radio" name="ego" id="green" value="m"/> Male Ego
-	</label>
-	<label class="btn btn-default adjust_switch_button {% if ego == 'f' %} active {% endif %}" style="    border-radius: 0 30px 30px 0;">
-	        <input type="radio"  name="ego" id="blue" value="f"/> Female Ego
-	</label>
-
-</form>
-<!-- </div> -->
-<script type="text/javascript">
-	$('#color-switch').on('change', 'input', function() {
-		$("form").submit()
-  // const container = $(this).closest('.btn-group');
-  // container.find('.active').removeClass('active');
-  // container.find('input:checked').parent().addClass('active');
-});
-</script>
-
-	<!-- <input class="switch-button-checkbox" type="checkbox"></input>
-	<label class="switch-button-label" for="">
-		<span class="switch-button-label-span">Male Ego</span>
-	</label> -->
+    <div class="col-xs-5" style="float:right;margin-right:0%;">
+		<div id="map_detail"></div>
+			<script type="text/javascript">
+					detail_map({{metadata.latitude}}, {{metadata.longitude}});
+			</script>
+		</div>
+ 	</div>
 </div>
 
-<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
+ <div class="row" style="margin-bottom: 20px; text-align:justify;
+ margin-bottom:20px;
+ margin-left:20px;
+ margin-right:40px;>
+	<form method="get">
+	<div id="color-switch" class="btn-group" data-toggle="buttons" style="width: 50%; float: left;">
+
+		<label class="btn btn-default adjust_switch_button {% if ego == 'm' %} active {% endif %}" style="    border-radius: 30px 0 0px 30px;">
+				<input type="radio" name="ego" id="green" value="m"/> Male Ego
+		</label>
+		<label class="btn btn-default adjust_switch_button {% if ego == 'f' %} active {% endif %}" style="    border-radius: 0 30px 30px 0;">
+				<input type="radio"  name="ego" id="blue" value="f"/> Female Ego
+		</label>
+
+	</form>
+
+	<script type="text/javascript">
+		$('#color-switch').on('change', 'input', function() {
+			$("form").submit()
+	});
+	</script>	
+	</div>
+
+	<div style="float: right;">
+		<a href="{% static 'img/diagrams/glossary.svg' %}" 
+		target="popup" 
+		onclick="window.open('{% static 'img/diagrams/glossary.svg' %}','popup','width=700,height=500,background-color=#F4E9DA'); return false;">
+		<h3>Glossary</h3>
+		</a>
+	</div>
+</div>
+</div>
+
+ <!-- Bottom section: Start of Data detail  -->
+<div>
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; margin-bottom: 10px; width:95%">
 Grandparents
-<a id="grandparents-box" class="expand-button" href="">+</a>
+<a id="grandparents-box" class="expand-button" href=""></a>
 </div>
-<div class="data-table adjust_table" id="grandparents-box-table">
 	<object type="image/svg+xml" data="{% if ego == 'm' %} {% static 'img/diagrams/grandparents.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/grandparents_female.svg' %} {% endif %} " id="grandparents" class = "center" style = "height: 250px"></object>
 	<div id="grandparent-table" class = "center"></div>
 	<script>
 		fill_table(grandparents_table, "#grandparent-table");
 	</script>
-</div>
 <div class="divider"></div>
 
-<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; margin-bottom: 10px; width:95%">
 Parent's and Parent's siblings
-<a id="parents-box" class="expand-button" href="">+</a>
+<a id="parents-box" class="expand-button" href=""></a>
 </div>
-<div class="data-table adjust_table" id="parents-box-table">
-		<object type="image/svg+xml" data="{% if ego == 'm' %}  {% static 'img/diagrams/parents_siblings.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/parents_siblings_female.svg' %} {% endif %}" id="parents" class = "center" style="margin: 20px; width:91%; height: 200px"></object>
-		<div id="parent-table" class = "center"></div>
-		<script>
-			fill_table(parents_table, "#parent-table");
-		</script>
-</div>
+	<object type="image/svg+xml" data="{% if ego == 'm' %}  {% static 'img/diagrams/parents_siblings.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/parents_siblings_female.svg' %} {% endif %}" id="parents" class = "center" style="margin: 20px; width:91%; height: 200px"></object>
+	<div id="parent-table" class = "center"></div>
+	<script>
+		fill_table(parents_table, "#parent-table");
+	</script>
 <div class="divider"></div>
 
-<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; margin-bottom: 10px; width:95%">
 Nuclear family
-<a id="nuclear-box" class="expand-button" href="">+</a>
+<a id="nuclear-box" class="expand-button" href=""></a>
 </div>
-<div class="data-table adjust_table" id="nuclear-box-table">
-		<object type="image/svg+xml" data="{% if ego == 'm' %} {% static 'img/diagrams/nuclear_diagram.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/nuclear_diagram_female.svg' %} {% endif %}" id="nuclear" class = "center" style = "height: 250px"></object>
-		<div id="nuclear-table" class = "center"></div>
-		<script>
-			fill_table(nuclear_table, "#nuclear-table");
-		</script>
-</div>
+	<object type="image/svg+xml" data="{% if ego == 'm' %} {% static 'img/diagrams/nuclear_diagram.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/nuclear_diagram_female.svg' %} {% endif %}" id="nuclear" class = "center" style = "height: 250px"></object>
+	<div id="nuclear-table" class = "center"></div>
+	<script>
+		fill_table(nuclear_table, "#nuclear-table");
+	</script>
 <div class="divider"></div>
 
-<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; margin-bottom: 10px; width:95%">
 Siblings and Cousins
-<a id="cousin-box" class="expand-button" href="">+</a>
+<a id="cousin-box" class="expand-button" href=""></a>
 </div>
-<div class="data-table adjust_table" id="cousin-box-table">
-		<object type="image/svg+xml" data="{% if ego == 'm' %} {% static 'img/diagrams/cousin_siblings.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/cousin_siblings_female.svg' %} {% endif %}" id="cousin" class = "center" style="margin: 20px; width:91%"></object>
-		<div id="cousin-table" class = "center"></div>
-		<script>
-			fill_table(cousin_table, "#cousin-table");
-		</script>
-</div>
+	<object type="image/svg+xml" data="{% if ego == 'm' %} {% static 'img/diagrams/cousin_siblings.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/cousin_siblings_female.svg' %} {% endif %}" id="cousin" class = "center" style="margin: 20px; width:91%"></object>
+	<div id="cousin-table" class = "center"></div>
+	<script>
+		fill_table(cousin_table, "#cousin-table");
+	</script>
 <div class="divider"></div>
 
 
-<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; margin-bottom: 10px; width:95%">
 Children and Niblings
-<a id="children-box" class="expand-button" href="">+</a>
+<a id="children-box" class="expand-button" href=""></a>
 </div>
-<div class="data-table adjust_table" id="children-box-table">
-		<object type="image/svg+xml" data="{% if ego == 'm' %} {% static 'img/diagrams/children.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/children_female.svg' %} {% endif %} " id="children" class = "center" style = "height: 250px"></object>
-		<div id="second-table" class = "center"></div>
-		<script>
-			fill_table(children_table, "#second-table");
-		</script>
-</div>
-
-
+	<object type="image/svg+xml" data="{% if ego == 'm' %} {% static 'img/diagrams/children.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/children_female.svg' %} {% endif %} " id="children" class = "center" style = "height: 250px"></object>
+	<div id="second-table" class = "center"></div>
+	<script>
+		fill_table(children_table, "#second-table");
+	</script>
 <div class="divider"></div>
 
-
-<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; width:95%">
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; margin-bottom: 10px; width:95%">
 	All Kinterms
-	<a id="all-box" class="expand-button" href="">+</a>
+	<a id="all-box" class="expand-button" href=""></a>
 </div>
-<div class="data-table adjust_table" id="all-box-table">
-		<div id="example-table" class = "center"></div>
-			<script>
-				fill_table(all_table, "#example-table");
-			</script>
+	<div id="example-table" class = "center"></div>
+		<script>
+			fill_table(all_table, "#example-table");
+		</script>
 </div>
 
 <div class="divider"></div>
