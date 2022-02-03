@@ -28,6 +28,7 @@ RUN csvs-to-sqlite  /opt/app/website/kb/static/about.csv /opt/app/website/kinban
 RUN python /opt/app/website/manage.py makemigrations
 RUN python /opt/app/website/manage.py migrate
 
+
 # run gunicorn
 EXPOSE $PORT
 ENTRYPOINT ["/opt/app/gunicorn_starter.sh"]
