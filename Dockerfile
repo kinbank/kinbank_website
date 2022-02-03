@@ -7,6 +7,7 @@ FROM python:3.7-buster
 RUN mkdir -p /opt/app
 RUN mkdir -p /opt/app/pip_cache
 RUN mkdir -p /opt/app/website
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 COPY requirements.txt gunicorn_starter.sh /opt/app/
 COPY website /opt/app/website/
