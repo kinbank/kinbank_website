@@ -406,112 +406,112 @@ CEMZ,child's spouse's mother's sister
 CEFBW,child's spouse's father's brother's wife
 hB,half brother
 hZ,half sister
-hB_FS,speaker's paternal half brother
-hZ_FD,speaker's paternal half sister
-hB_MS,speaker's maternal half brother
-hZ_MD,speaker's maternal half sister
-eG,speaker's elder sibling
-yyG,"speaker's younger younger sibing, i.e. last born"
-eW,"speaker's elder wife, i.e. his first wife because elder refers to the length of marriage in this context, rather than spousal age"
-yW,"speaker's younger wife, i.e. any wife married after the first one because younger refers to the length of marriage in this context, rather than spousal age"
-WeB,speaker's wife's elder brother
-HyZ,speaker's husband's younger sister
-HeZ,speaker's husband's elder sister
-MeZH,speaker's mother's elder sister's husband
-MyZH,speaker's mother's younger sister's husband
-FyBW,speaker's father's younger brother's wife
-WFFB,speaker's wife's father's father's brother
-WFFZH,speaker's wife's father's father's sister's husband
-WFMB,speaker's wife's father's mother's brother
-WFMZH,speaker's wife's father's mother's sister's husband
-WMFB,speaker's wife's mother's father's brother
-WMFZH,speaker's wife's mother's father's sister's husband
-WMMB,speaker's wife's mother's mother's brother
-WMMZH,speaker's wife's mother's mother's sister's husband
-HFFZH,speaker's husband's father's father's sister's husband
-HFMZH,speaker's husband's father's mother's sister's husband
-HMFB,speaker's husband's mother's father's brother
-HMFZH,speaker's husband's mother's father's sister's husband
-HMMB,speaker's husband's mother's mother's brother
-HMMZH,speaker's husband's mother's mother's sister's husband
-WFFBW,speaker's wife's father's father's brother's wife
-WFMBW,speaker's wife's father's mother's brother's wife
-WMFBW,speaker's wife's mother's father's brother's wife
-WMFZ,speaker's wife's mother's father's sister
-WMMBW,speaker's wife's mother's mother's brother's wife
-WMMZ,speaker's wife's mother's mother's sister
-HFFBW,speaker's husband's father's father's brother's wife
-HFFZ,speaker's husband's father's father's sister
-HFMBW,speaker's husband's father's mother's brother's wife
-HFMZ,speaker's husband's father's mother's sister
-HMFBW,speaker's husband's mother's father's brother's wife
-HMFZ,speaker's husband's mother's father's sister
-HMMBW,speaker's husband's mother's mother's brother's wife
-HMMZ,speaker's husband's mother's mother's sister
-FFeBS,speaker's father's father's elder brother's son
-FFyBS,speaker's father's father's younger brother's son
-FFeZS,speaker's father's father's elder sister's son
-FFyZS,speaker's father's father's younger sister's son
-FMeBS,speaker's father's mother's elder brother's son
-FMyBS,speaker's father's mother's younger brother's son
-FMeZS,speaker's father's mother's elder sister's son
-FMyZS,speaker's father's mother's younger sister's son
-MFBDH,speaker's mother's father's brother's daughter's husband
-MMBDH,speaker's mother's mother's brother's daughter's husband
-MFZDH,speaker's mother's father's sister's daughter's husband
-FFeBSW,speaker's father's father's elder brother's son's wife
-FFyBSW,speaker's father's father's younger brother's son's wife
-FFeZSW,speaker's father's father's elder sister's son's wife
-FFyZSW,speaker's father's father's younger sister's son's wife
-FMeBSW,speaker's father's mother's elder brother's son's wife
-FMyBSW,speaker's father's mother's younger brother's son's wife
-FMeZSW,speaker's father's mother's elder sister's son's wife
-FMyZSW,speaker's father's mother's younger sister's son's wife
-FBWB,speaker's father's brother's wife's brother
-FBWBW,speaker's father's brother's wife's brother's wife
-HFB,speaker's husband's father's brother
-WFB,speaker's wife's father's brother
-HMZH,speaker's husband's mother's sister's husband
-WMZH,speaker's wife's mother's sister's husband
-ZHF,speaker's sister's husband's father
-ZHFB,speaker's sister's husband's father's brother
-BWF,speaker's brother's wife's father
-HFBW,speaker's husband's father's brother's wife
-WFBW,speaker's wife's father's brother's wife
-ZHFBW,speaker's sister's husband's father's brother's wife
-BWB,speaker's brother's wife's brother
-ZHB,speaker's sister's husband's brother
-WeBW,speaker's wife's elder brother's wife
-WyBW,speaker's wife's younger brother's wife
-WBSW,speaker's wife's brother's son's wife
-WFBSW,speaker's wife's father's brother's son's wife
-WMBSW,speaker's wife's mother's brother's son's wife
-WFZSW,speaker's wife's father's sister's son's wife
-WMZSW,speaker's wife's mother's sister's son's wife
-ZHZ,speaker's sister's husband's sister
-WeZH,speaker's wife's elder sister's husband
-WyZH,speaker's wife's younger sister's husband
-ZHZH,speaker's sister's husband's sister's husband
-HFZS,speaker's husband's father's sister's son
-HFBSW,speaker's husband's father's brother's son's wife
-HMBSW,speaker's husband's mother's brother's son's wife
-HFZSW,speaker's husband's mother's brother's son's wife
-HMZSW,speaker's husband's father's sister's son's wife
-HFZD,speaker's husband's father's sister's daughter
-HeZH,speaker's husband's elder sister's husband
-HyZH,speaker's husband's younger sister's husband
-BWM,speaker's brother's wife's mother
-ZHM,speaker's sister's husband's mother
-SWB,speaker's son's wife's brother
-DHB,speaker's daughter's husband's brother
-yZHB,speaker's younger sister's husband's brother
-SWZ,speaker's son's wife's sister
-DHZ,speaker's daughter's husband's sister
-BC,speaker's brother's child
-WFF,speaker's wife's father's father
-WMF,speaker's wife's mother's father
-HMF,speaker's husband's mother's father
-WMM,speaker's wife's mother's mother
-HMM,speaker's husband's mother's mother
-HFM,speaker's husband's father's mother
-ZC,speaker's sister's child
+hB_FS,paternal half brother
+hZ_FD,paternal half sister
+hB_MS,maternal half brother
+hZ_MD,maternal half sister
+eG,elder sibling
+yyG,"younger younger sibing, i.e. last born"
+eW,"elder wife, i.e. his first wife because elder refers to the length of marriage in this context, rather than spousal age"
+yW,"younger wife, i.e. any wife married after the first one because younger refers to the length of marriage in this context, rather than spousal age"
+WeB,wife's elder brother
+HyZ,husband's younger sister
+HeZ,husband's elder sister
+MeZH,mother's elder sister's husband
+MyZH,mother's younger sister's husband
+FyBW,father's younger brother's wife
+WFFB,wife's father's father's brother
+WFFZH,wife's father's father's sister's husband
+WFMB,wife's father's mother's brother
+WFMZH,wife's father's mother's sister's husband
+WMFB,wife's mother's father's brother
+WMFZH,wife's mother's father's sister's husband
+WMMB,wife's mother's mother's brother
+WMMZH,wife's mother's mother's sister's husband
+HFFZH,husband's father's father's sister's husband
+HFMZH,husband's father's mother's sister's husband
+HMFB,husband's mother's father's brother
+HMFZH,husband's mother's father's sister's husband
+HMMB,husband's mother's mother's brother
+HMMZH,husband's mother's mother's sister's husband
+WFFBW,wife's father's father's brother's wife
+WFMBW,wife's father's mother's brother's wife
+WMFBW,wife's mother's father's brother's wife
+WMFZ,wife's mother's father's sister
+WMMBW,wife's mother's mother's brother's wife
+WMMZ,wife's mother's mother's sister
+HFFBW,husband's father's father's brother's wife
+HFFZ,husband's father's father's sister
+HFMBW,husband's father's mother's brother's wife
+HFMZ,husband's father's mother's sister
+HMFBW,husband's mother's father's brother's wife
+HMFZ,husband's mother's father's sister
+HMMBW,husband's mother's mother's brother's wife
+HMMZ,husband's mother's mother's sister
+FFeBS,father's father's elder brother's son
+FFyBS,father's father's younger brother's son
+FFeZS,father's father's elder sister's son
+FFyZS,father's father's younger sister's son
+FMeBS,father's mother's elder brother's son
+FMyBS,father's mother's younger brother's son
+FMeZS,father's mother's elder sister's son
+FMyZS,father's mother's younger sister's son
+MFBDH,mother's father's brother's daughter's husband
+MMBDH,mother's mother's brother's daughter's husband
+MFZDH,mother's father's sister's daughter's husband
+FFeBSW,father's father's elder brother's son's wife
+FFyBSW,father's father's younger brother's son's wife
+FFeZSW,father's father's elder sister's son's wife
+FFyZSW,father's father's younger sister's son's wife
+FMeBSW,father's mother's elder brother's son's wife
+FMyBSW,father's mother's younger brother's son's wife
+FMeZSW,father's mother's elder sister's son's wife
+FMyZSW,father's mother's younger sister's son's wife
+FBWB,father's brother's wife's brother
+FBWBW,father's brother's wife's brother's wife
+HFB,husband's father's brother
+WFB,wife's father's brother
+HMZH,husband's mother's sister's husband
+WMZH,wife's mother's sister's husband
+ZHF,sister's husband's father
+ZHFB,sister's husband's father's brother
+BWF,brother's wife's father
+HFBW,husband's father's brother's wife
+WFBW,wife's father's brother's wife
+ZHFBW,sister's husband's father's brother's wife
+BWB,brother's wife's brother
+ZHB,sister's husband's brother
+WeBW,wife's elder brother's wife
+WyBW,wife's younger brother's wife
+WBSW,wife's brother's son's wife
+WFBSW,wife's father's brother's son's wife
+WMBSW,wife's mother's brother's son's wife
+WFZSW,wife's father's sister's son's wife
+WMZSW,wife's mother's sister's son's wife
+ZHZ,sister's husband's sister
+WeZH,wife's elder sister's husband
+WyZH,wife's younger sister's husband
+ZHZH,sister's husband's sister's husband
+HFZS,husband's father's sister's son
+HFBSW,husband's father's brother's son's wife
+HMBSW,husband's mother's brother's son's wife
+HFZSW,husband's mother's brother's son's wife
+HMZSW,husband's father's sister's son's wife
+HFZD,husband's father's sister's daughter
+HeZH,husband's elder sister's husband
+HyZH,husband's younger sister's husband
+BWM,brother's wife's mother
+ZHM,sister's husband's mother
+SWB,son's wife's brother
+DHB,daughter's husband's brother
+yZHB,younger sister's husband's brother
+SWZ,son's wife's sister
+DHZ,daughter's husband's sister
+BC,brother's child
+WFF,wife's father's father
+WMF,wife's mother's father
+HMF,husband's mother's father
+WMM,wife's mother's mother
+HMM,husband's mother's mother
+HFM,husband's father's mother
+ZC,sister's child

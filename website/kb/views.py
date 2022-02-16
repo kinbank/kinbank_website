@@ -12,6 +12,15 @@ from mysite.settings import BASE_DIR
 colour_set = ['#297AB1', '#57B5ED', '#71AB7F', '#FBBE4B', "#FF9438", "#8980D4", "#ED8F57",
 				'#BFD7E8', '#BCE1F8', '#C6DDCC', '#FDE5B7', '#FFD4AF', "#D0CCEE", "#F8D2BC"]
 
+# Helper functions
+def relabel_table(table, dd):
+		for i, row in enumerate(table):
+			param = row["Parameter"]
+			for j, d in enumerate(dd):
+				if d["ID"] == param:
+					table[i]["Parameter"] = d["Name"]
+		return(table)
+
 class DefaultListOrderedDict(OrderedDict):
 	def __missing__(self, k):
 		self[k] = []
@@ -193,17 +202,11 @@ def language_detail(request, pk):
 	print(grandparents_table.__class__)
 	# Join with Kinterm descriptions
 	description = Description.objects.values()
-	print(description)
-	# print(grandparents_table)
-	for kt in grandparents_table
-	for i, row in enumerate(grandparents_table):
-		param = row["Parameter"]
-		for j, d in enumerate(description):
-			print(d["name"])
-			if d["id"] == param:
-				print(d["id"])
-				print(d["name"])
-				# grandparents_table[i]["Parameter"] = d["name"]
+	grandparents_table = relabel_table(grandparents_table, description)
+	parents_table = relabel_table(parents_table, description)
+	nuclear_table = relabel_table(nuclear_table, description)
+	cousin_table = relabel_table(cousin_table, description)
+	children_table = relabel_table(children_table, description)
 
 	grandparents_json 	= json.dumps(grandparents, cls=DjangoJSONEncoder)
 	parents_json 		= json.dumps(parents, cls=DjangoJSONEncoder)
