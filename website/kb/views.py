@@ -195,14 +195,14 @@ def language_detail(request, pk):
 	description = Description.objects.values()
 	print(description)
 	# print(grandparents_table)
-	# for kt in grandparents_table
-	# for i, row in enumerate(grandparents_table):
-	# 	param = row["Parameter"]
-	# 	for j, d in enumerate(description):
-	# 		print(d["name"])
-	# 		if d["id"] == param:
-	# 			print(d["id"])
-	# 			print(d["name"])
+	for kt in grandparents_table
+	for i, row in enumerate(grandparents_table):
+		param = row["Parameter"]
+		for j, d in enumerate(description):
+			print(d["name"])
+			if d["id"] == param:
+				print(d["id"])
+				print(d["name"])
 				# grandparents_table[i]["Parameter"] = d["name"]
 
 	grandparents_json 	= json.dumps(grandparents, cls=DjangoJSONEncoder)
