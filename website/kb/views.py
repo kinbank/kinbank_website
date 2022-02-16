@@ -1,31 +1,16 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404
-from django.http import Http404
-from .models import Forms, Languages, About
-# from .tables import LanguageDetailTable
-from django_tables2 import SingleTableView
+from django.shortcuts import render, get_list_or_404
+from .models import Forms, Languages, About, Description
 import pandas as pd
 from collections import defaultdict, OrderedDict
 from string import ascii_uppercase
-from django.db.models import Count
 from django.core.serializers.json import DjangoJSONEncoder
-from django.core import serializers
 import json
-import re
 import random
 from mysite.settings import BASE_DIR
 
 
 colour_set = ['#297AB1', '#57B5ED', '#71AB7F', '#FBBE4B', "#FF9438", "#8980D4", "#ED8F57",
 				'#BFD7E8', '#BCE1F8', '#C6DDCC', '#FDE5B7', '#FFD4AF', "#D0CCEE", "#F8D2BC"]
-
-
-
-from django.views.generic import ListView
-from .models import Person
-
-class PersonListView(ListView):
-    model = Person
-    template_name = 'tutorial/people.html'
 
 class DefaultListOrderedDict(OrderedDict):
 	def __missing__(self, k):
@@ -205,9 +190,20 @@ def language_detail(request, pk):
 	cousin_table		= [kt for kt in kinterms if kt["Parameter"] in cousin_terms]
 	children_table 		= [kt for kt in kinterms if kt["Parameter"] in children_terms]
 	
-	# [print(kt["Parameter"] in children_terms) for kt in kinterms]
-	# print("Childrens table")
-	# print(children_table)
+	print(grandparents_table.__class__)
+	# Join with Kinterm descriptions
+	description = Description.objects.values()
+	print(description)
+	# print(grandparents_table)
+	# for kt in grandparents_table
+	# for i, row in enumerate(grandparents_table):
+	# 	param = row["Parameter"]
+	# 	for j, d in enumerate(description):
+	# 		print(d["name"])
+	# 		if d["id"] == param:
+	# 			print(d["id"])
+	# 			print(d["name"])
+				# grandparents_table[i]["Parameter"] = d["name"]
 
 	grandparents_json 	= json.dumps(grandparents, cls=DjangoJSONEncoder)
 	parents_json 		= json.dumps(parents, cls=DjangoJSONEncoder)

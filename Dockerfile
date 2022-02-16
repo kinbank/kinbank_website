@@ -25,9 +25,9 @@ RUN python /opt/app/website/add_columnGlottocode.py
 # Build SQL site
 RUN csvs-to-sqlite /opt/app/website/kinbank/kinbank/cldf/*.csv /opt/app/website/kinbank.sqlite3
 RUN csvs-to-sqlite  /opt/app/website/kb/static/about.csv /opt/app/website/kinbank.sqlite3
+RUN csvs-to-sqlite  /opt/app/website/kb/static/website_parameters.csv /opt/app/website/kinbank.sqlite3
 RUN python /opt/app/website/manage.py makemigrations
 RUN python /opt/app/website/manage.py migrate
-
 
 # run gunicorn
 EXPOSE $PORT
