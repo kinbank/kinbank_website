@@ -30,13 +30,13 @@ FZyS,father's sisters's younger son
 FeB,father's older brother
 FeBD,father's older brother's daughter
 FeBS,father's older brother's son
-FeBW,fFeBW
+FeBW,father's elder brother's wife
 FeZ,father's older sister
 FeZD,father's older sister's daughter
 FeZS,father's older sister's son
-FexchangeZ,fFexchangeZ
-FexchangeZD,fFexchangeZD
-FexchangeZS,fFexchangeZS
+FexchangeZ,father's exchanged sister
+FexchangeZD,father's exchanged sister's daughter
+FexchangeZS,father's exchanged sister's son
 FyB,father's younger brother
 FyBD,father's younger brother's daughter
 FyBS,father's younger brother's son
@@ -76,7 +76,7 @@ MeBS,mother's older brother's son
 MeZ,mother's older sister
 MeZD,mother's older sister's daughter
 MeZS,mother's older sister's son
-MexchangeB,fMexchangeB
+MexchangeB,mother's exchanged brother
 MyB,mother's younger brother
 MyBD,mother's younger brother's daughter
 MyBS,mother's younger brother's son
@@ -94,8 +94,8 @@ eBS,older brother's son
 eZ,older sister
 eZD,older sister's daughter
 eZS,older sister's son
-exchangeB,fexchangeB
-exchangeBW,fexchangeBW
+exchangeB,exchanged brother
+exchangeBW,exchanged brother's wife
 yB,younger brother
 yBD,younger brother's daughter
 yBS,younger brother's son
@@ -105,10 +105,6 @@ yZS,younger sister's son
 DD,daughter's daughter
 FFFF,father's father's father's father
 FeBW,father's older brother's wife
-FexchangeZ,mFexchangeZ
-FexchangeZD,mFexchangeZD
-FexchangeZS,mFexchangeZS
-MexchangeB,mMexchangeB
 SSS,son's son's son
 SSSS,son's son's son's son
 W,wife

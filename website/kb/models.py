@@ -26,6 +26,7 @@ class Languages(models.Model):
     entrydate = models.TextField(db_column='EntryDate', blank=True, null=True)  # Field name made lowercase.
     comment = models.TextField(db_column='Comment', blank=True, null=True)  # Field name made lowercase.
     link = models.TextField(db_column='Link', blank=True, null=True)  # Field name made lowercase.
+    set = models.TextField(db_column='Set', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
