@@ -13,16 +13,13 @@ class Languages(models.Model):
     id = models.TextField(db_column='ID', blank=True, primary_key = True)  # Field name made lowercase.
     name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
     glottocode = models.TextField(db_column='Glottocode', blank=True, null=True)  # Field name made lowercase.
-    glottolog_name = models.TextField(db_column='Glottolog_Name', blank=True, null=True)  # Field name made lowercase.
     iso639p3code = models.TextField(db_column='ISO639P3code', blank=True, null=True)  # Field name made lowercase.
-    macroarea = models.TextField(db_column='Macroarea', blank=True, null=True)  # Field name made lowercase.
     latitude = models.FloatField(db_column='Latitude', blank=True, null=True)  # Field name made lowercase.
     longitude = models.FloatField(db_column='Longitude', blank=True, null=True)  # Field name made lowercase.
     family = models.TextField(db_column='Family', blank=True, null=True)  # Field name made lowercase.
     label = models.TextField(db_column='Label', blank=True, null=True)  # Field name made lowercase.
     project = models.TextField(db_column='Project', blank=True, null=True)  # Field name made lowercase.
     projectfile = models.TextField(db_column='ProjectFile', blank=True, null=True)  # Field name made lowercase.
-    projectname = models.IntegerField(db_column='ProjectName', blank=True, null=True)  # Field name made lowercase.
     entrydate = models.TextField(db_column='EntryDate', blank=True, null=True)  # Field name made lowercase.
     comment = models.TextField(db_column='Comment', blank=True, null=True)  # Field name made lowercase.
     link = models.TextField(db_column='Link', blank=True, null=True)  # Field name made lowercase.
