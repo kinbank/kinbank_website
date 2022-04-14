@@ -1,0 +1,44 @@
+# List of things to do in the Website from coauthors
+
+1. Less clicking on the website
+
+2. A key or legend to the symbols would be helpful, even if only on the ‘about’ page.
+
+3. The front page image should have a caption (e.g. “grandparents terms from x language”) and link to that language.
+
+4. There should be more information about the github repository and a link to it in the about page. 
+
+5. The dots on the map could be a bit darker and bigger, they are hard to spot if you zoom in:
+
+6. There is no diagram for the grandchildren. 
+
+7. The source of each kinship dataset could be shown on top of the language's page alongside the glottocode and the name. 
+
+8. all cousins/sibling systems with an age distinction based on the birth order of the parents are not displayed, e.g Buli where the term fano mMeBS does not show up in the diagram or actually does not really fit the diagram. For those systems the cousin/sibling diagram would have to include the birth order of the parents, or it would have to be indicated in a different way. 
+
+9. Make main table searchable by language family
+
+10. Funding in the about page
+
+11. Dealing with languages with non-English letters appear at the bottom
+
+12. The number of languages is different in the Home (1054) and in About pages (1059) and in Database content (1,154)
+
+13. In some languages where the kin terms are long, they don’t fit properly to the kinship diagram when it looks like this (pic below). Is there a way to change it somehow?
+
+14. I was thinking would it be good to have a sort of a glossary where the abbreviations (F, M, etc.) and the shapes (triangle vs. circle) colours (what the same colour indicates) and lines (double line) are explained so the page would be easier to understand also for those who are not familiar with the kinship literature.
+
+15. In the About page, closing parenthesis are missing after D-place.
+
+16. In the About page, I think it is not necessary to mention “how that relates to behaviour” in the first sentence as that comes also later in the text. (Also as Kinbank can be used just as it is without connecting it to behaviour).
+
+17. “ca. 100 kin types” as 100 is not the precise number (as can be seen later in the text).
+
+18. Would it be possible to have somewhere the info that how many languages there are per language family and listing the included language families? Especially as the language family focused sampling is emphasised in the About page.
+
+19. Is there something weird in this sentence “Focused sampling for languages attached to existing cultural and linguistic databases (e.g. D-PLACE Kirby et al., 2016) and to computational language phylogenies (e.g. Honkola et al., 2013), allowing…” Should it be “allows” Anyway, as I’m not a native speaker of English I let them to do more careful proofreading J
+
+20. In the Parameters section, should the kin terms be marked with italics (e.g. uncle) so it would be easier to spot those from the text.
+
+21. I guess some languages are still missing from the list (like Finnish). I also wonder whether the idea is to list all the authors of the Kinbank paper also here as members of the team as currently some of them are still missing from The Team section.
+
