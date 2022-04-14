@@ -511,3 +511,21 @@ WMM,wife's mother's mother
 HMM,husband's mother's mother
 HFM,husband's father's mother
 ZC,sister's child
+BW,brother's wife
+DD,daughter's daughter
+DS,daughter's son
+DH,daughter's husband
+H,husband
+HB,husband's brother
+HZ,husband's sister
+SD,son's daughter
+SS,son's son
+W,wife
+WB,wife's brother
+WF,wife's father
+WM,wife's mother
+WZ,wife's sister
+ZH,sister's husband
+B,brother
+C,child
+CC,child's child
