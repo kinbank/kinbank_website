@@ -43,11 +43,6 @@
 			var cousin 			= {{ cousin|safe }};
 
 			var all_table 			= {{ all|safe }}
-			var grandparents_table 	= {{ grandparents_table|safe }}
-			var parents_table		= {{ parents_table|safe }}
-			var nuclear_table		= {{ nuclear_table|safe }}
-			var cousin_table		= {{ cousin_table|safe }}
-			var children_table 		= {{ children_table|safe }}
 			
 			window.onload = function() {
 				fill_diagram(grandparents, 'grandparents');
@@ -148,9 +143,6 @@ Grandparents
 </div>
 	<object type="image/svg+xml" data="{% if ego == 'm' %} {% static 'img/diagrams/grandparents.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/grandparents_female.svg' %} {% endif %} " id="grandparents" class = "center" style = "height: 250px"></object>
 	<div id="grandparent-table" class = "center"></div>
-	<!-- <script>
-		fill_table(grandparents_table, "#grandparent-table");
-	</script> -->
 <div class="divider"></div>
 
 <div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; margin-bottom: 10px; width:95%">
@@ -159,9 +151,6 @@ Parent's and Parent's siblings
 </div>
 	<object type="image/svg+xml" data="{% if ego == 'm' %}  {% static 'img/diagrams/parents_siblings.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/parents_siblings_female.svg' %} {% endif %}" id="parents" class = "center" style="margin: 20px; width:91%; height: 200px"></object>
 	<div id="parent-table" class = "center"></div>
-	<script>
-		fill_table(parents_table, "#parent-table");
-	</script>
 <div class="divider"></div>
 
 <div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; margin-bottom: 10px; width:95%">
@@ -170,9 +159,6 @@ Nuclear family
 </div>
 	<object type="image/svg+xml" data="{% if ego == 'm' %} {% static 'img/diagrams/nuclear_diagram.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/nuclear_diagram_female.svg' %} {% endif %}" id="nuclear" class = "center" style = "height: 250px"></object>
 	<div id="nuclear-table" class = "center"></div>
-	<script>
-		fill_table(nuclear_table, "#nuclear-table");
-	</script>
 <div class="divider"></div>
 
 <div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; margin-bottom: 10px; width:95%">
@@ -181,9 +167,6 @@ Siblings and Cousins
 </div>
 	<object type="image/svg+xml" data="{% if ego == 'm' %} {% static 'img/diagrams/cousin_siblings.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/cousin_siblings_female.svg' %} {% endif %}" id="cousin" class = "center" style="margin: 20px; width:91%"></object>
 	<div id="cousin-table" class = "center"></div>
-	<script>
-		fill_table(cousin_table, "#cousin-table");
-	</script>
 <div class="divider"></div>
 
 
@@ -193,10 +176,15 @@ Children and Niblings
 </div>
 	<object type="image/svg+xml" data="{% if ego == 'm' %} {% static 'img/diagrams/children.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/children_female.svg' %} {% endif %} " id="children" class = "center" style = "height: 250px"></object>
 	<div id="second-table" class = "center"></div>
-	<script>
-		fill_table(children_table, "#second-table");
-	</script>
 <div class="divider"></div>
+
+<div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; margin-bottom: 10px; width:95%">
+	Grandchildren
+	<a id="children-box" class="expand-button" href=""></a>
+	</div>
+		<object type="image/svg+xml" data="{% if ego == 'm' %} {% static 'img/diagrams/children.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/children_female.svg' %} {% endif %} " id="children" class = "center" style = "height: 250px"></object>
+		<div id="second-table" class = "center"></div>
+	<div class="divider"></div>
 
 <div id="table-title" class="table-title" style="margin-left:20px; margin-right:20px; margin-bottom: 10px; width:95%">
 	All Kinterms

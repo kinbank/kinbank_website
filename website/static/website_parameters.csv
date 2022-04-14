@@ -1,531 +1,497 @@
 ID,Name
-BornSaeDay,Born on the Same Day
-FMZD,father's mother's sister's daughter
-HusbandsSaeGroup,Husbands Same Group
-WiesSaeGroup,Wifes Same Group
+_co_H,co- husband
+_co_W,co- wife
+A,ancestor
+B,brother
+BC,brother's child
+BCC,brother's child
+BCCC,brother's child's child's child
+BCE,sister's child's spouse
+BD,brother's daughter
+BDD,brother's daughter's daughter
+BDH,brother's daughter's husband
+BDS,brother's daughter's son
+BornSameDay,Born on the Same Day
+BS,brother's son
+BSD,brother's son's daughter
+BSS,brother's son's son
+BSW,brother's son's wife
 BW,brother's wife
+BWB,brother's wife's brother
+BWF,brother's wife's father
+BWM,brother's wife's mother
+C,child
+CC,child's child
+CCC,child's child's child
+CCCC,child's child's child's child
+CEFB,child's spouse's father's brother
+CEFBW,child's spouse's father's brother's wife
+CEMZ,child's spouse's mother's sister
+CEMZH,child's spouse's mother's sister's husband
 D,daughter
-DD,daugher's daughter
+DD,daughter's daughter
+DDH,daughter's daughter's husband
 DH,daughter's husband
+DHB,daughter's husband's brother
+DHF,daughter's husband's father
+DHM,daughter's husband's mother
+DHZ,daughter's husband's sister
 DS,daughter's son
+DSW,daughter's son's wife
+E,spouse
+eB,older brother
+eBD,older brother's daughter
+eBS,older brother's son
+eBW,elder brother's wife
+eD,elder daughter
+EFB,spouse's father's brother
+EFBW,spouse's father's brother's wife
+eG,elder sibling
+EGE,spouse's sibling's spouse
+ehB,older half brother
+ehZ,older half sister
+EMZ,spouse's mother's sister
+EMZH,spouse's mother's sister's husband
+eS,elder son
+eW,"elder wife, i.e. his first wife because elder refers to the length of marriage in this context, rather than spousal age"
+exchangeB,exchanged brother
+exchangeBW,exchanged brother's wife
+exchangeZ,mexchangeZ
+exchangeZH,mexchangeZH
+eZ,older sister
+eZD,older sister's daughter
+eZH,elder sister's husband
+eZS,older sister's son
 F,father
+FB,father's brother
+FBC,mother's sister's daughter's child
+FBCCC,father's brother's child's child's child
+FBCCCC,father's brother's child's child's child's child
 FBD,father's brother's daughter
-FBS,father's brother's son
+FBDD,father's brother's daughter's daughter
+FBDDH,father's brother's daughter's daughter's husband
+FBDH,father's brother's daughter's husband
+FBDS,father's brother's daughter's son
+FBDSW,father's brother's daughter's son's wife
 FBeD,father's brother's older daughter
 FBeS,father's brother's older son
+FBS,father's brother's son
+FBSC,father's brother's child
+FBSD,father's brother's son's daughter
+FBSDH,father's brother's son's daughter's husband
+FBSS,father's brother's son's son
+FBSSW,father's brother's son's son's wife
+FBSW,father's brother's son's wife
+FBW,father's brother's wife
+FBWB,father's brother's wife's brother
+FBWBW,father's brother's wife's brother's wife
 FByD,father's brother's younger daughter
 FByS,father's brother's younger son
-FF,father's father
-FFF,father's father's father
-FFM,father's father's mother
-FM,father's mother
-FMF,father's mother's father
-FMM,father's mother's mother
-FZD,father's sister's daughter
-FZS,father's sister's son
-FZeD,father's sisters's older daughter
-FZeS,father's sisters's older son
-FZyD,father's sisters's younger daughter
-FZyS,father's sisters's younger son
 FeB,father's older brother
 FeBD,father's older brother's daughter
 FeBS,father's older brother's son
 FeBW,father's elder brother's wife
-FeZ,father's older sister
-FeZD,father's older sister's daughter
-FeZS,father's older sister's son
 FexchangeZ,father's exchanged sister
 FexchangeZD,father's exchanged sister's daughter
 FexchangeZS,father's exchanged sister's son
+FeZ,father's older sister
+FeZD,father's older sister's daughter
+FeZS,father's older sister's son
+FF,father's father
+FFB,father's father's brother
+FFBD,father's father's brother's daughter
+FFBDH,father's father's brother's daughter's husband
+FFBS,father's father's brother's son
+FFBSD,father's father's brother's son's daughter
+FFBSS,father's father's brother's son's son
+FFBSW,father's father's brother's son's wife
+FFBW,father's father's brother's wife
+FFeBS,father's father's elder brother's son
+FFeBSW,father's father's elder brother's son's wife
+FFeZS,father's father's elder sister's son
+FFeZSW,father's father's elder sister's son's wife
+FFF,father's father's father
+FFFB,father's father's father's brother
+FFFBSS,father's father's father's brother's son's son
+FFFF,father's father's father's father
+FFFM,father's father's father's mother
+FFFZ,father's father's father's sister
+FFM,father's father's mother
+FFMB,father's father's mother's brother
+FFMF,father's father's mother's father
+FFMM,father's father's mother's mother
+FFMZ,father's father's mother's sister
+FFyBS,father's father's younger brother's son
+FFyBSW,father's father's younger brother's son's wife
+FFyZS,father's father's younger sister's son
+FFyZSW,father's father's younger sister's son's wife
+FFZ,father's father's sister
+FFZD,father's father's sister's daughter
+FFZDD,father's father's sister's daughter's daughter
+FFZDH,father's father's sister's daughter's husband
+FFZDS,father's father's sister's daughter's son
+FFZH,father's father's sister's husband
+FFZS,father's father's sister's son
+FFZSDeD,father's father's sister's son's daughter's older daughter
+FFZSS,father's father's sister's son's son
+FFZSyD,father's father's sister's son's younger daughter
+FFZSyS,father's father's sister's son's younger son
+FM,father's mother
+FMB,father's mother's brother
+FMBD,father's mother's brother's daughter
+FMBDH,father's mother's brother's daughter's husband
+FMBS,father's mother's brother's son
+FMBW,father's mother's brother's wife
+FMeBS,father's mother's elder brother's son
+FMeBSW,father's mother's elder brother's son's wife
+FMeZS,father's mother's elder sister's son
+FMeZSW,father's mother's elder sister's son's wife
+FMF,father's mother's father
+FMFB,father's mother's father's brother
+FMFF,father's mother's father's father
+FMFM,father's mother's father's mother
+FMFZ,father's mother's father's sister
+FMM,father's mother's mother
+FMMB,father's mother's mother's brother
+FMMF,father's mother's mother's father
+FMMM,father's mother's mother's mother
+FMMZ,father's mother's mother's sister
+FMyBS,father's mother's younger brother's son
+FMyBSW,father's mother's younger brother's son's wife
+FMyZS,father's mother's younger sister's son
+FMyZSW,father's mother's younger sister's son's wife
+FMZ,father's mother's sister
+FMZD,father's mother's sister's daughter
+FMZDH,father's mother's sister's daughter's husband
+FMZH,father's mother's sister's husband
+FMZS,father's mother's sister's son
+FW_notM,father's wife (not mother)
+FWD_notZorhZ,father's wife's daughter that is not a sister or half sister
+FWS_notBorhB,father's wife's son that is not a brother or half brother.
 FyB,father's younger brother
 FyBD,father's younger brother's daughter
 FyBS,father's younger brother's son
+FyBW,father's younger brother's wife
 FyZ,father's younger sister
 FyZD,father's younger sister's daughter
 FyZS,father's younger sister's son
+FZ,father's sister
+FZCCC,father's sister's child's child's child
+FZCCCC,father's sister's child's child's child's child
+FZD,father's sister's daughter
+FZDC,brother's child's spouse
+FZDD,father's sister's daughter's daughter
+FZDH,father's sister's daughter's husband
+FZDS,father's sister's daughter's son
+FZeD,father's sisters's older daughter
+FZeS,father's sisters's older son
+FZH,father's sister's husband
+FZS,father's sister's son
+FZSC,mother's brother's daughter's child
+FZSD,father's sister's son's daughter
+FZSS,father's sister's son's son
+FZSW,father's sister's son's wife
+FZyD,father's sisters's younger daughter
+FZyS,father's sisters's younger son
+G,grandparent
 H,husband
 HB,husband's brother
+hB,half brother
+hB_FS,paternal half brother
+hB_MS,maternal half brother
+HBD,husband's brother's daughter
+HBDD,husband's brother's daughter's daughter
+HBDH,husband's brother's daughter's husband
+HBDS,husband's brother's daughter's son
+HBS,husband's brother's son
+HBSD,husband's brother's son's daughter
+HBSS,husband's brother's son's son
+HBSW,husband's brother's son's wife
 HBW,husband's brother's wife
+HD_notD,husband's daughter (not daughter)
+HeB,husband's elder brother
+HeBW,husband's elder brother's wife
+HeZ,husband's elder sister
+HeZH,husband's elder sister's husband
 HF,husband's father
+HFB,husband's father's brother
+HFBD,husband's father's brother's daughter
+HFBS,husband's father's brother's son
+HFBSW,husband's father's brother's son's wife
+HFBW,husband's father's brother's wife
+HFF,husband's father's father
+HFFB,husband's father's father's brother
+HFFBW,husband's father's father's brother's wife
+HFFZ,husband's father's father's sister
+HFFZH,husband's father's father's sister's husband
+HFM,husband's father's mother
+HFMB,husband's father's mother's brother
+HFMBW,husband's father's mother's brother's wife
+HFMZ,husband's father's mother's sister
+HFMZH,husband's father's mother's sister's husband
+HFZ,husband's father's sister
+HFZD,husband's father's sister's daughter
+HFZH,husband's father's sister's husband
+HFZS,husband's father's sister's son
+HFZSW,husband's mother's brother's son's wife
 HM,husband's mother
+HMB,husband's mother's brother
+HMBD,husband's mother's brother's daughter
+HMBS,husband's mother's brother's son
+HMBSW,husband's mother's brother's son's wife
+HMBW,husband's mother's brother's wife
+HMF,husband's mother's father
+HMFB,husband's mother's father's brother
+HMFBW,husband's mother's father's brother's wife
+HMFZ,husband's mother's father's sister
+HMFZH,husband's mother's father's sister's husband
+HMM,husband's mother's mother
+HMMB,husband's mother's mother's brother
+HMMBW,husband's mother's mother's brother's wife
+HMMZ,husband's mother's mother's sister
+HMMZH,husband's mother's mother's sister's husband
+HMZ,husband's mother's sister
+HMZD,husband's mother's sister's daughter
+HMZH,husband's mother's sister's husband
+HMZS,husband's mother's sister's son
+HMZSW,husband's father's sister's son's wife
+HS_notS,husband's son (not son)
+HusbandsSaeGroup,Husbands Same Group
 HW,husband's wife
+HyB,husband's younger brother
+HyBW,husband's younger brother's wife
+HyZ,husband's younger sister
+HyZH,husband's younger sister's husband
 HZ,husband's sister
+hZ,half sister
+hZ_FD,paternal half sister
+hZ_MD,maternal half sister
+HZC,husband's sister's child
+HZD,husband's sister's daughter
+HZDD,husband's sister's daughter's daughter
+HZDS,husband's sister's daughter's son
 HZH,husband's sister's husband
+HZS,husband's sister's son
+HZSD,husband's sister's son's daughter
+HZSS,husband's sister's son's son
 M,mother
+MB,mother's brother
+MBCCCC,mother's brother's child's child's child's child
 MBD,mother's brother's daughter
-MBS,mother's brother's son
+MBDC,father's sister's daughter's child
+MBDD,mother's brother's daughter's daughter
+MBDH,mother's brother's daughter's husband
+MBDS,mother's brother's daughter's son
 MBeD,mother's brother's older daughter
 MBeS,mother's brother's older son
+MBS,mother's brother's son
+MBSC,father's sister's sister's child
+MBSD,mother's brother's son's daughter
+MBSS,mother's brother's son's son
+MBSW,mother's brother's son's wife
+MBW,mother's brother's wife
 MByD,mother's brother's younger daughter
 MByS,mother's brother's younger son
-MF,mother's father
-MFF,mother's father's father
-MFM,mother's father's mother
-MM,mother's mother
-MMF,mother's mother's father
-MMM,mother's mother's mother
-MZD,mother's sister's daughter
-MZS,mother's sister's son
-MZeD,mother's sisters's older daughter
-MZeS,mother's sisters's older son
-MZyD,mother's sisters's younger daughter
-MZyS,mother's sisters's younger son
 MeB,mother's older brother
 MeBD,mother's older brother's daughter
 MeBS,mother's older brother's son
+MexchangeB,mother's exchanged brother
 MeZ,mother's older sister
 MeZD,mother's older sister's daughter
+MeZH,mother's elder sister's husband
 MeZS,mother's older sister's son
-MexchangeB,mother's exchanged brother
+MF,mother's father
+MFB,mother's father's brother
+MFBD,mother's father's brother's daughter
+MFBDH,mother's father's brother's daughter's husband
+MFBS,mother's father's brother's son
+MFBSW,mother's father's brother's son's wife
+MFBW,mother's father's brother's wife
+MFF,mother's father's father
+MFFBSD,mother's father's father's brother's son's daughter
+MFM,mother's father's mother
+MFZ,mother's father's sister
+MFZD,mother's father's sister's daughter
+MFZDH,mother's father's sister's daughter's husband
+MFZH,mother's father's sister's husband
+MFZS,mother's father's sister's son
+MFZSW,mother's father's sister's son's wife
+MH_notF,mother's husband (not father)
+MHD_notZorhZ,mother's husband's daughter that is not a sister or half sister
+MHS_notBorhB,mother's husband's son that is not a brother or half brother.
+MM,mother's mother
+MMB,mother's mother's brother
+MMBD,mother's mother's brother's daughter
+MMBDH,mother's mother's brother's daughter's husband
+MMBS,mother's mother's brother's son
+MMBSW,mother's mother's brother's son's wife
+MMBW,mother's mother's brother's wife
+MMF,mother's mother's father
+MMM,mother's mother's mother
+MMMZD,mother's mother's mother's sister's daughter
+MMMZDD,mother's mother's mother's sister's daughter's daughter
+MMZ,mother's mother's sister
+MMZD,mother's mother's sister's daughter
+MMZDDD,mother's mother's sister's daughter's daughter's daughter
+MMZDDS,mother's mother's sister's daughter's daughter's son
+MMZDeD,mother's mother's sister's daughter's older daughter
+MMZDH,mother's mother's sister's daughter's husband
+MMZDS,mother's mother's sister's daughter's son
+MMZDSD,mother's mother's sister's daughter's son's daughter
+MMZDSS,mother's mother's sister's daughter's son's son
+MMZDyD,mother's mother's sister's daughter's younger daughter
+MMZDyS,mother's mother's sister's daughter's younger son
+MMZH,mother's mother's sister's husband
+MMZS,mother's mother's sister's son
+MMZSD,mother's mother's sister's son's daughter
+MMZSS,mother's mother's sister's son's son
+MMZSW,mother's mother's sister's son's wife
 MyB,mother's younger brother
 MyBD,mother's younger brother's daughter
 MyBS,mother's younger brother's son
 MyZ,mother's younger sister
 MyZD,mother's younger sister's daughter
+MyZH,mother's younger sister's husband
 MyZS,mother's younger sister's son
-S,son
-SD,son's daughter
-SS,son's son
-SW,son's wife
-ZH,sister's husband
-eB,older brother
-eBD,older brother's daughter
-eBS,older brother's son
-eZ,older sister
-eZD,older sister's daughter
-eZS,older sister's son
-exchangeB,exchanged brother
-exchangeBW,exchanged brother's wife
-yB,younger brother
-yBD,younger brother's daughter
-yBS,younger brother's son
-yZ,younger sister
-yZD,younger sister's daughter
-yZS,younger sister's son
-DD,daughter's daughter
-FFFF,father's father's father's father
-FeBW,father's older brother's wife
-SSS,son's son's son
-SSSS,son's son's son's son
-W,wife
-WB,wife's brother
-WBW,wife's brother's wife
-WF,wife's father
-WM,wife's mother
-WZ,wife's sister
-WZH,wife's sister's husband
-exchangeZ,mexchangeZ
-exchangeZH,mexchangeZH
-A,ancestor
-B,brother
-BCC,brother's child
-BD,brother's daughter
-BS,brother's son
-C,child
-CC,child's child
-DHF,daughter husband's father
-DHM,daughter husband's mother
-E,spouse
-FB,father's brother
-FBDD,father's brother's daughter's daughter
-FBDS,father's brother's daughter's son
-FBSD,father's brother's son's daughter
-FBSS,father's brother's son's son
-FBSW,father's brother's son's wife
-FBW,father's brother's wife
-FFBSS,father's father's brother's son's son
-FW_notM,father's wife (not mother)
-FZ,father's sister
-FZDD,father's sister's daughter
-FZDS,father's sister's daughter's son
-FZH,father's sister's husband
-FZSD,father's sister's son's daughter
-FZSS,father's sister's son
-G,grandparent
-HBD,husband's brother's daughter
-HBS,husband's brother's son
-HFBD,husband's father's brother's daughter
-HMZ,husband's mother's sister
-HMZD,husband's mother's sister's daughter
-HeB,husband's elder brother
-HeBW,husband's elder brother's wife
-HyB,husband's younger brother
-HyBW,husband's younger brother's wife
-MB,mother's brother
-MBDD,mother's brother's daughter
-MBDS,mother's brother's daughter's son
-MBSD,mother's brother's son's daughter
-MBSS,mother's brother's son
-MBW,mother's brother's wife
-MH_notF,mother's husband (not father)
-MMBD,mother's mother's brother's daughter's
-MMBS,mother's mother's brother's son
-MMZ,mother's mother's sister
-MMZD,mother's mother's sister's daughter
-MMZS,mother's mother's sister's son
 MZ,mother's sister
+MZCCC,mother's sister's child's child's child
+MZCCCC,mother's sister's child's child's child's child
+MZD,mother's sister's daughter
+MZDC,father's brother's daughter's son
 MZDD,mother's sister's daughter's daughter
+MZDH,mother's sister's daughter's husband
 MZDS,mother's sister's daughter's son
+MZeD,mother's sisters's older daughter
+MZeS,mother's sisters's older son
 MZH,mother's sister's husband
+MZS,mother's sister's son
 MZSD,mother's sister's son's daughter
 MZSS,mother's sister's son's son
 MZSW,mother's sister's son's wife
+MZyD,mother's sisters's younger daughter
+MZyS,mother's sisters's younger son
 P,parent
-PP,parents' parent
+PP,parent's parent
+PPP,parent's parent's parent
+S,son
+SD,son's daughter
+SDH,son's daughter's husband
+SS,son's son
+SSS,son's son's son
+SSSS,son's son's son's son
+SSW,son's son's wife
+SW,son's wife
+SWB,son's wife's brother
 SWF,son's wife's father
 SWM,son's wife's mother
+SWZ,son's wife's sister
 TW,twin
+W,wife
+WB,wife's brother
+WBC,wife's brother's child
+WBD,wife's brother's daughter
+WBDD,wife's brother's daughter's daughter
+WBDS,wife's brother's daughter's son
+WBS,wife's brother's son
+WBSD,wife's brother's son's daughter
+WBSS,wife's brother's son's son
+WBSW,wife's brother's son's wife
+WBW,wife's brother's wife
+WD_notD,wife's daughter (not daughter)
+WeB,wife's elder brother
+WeBW,wife's elder brother's wife
 WeZ,wife's elder sister
+WeZH,wife's elder sister's husband
+WF,wife's father
+WFB,wife's father's brother
+WFBD,wife's father's brother's daughter
+WFBS,wife's father's brother's son
+WFBSW,wife's father's brother's son's wife
+WFBW,wife's father's brother's wife
+WFF,wife's father's father
+WFFB,wife's father's father's brother
+WFFBW,wife's father's father's brother's wife
+WFFZ,wife's father's father's sister
+WFFZH,wife's father's father's sister's husband
+WFM,wife's father's mother
+WFMB,wife's father's mother's brother
+WFMBW,wife's father's mother's brother's wife
+WFMZ,wife's father's mother's sister
+WFMZH,wife's father's mother's sister's husband
+WFZ,wife's father's sister
+WFZD,wife's father's sister's daughter
+WFZH,wife's father's sister's husband
+WFZS,wife's father's sister's son
+WFZSW,wife's father's sister's son's wife
+WiesSaeGroup,Wifes Same Group
+WM,wife's mother
+WMB,wife's mother's brother
+WMBD,wife's mother's brother's daughter
+WMBS,wife's mother's brother's son
+WMBSW,wife's mother's brother's son's wife
+WMBW,wife's mother's brother's wife
+WMF,wife's mother's father
+WMFB,wife's mother's father's brother
+WMFBW,wife's mother's father's brother's wife
+WMFZ,wife's mother's father's sister
+WMFZH,wife's mother's father's sister's husband
+WMM,wife's mother's mother
+WMMB,wife's mother's mother's brother
+WMMBW,wife's mother's mother's brother's wife
+WMMZ,wife's mother's mother's sister
+WMMZH,wife's mother's mother's sister's husband
+WMZ,wife's mother's sister
+WMZD,wife's mother's sister's daughter
+WMZH,wife's mother's sister's husband
+WMZS,wife's mother's sister's son
+WMZSW,wife's mother's sister's son's wife
+WS_notS,wife's son (not son)
 WyB,wife's younger brother
+WyBW,wife's younger brother's wife
 WyZ,wife's younger sister
+WyZH,wife's younger sister's husband
+WZ,wife's sister
+WZD,wife's sister's daughter
+WZDD,wife's sister's daughter's daughter
+WZDH,wife's sister's daughter's husband
+WZDS,wife's sister's daughter's son
+WZH,wife's sister's husband
+WZS,wife's sister's son
+WZSW,wife's sister's son's wife
+yB,younger brother
+yBD,younger brother's daughter
+yBS,younger brother's son
+yBW,younger brother's wife
+yD,younger daughter
+yhB,younger half brother
+yhZ,younger half sister
+yS,younger son
+ySW,younger son's wife
+yW,"younger wife, i.e. any wife married after the first one because younger refers to the length of marriage in this context, rather than spousal age"
+yyG,"younger younger sibing, i.e. last born"
+yZ,younger sister
+yZD,younger sister's daughter
+yZH,younger sister's husband
+yZHB,younger sister's husband's brother
+yZS,younger sister's son
 Z,sister
+ZC,sister's child
+ZCC,sister's child's child
+ZCCC,sister's child's child's child
+ZCE,father's brother's son's child
 ZD,sister's daughter
 ZDD,sister's daughter's daughter
 ZDH,sister's daughter's husband
 ZDS,sister's daughter's son
-ZS,sister's son
-ZSW,sister's son's wife
-_co_H,co- husband
-_co_W,co- wife
-eBW,elder brother's wife
-eD,elder daughter
-eS,elder son
-eZH,elder sister's husband
-yBW,younger brother wife
-yD,younger daughter
-yS,younger son
-ySW,younger son's wife
-yZH,younger sister's husband
-DHF,daughter's husband's father
-DHM,daughter's husband's mother
-FFB,father's father's brother
-FFBD,father's father's brother's daughter
-FFBS,father's father's brother's son
-FFBSD,father's father's brother's son daughter
-FFZ,father's father's sister
-FMB,father's mother's brother
-FMZ,father's mother's sister
-FMZS,father's mother's sister's son
-FZDD,father's sister's daughter's daughter
-FZSS,father's sister's son's son
-MBDD,mother's brother's daughter's daughter
-MBSS,mother's brother's son's son
-MFB,mother's father's brother
-MFBD,mother's father's brother's daughter
-MFBS,mother's father's brother's son
-MFZ,mother's father's sister
-MH_notF,mother's husband's (not father)
-MMB,mother's mother's brother
-MMBD,mother's mother's brother's daughter
-MMZDyS,mother's mother's sister's daughter's younger son
-PP,parent's parent
-WFBD,wife's father's brother's daughter
-WFBS,wife's father's brother's son
-WFZD,wife's father's sister's daughter
-WFZS,wife's father's sister's son
-WMZ,wife's mother's sister
-WZD,wife's sister's daughter
-WZS,wife's sister's son
-yBW,younger brother's wife
-WMBD,wife's brother's daughter
-WMBS,wife's brother's son
-WMZD,wife's mother's sister's daughter
-WMZS,wife's mother's sister's son
-FFZH,father's father's sister's husband
-FMZH,father's mother's sister's husband
-MFZH,mother's father's sister's husband
-MMZH,mother's mother's sister's husband
-FMBW,father's mother's brother's wife
-FFBW,father's father's brother's wife
-MMBW,mother's mother's brother's wife
-MFBW,mother's father's brother's wife
-WBS,wife's brother's son
-HZS,husband's sister's son
-WBD,wife's brother's daughter
-HZD,husband's sister's daughter
-BSS,brother's son's son
-BSD,brother's son's daughter
-ZSS,sister's son's son
-ZSD,sister's son's daughter
-BDS,brother's daughter's son
-BDD,brother's daughter's daughter
-WBSS,wife's brother's son's son
-WBSD,wife's brother's son's daughter
-WBDS,wife's brother's daughter's son
-WBDD,wife's brother's daughter's daughter
-WZDS,wife's sister's daughter's son
-WZDD,wife's sister's daughter's daughter
-HBSS,husband's brother's son's son
-HBSD,husband's brother's son's daughter
-HZSS,husband's sister's son's son
-HZSD,husband's sister's son's daughter
-HZDS,husband's sister's daughter's son
-HBDD,husband's brother's daughter's daughter
-HZDD,husband's sister's daughter's daughter
-HFBS,husband's father's brother's son
-HMBD,husband's mother's brother's daughter
-HMZS,husband's mother's sister's son
-HBDS,husband's brother's daughter's son
-WMBS,wife's mother's brother's son
-WMBD,wife's mother's brother's daughter
-HMBS,husband's mother's brother's son
-HBSW,husband's brother's son's wife
-WS_notS,wife's son (not son)
-WD_notD,wife's daughter (not daughter)
-HS_notS,husband's son (not son)
-HD_notD,husband's daughter (not daughter)
-FFFB,father's father's father's brother
-FMFB,father's mother's father's brother
-FFMB,father's father's mother's brother
-FMMB,father's mother's mother's brother
-FFMF,father's father's mother's father
-FMMF,father's mother's mother's father
-FMFF,father's mother's father's father
-FFFZ,father's father's father's sister
-FMFZ,father's mother's father's sister
-FFMZ,father's father's mother's sister
-FMMZ,father's mother's mother's sister
-FFFM,father's father's father's mother
-FFMM,father's father's mother's mother
-FMFM,father's mother's father's mother
-FMMM,father's mother's mother's mother
-HFF,husband's father's father
-HFFB,husband's father's father's brother
-HFMB,husband's father's mother's brother
-MMMZD,mother's mother's mother's sister's daughter
-WFM,wife's father's mother
-WFFZ,wife's father's father's sister
-WFMZ,wife's father's mother's sister
-FFZS,father's father's sister's son
-MMMZDD,mother's mother's mother's sister's daughter's daughter
-FFZSS,father's father's sister's son's son
-MMZDS,mother's mother's sister's daughter's son
-ehB,older half brother
-ehZ,older half sister
-yhB,younger half brother
-yhZ,younger half sister
-FFZSDeD,father's father's sister's son's daughter's older daughter
-MMZDeD,mother's mother's sister's daughter's older daughter
-FFZSyS,father's father's sister's son's younger son
-FFZSyD,father's father's sister's son's younger daughter
-MMZDyD,mother's mother's sister's daughter's younger daughter
-FFZDS,father's father's sister's daughter's son
-MMZSS,mother's mother's sister's son's son
-FFZDD,father's father's sister's daughter's daughter
-MMZSD,mother's mother's sister's son's daughter
-FBDH,father's brother's daughter's husband
-FZDH,father's sister's daughter's husband
-MBDH,mother's brother's daughter's husband
-MZDH,mother's sister's daughter's husband
-FZSW,father's sister's son's wife
-MBSW,mother's brother's son's wife
-BDH,brother's daughter's husband
-BSW,brother's son's wife
-ZCC,sister's child's child
-FBCCC,father's brother's child's child's child
-FZCCC,father's sister's child's child's child
-MZCCC,mother's sister's child's child's child
-CCC,child's child's child
-CCCC,child's child's child's child
-BCCC,brother's child's child's child
-ZCCC,sister's child's child's child
-FBCCCC,father's brother's child's child's child's child
-FZCCCC,father's sister's child's child's child's child
-MBCCCC,mother's brother's child's child's child's child
-MZCCCC,mother's sister's child's child's child's child
-SSW,son's son's wife
-SDH,son's daughter's husband
-DSW,daughter's son's wife
-DDH,daughter's daughter's husband
-FFZD,father's father's sister's daughter
-PPP,parent's parent's parent
-MMZDH,mother's mother's sister's daughter's husband
-FFFBSS,father's father's father's brother's son's son
-FMBS,father's mother's brother's son
-FFBSW,father's father's brother's son's wife
-MFFBSD,mother's father's father's brother's son's daughter
-MFZD,mother's father's sister's daughter
-FFBDH,father's father's brother's daughter's husband
-FMZDH,father's mother's sister's daughter's husband
-MFZS,mother's father's sister's son
-FMBDH,father's mother's brother's daughter's husband
-FFZDH,father's father's sister's daughter's husband
-WMB,wife's mother's brother
-WFZH,wife's father's sister's husband
-HMB,husband's mother's brother
-HFZH,husband's father's sister's husband
-MFBSW,mother's father's brother's son's wife
-MMZSW,mother's mother's sister's son's wife
-FMBD,father's mother's brother's daughter
-MFZSW,mother's father's sister's son's wife
-MMBSW,mother's mother's brother's son's wife
-MFBSW,mother's father's brother's sister's wife
-WFZ,wife's father's sister
-WMBW,wife's mother's brother's wife
-HFZ,husband's father's sister
-HMBW,husband's mother's brother's wife
-EFB,spouse's father's brother
-EMZH,spouse's mother's sister's husband
-EMZ,spouse's mother's sister
-EFBW,spouse's father's brother's wife
-MMZDSS,mother's mother's sister's daughter's son's son
-MMZDDS,mother's mother's sister's daughter's daughter's son
-MMZDSD,mother's mother's sister's daughter's son's daughter
-MMZDDD,mother's mother's sister's daughter's daughter's daughter
-WBC,wife's brother's child
-HZC,husband's sister's child
-MZDC,father's brother's daughter's son
-FBC,mother's sister's daughter's child
-FBSC,father's brother's child
-ZCE,father's brother's son's child
-BCE,sister's child's spouse
-FZDC,brother's child's spouse
-MBDC,father's sister's daughter's child
-FZSC,mother's brother's daughter's child
-MBSC,father's sister's sister's child
-WZDH,wife's sister's daughter's husband
-HBDH,husband's brother's daughter's husband
-FBSDH,father's brother's son's daughter's husband
-FBDDH,father's brother's daughter's daughter's husband
-WZSW,wife's sister's son's wife
-FBSSW,father's brother's son's son's wife
-FBDSW,father's brother's daughter's son's wife
-FWS_notBorhB,father's wife's son that is not a brother or half brother.
-MHS_notBorhB,mother's husband's son that is not a brother or half brother.
-FWD_notZorhZ,father's wife's daughter that is not a sister or half sister
-MHD_notZorhZ,mother's husband's daughter that is not a sister or half sister
-FFBSD,father's father's brother's son's daughter
-EGE,spouse's sibling's spouse
-CEFB,child's spouse's father's brother
-CEMZH,child's spouse's mother's sister's husband
-CEMZ,child's spouse's mother's sister
-CEFBW,child's spouse's father's brother's wife
-hB,half brother
-hZ,half sister
-hB_FS,paternal half brother
-hZ_FD,paternal half sister
-hB_MS,maternal half brother
-hZ_MD,maternal half sister
-eG,elder sibling
-yyG,"younger younger sibing, i.e. last born"
-eW,"elder wife, i.e. his first wife because elder refers to the length of marriage in this context, rather than spousal age"
-yW,"younger wife, i.e. any wife married after the first one because younger refers to the length of marriage in this context, rather than spousal age"
-WeB,wife's elder brother
-HyZ,husband's younger sister
-HeZ,husband's elder sister
-MeZH,mother's elder sister's husband
-MyZH,mother's younger sister's husband
-FyBW,father's younger brother's wife
-WFFB,wife's father's father's brother
-WFFZH,wife's father's father's sister's husband
-WFMB,wife's father's mother's brother
-WFMZH,wife's father's mother's sister's husband
-WMFB,wife's mother's father's brother
-WMFZH,wife's mother's father's sister's husband
-WMMB,wife's mother's mother's brother
-WMMZH,wife's mother's mother's sister's husband
-HFFZH,husband's father's father's sister's husband
-HFMZH,husband's father's mother's sister's husband
-HMFB,husband's mother's father's brother
-HMFZH,husband's mother's father's sister's husband
-HMMB,husband's mother's mother's brother
-HMMZH,husband's mother's mother's sister's husband
-WFFBW,wife's father's father's brother's wife
-WFMBW,wife's father's mother's brother's wife
-WMFBW,wife's mother's father's brother's wife
-WMFZ,wife's mother's father's sister
-WMMBW,wife's mother's mother's brother's wife
-WMMZ,wife's mother's mother's sister
-HFFBW,husband's father's father's brother's wife
-HFFZ,husband's father's father's sister
-HFMBW,husband's father's mother's brother's wife
-HFMZ,husband's father's mother's sister
-HMFBW,husband's mother's father's brother's wife
-HMFZ,husband's mother's father's sister
-HMMBW,husband's mother's mother's brother's wife
-HMMZ,husband's mother's mother's sister
-FFeBS,father's father's elder brother's son
-FFyBS,father's father's younger brother's son
-FFeZS,father's father's elder sister's son
-FFyZS,father's father's younger sister's son
-FMeBS,father's mother's elder brother's son
-FMyBS,father's mother's younger brother's son
-FMeZS,father's mother's elder sister's son
-FMyZS,father's mother's younger sister's son
-MFBDH,mother's father's brother's daughter's husband
-MMBDH,mother's mother's brother's daughter's husband
-MFZDH,mother's father's sister's daughter's husband
-FFeBSW,father's father's elder brother's son's wife
-FFyBSW,father's father's younger brother's son's wife
-FFeZSW,father's father's elder sister's son's wife
-FFyZSW,father's father's younger sister's son's wife
-FMeBSW,father's mother's elder brother's son's wife
-FMyBSW,father's mother's younger brother's son's wife
-FMeZSW,father's mother's elder sister's son's wife
-FMyZSW,father's mother's younger sister's son's wife
-FBWB,father's brother's wife's brother
-FBWBW,father's brother's wife's brother's wife
-HFB,husband's father's brother
-WFB,wife's father's brother
-HMZH,husband's mother's sister's husband
-WMZH,wife's mother's sister's husband
+ZH,sister's husband
+ZHB,sister's husband's brother
 ZHF,sister's husband's father
 ZHFB,sister's husband's father's brother
-BWF,brother's wife's father
-HFBW,husband's father's brother's wife
-WFBW,wife's father's brother's wife
 ZHFBW,sister's husband's father's brother's wife
-BWB,brother's wife's brother
-ZHB,sister's husband's brother
-WeBW,wife's elder brother's wife
-WyBW,wife's younger brother's wife
-WBSW,wife's brother's son's wife
-WFBSW,wife's father's brother's son's wife
-WMBSW,wife's mother's brother's son's wife
-WFZSW,wife's father's sister's son's wife
-WMZSW,wife's mother's sister's son's wife
-ZHZ,sister's husband's sister
-WeZH,wife's elder sister's husband
-WyZH,wife's younger sister's husband
-ZHZH,sister's husband's sister's husband
-HFZS,husband's father's sister's son
-HFBSW,husband's father's brother's son's wife
-HMBSW,husband's mother's brother's son's wife
-HFZSW,husband's mother's brother's son's wife
-HMZSW,husband's father's sister's son's wife
-HFZD,husband's father's sister's daughter
-HeZH,husband's elder sister's husband
-HyZH,husband's younger sister's husband
-BWM,brother's wife's mother
 ZHM,sister's husband's mother
-SWB,son's wife's brother
-DHB,daughter's husband's brother
-yZHB,younger sister's husband's brother
-SWZ,son's wife's sister
-DHZ,daughter's husband's sister
-BC,brother's child
-WFF,wife's father's father
-WMF,wife's mother's father
-HMF,husband's mother's father
-WMM,wife's mother's mother
-HMM,husband's mother's mother
-HFM,husband's father's mother
-ZC,sister's child
-BW,brother's wife
-DD,daughter's daughter
-DS,daughter's son
-DH,daughter's husband
-H,husband
-HB,husband's brother
-HZ,husband's sister
-SD,son's daughter
-SS,son's son
-W,wife
-WB,wife's brother
-WF,wife's father
-WM,wife's mother
-WZ,wife's sister
-ZH,sister's husband
-B,brother
-C,child
-CC,child's child
+ZHZ,sister's husband's sister
+ZHZH,sister's husband's sister's husband
+ZS,sister's son
+ZSD,sister's son's daughter
+ZSS,sister's son's son
+ZSW,sister's son's wife

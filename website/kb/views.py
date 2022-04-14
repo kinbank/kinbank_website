@@ -193,20 +193,6 @@ def language_detail(request, pk):
 	cousin 			= get_svginfo(cousin_diagram, pk)
 
 	kinterms 			= get_kinterms(pk)
-	grandparents_table 	= [kt for kt in kinterms if kt["Parameter"] in grandparent_terms]
-	parents_table		= [kt for kt in kinterms if kt["Parameter"] in parent_terms]
-	nuclear_table		= [kt for kt in kinterms if kt["Parameter"] in nuclear_terms]
-	cousin_table		= [kt for kt in kinterms if kt["Parameter"] in cousin_terms]
-	children_table 		= [kt for kt in kinterms if kt["Parameter"] in children_terms]
-	
-	print(grandparents_table.__class__)
-	# Join with Kinterm descriptions
-	description = Description.objects.values()
-	grandparents_table = relabel_table(grandparents_table, description)
-	parents_table = relabel_table(parents_table, description)
-	nuclear_table = relabel_table(nuclear_table, description)
-	cousin_table = relabel_table(cousin_table, description)
-	children_table = relabel_table(children_table, description)
 
 	grandparents_json 	= json.dumps(grandparents, cls=DjangoJSONEncoder)
 	parents_json 		= json.dumps(parents, cls=DjangoJSONEncoder)
@@ -217,15 +203,10 @@ def language_detail(request, pk):
 	return render(request, 'kb/language_detail.html', 
 	{'metadata': metadata, 
 	'grandparents': grandparents_json,
-	'grandparents_table': grandparents_table, 
 	'children': children_json, 
-	'children_table': children_table,
 	'nuclear': nuclear_json, 
-	'nuclear_table': nuclear_table,
 	'cousin': cousin_json, 
-	'cousin_table': cousin_table, 
 	'parents': parents_json,
-	'parents_table': parents_table,
 	'all': kinterms,
 	'ego': ego,
 	})
