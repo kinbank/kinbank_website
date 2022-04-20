@@ -200,6 +200,9 @@ def language_detail(request, pk):
 	nuclear_json 		= json.dumps(nuclear, cls=DjangoJSONEncoder)
 	cousin_json 		= json.dumps(cousin, cls=DjangoJSONEncoder)
 
+	description = Description.objects.values()
+	kinterms = relabel_table(kinterms, description)
+
 	return render(request, 'kb/language_detail.html', 
 	{'metadata': metadata, 
 	'grandparents': grandparents_json,
