@@ -48,9 +48,10 @@ def home(request):
 	for t in terms_list:
 		t['colour'] = forms_cols[t['form']]
 	
+	n_languages = Forms.objects.values('language_id').distinct().count()
 	terms_list.append({'language_name': random_language['name']})
 	terms_json = json.dumps(terms_list, cls=DjangoJSONEncoder)
-	return render(request, 'kb/home.html', {'terms': terms_json})
+	return render(request, 'kb/home.html', {'terms': terms_json, 'n_languages': n_languages})
 
 # @login_required(login_url='/accounts/login/')
 def languages(request):
