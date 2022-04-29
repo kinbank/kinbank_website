@@ -4,6 +4,8 @@ $(KINBANK):
 	mkdir -p data
 	git clone $(KINBANK_REPO) $@
 
+clean:
+	rm -rf kinbank/ ./kinbank.sqlite3 ./myvenv
 
 help:
 	@echo "1. Run 'make install' to install the python requirements & set up virtual environment"
