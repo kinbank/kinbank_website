@@ -82,12 +82,12 @@
 	color:273253;
 }
 
-#the-team-table, #funding-table, #publications-table, #cite-table {
+#the-team-table, #funding-table, #publications-table, #cite-table, #getdata-content-table {
     margin-left:40px;
     margin-right:40px;
 }
 
-#database-content-table p, #the-team-table p, #funding-table p, #publications-table p, #cite-table p {
+#database-content-table p, #the-team-table p, #funding-table p, #publications-table p, #cite-table p, #getdata-content-table p{
     /*font-style:normal;*/
     padding-top:10px;
     padding-bottom:10px;
@@ -96,7 +96,7 @@
 }
 
 .data-table p {
-	margin-left:0px;
+	margin-left:40px;
 	margin-top:5px;
 	font-style:italic;
 }

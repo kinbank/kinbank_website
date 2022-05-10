@@ -10,8 +10,6 @@
 
 {% block content %}
 
-
-
 <div id="aboutText">
 Kinbank is a database of kinship terminologies to be used for exploring cross-linguistic diversity 
 in kinship organisation. The database includes {{ n_languages }} languages and a set of 100 core kin types between Grandparents and Grandchildren, and between Parent's siblings, and Parent's siblings’ children. A major advantage of Kinbank is the focused language family sampling and sampling based on occurrence in existing anthropological databases (e.g. <a href"www.dplace.org">d-place.org</a>), allowing us to test the relationship between languages and behaviour. This allows the use of phylogenetic methods to reconstruct the states of proto-kinship, account for common ancestry in models of kinship change, and test for correlated evolution between linguistic and behavioural patterns.
@@ -19,41 +17,38 @@ in kinship organisation. The database includes {{ n_languages }} languages and a
 
 <div class="divider"></div>
 
-<div id="table-title" class="table-title">
-	Get the data	
-<a id="getdata" class="expand-button" href="">+</a>
+<div id="table-title" class="table-title" class="container text-right">
+	Get the data
+<a id="getdata-content" class="expand-button" href="">+</a>
 </div>
-<div id="getdata-table" class="data-table">
-
-For each database, as well as the aggregated database can be found within the Github organization: 
-<a href="https://github.com/kinbank/">https://github.com/kinbank/</a>
-<br>
-Archived versions of each database can be found by following the DOIs from their respected citations.
-The citation for each database as as follows:
-<br>
-<em>Kinbank</em><br>
-<a>https://github.com/kinbank/kinbank</a href = https://github.com/kinbank/kinbank>
-
-<br>
-<em>Varikin</em><br>
-<a>https://github.com/kinbank/varikin</a href = https://github.com/kinbank/varikin>
-<br>
-
-<em>Parabank</em><br>
-<a>https://github.com/kinbank/parabank</a href = https://github.com/kinbank/parabank>
-<br>	
-<em>Kinura</em><br>
-<a>https://github.com/kinbank/kinura</a href = https://github.com/kinbank/kinura>
-
-<br>
-<em>MPEGKin</em><br>
-Birchall, J., Araujo, L. H., Passmore, S., & Jordan, F. M. (2022). MPEGKin: A database of kinship terminology from the Tupian and Cariban language families [Data set]. Zenodo. https://doi.org/10.5281/zenodo.6474213
-<br>
-<a>https://github.com/kinbank/goeldi</a href = https://github.com/kinbank/goeldi>
+<div class="data-table" id="getdata-content-table">
+	For each database, as well as the aggregated database can be found within the Github organization: 
+	<a href="https://github.com/kinbank/">https://github.com/kinbank/</a>
+	<br>
+	Archived versions of each database can be found by following the DOIs from their respected citations.
+	The citation for each database as as follows:
+	<br>
+	<em>Kinbank</em><br>
+	<a href = https://github.com/kinbank/kinbank>https://github.com/kinbank/kinbank</a>
+	
+	<br>
+	<em>Varikin</em><br>
+	<a href = https://github.com/kinbank/varikin>https://github.com/kinbank/varikin</a>
+	<br>
+	
+	<em>Parabank</em><br>
+	<a href = https://github.com/kinbank/parabank>https://github.com/kinbank/parabank</a>
+	<br>	
+	<em>Kinura</em><br>
+	<a href = https://github.com/kinbank/kinura>https://github.com/kinbank/kinura</a>
+	
+	<br>
+	<em>MPEGKin</em><br>
+	Birchall, J., Araujo, L. H., Passmore, S., & Jordan, F. M. (2022). MPEGKin: A database of kinship terminology from the Tupian and Cariban language families [Data set]. Zenodo. https://doi.org/10.5281/zenodo.6474213
+	<br>
+	<a href = https://github.com/kinbank/goeldi>https://github.com/kinbank/goeldi</a>
 </div>
 <div class="divider"></div>
-	
-
 
 <div id="table-title" class="table-title" class="container text-right">
 Database Content
@@ -75,7 +70,6 @@ The Team
 <a id="the-team" class="expand-button" href="">+</a>
 </div>
 <div id="the-team-table" class="data-table">
-
 
 <table class="teamPhotos">
 	{% for value in about %}
@@ -114,8 +108,17 @@ Funding and Affiliations
 </div>
 <div id="funding-table" class="data-table">
 <p>Funding</p>
-Kinbank, Parabank, Varikin, Kinura, and MPEGKin were constructed thanks to funding from the European Research Council (Varikin), 
-the British Academy International Partnership and Mobility Scheme (Museu Paraense Emílio Goeldi), the Kone Foundation (Kinura), and [other grants]
+Kinbank was built thanks to funding from the European Research Council, the ARC Centre of Excellence for the Dynamics of Language,
+ and the Max Planck Institute for the Science of Human History.
+
+Data collected by Varikin was funded thanks to the European Research Council. 
+
+Data collected by Parabank was funded thanks to the ARC Centre of Excellence for the Dynamics of Language,
+and the Max Planck Institute for the Science of Human History. 
+
+Data collected by MPEGKin was funded thanks to the British Academy International Partnership and Mobility Scheme and the European Research Council.
+
+Data collected by Kinura was funded thanks to the Kone Foundation. 
 
 {% endblock %}
 
