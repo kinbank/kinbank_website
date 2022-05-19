@@ -187,11 +187,15 @@ def language_detail(request, pk):
 						"yBS", "yBD", "yZS", "yZD"]
 	children_diagram = [ego+ct for ct in children_terms]
 
+	grandchild_terms = ['F', 'M', "S", "D", "SS", "DD", "SD", "DS"]
+	grandchild_diagram = [ego+ct for ct in grandchild_terms]
+
 	grandparents 	= get_svginfo(grandparent_diagram, pk)
 	parents 	    = get_svginfo(parent_diagram, pk)
 	children 		= get_svginfo(children_diagram, pk)
 	nuclear 		= get_svginfo(nuclear_diagram, pk)
 	cousin 			= get_svginfo(cousin_diagram, pk)
+	grandchildren 	= get_svginfo(grandchild_diagram, pk)
 
 	kinterms 			= get_kinterms(pk)
 
@@ -200,6 +204,7 @@ def language_detail(request, pk):
 	children_json 		= json.dumps(children, cls=DjangoJSONEncoder)
 	nuclear_json 		= json.dumps(nuclear, cls=DjangoJSONEncoder)
 	cousin_json 		= json.dumps(cousin, cls=DjangoJSONEncoder)
+	granchild_json		= json.dumps(grandchildren, cls=DjangoJSONEncoder)
 
 	description = Description.objects.values()
 	kinterms = relabel_table(kinterms, description)
@@ -211,6 +216,7 @@ def language_detail(request, pk):
 	'nuclear': nuclear_json, 
 	'cousin': cousin_json, 
 	'parents': parents_json,
+	'grandchildren': granchild_json,
 	'all': kinterms,
 	'ego': ego,
 	})

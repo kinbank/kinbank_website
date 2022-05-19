@@ -41,15 +41,16 @@
 			var nuclear 		= {{ nuclear|safe }};
 			var children 		= {{ children|safe }};
 			var cousin 			= {{ cousin|safe }};
-
-			var all_table 			= {{ all|safe }}
+			var grandchildren 	= {{ grandchildren|safe }};
+			var all_table 		= {{ all|safe }}
 			
 			window.onload = function() {
 				fill_diagram(grandparents, 'grandparents');
 				fill_diagram(parents, 'parents');
 				fill_diagram(nuclear, 'nuclear');
 				fill_diagram(children, 'children');
-				fill_diagram(cousin, 'cousin');				
+				fill_diagram(cousin, 'cousin');
+				fill_diagram(grandchildren, 'grandchildren');				
 			};
 	</script>
 
@@ -182,7 +183,7 @@ Children and Niblings
 	Grandchildren
 	<a id="children-box" class="expand-button" href=""></a>
 	</div>
-		<object type="image/svg+xml" data="{% if ego == 'm' %} {% static 'img/diagrams/children.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/children_female.svg' %} {% endif %} " id="children" class = "center" style = "height: 250px"></object>
+		<object type="image/svg+xml" data="{% if ego == 'm' %} {% static 'img/diagrams/grandchildren.svg' %} {% elif ego == 'f' %} {% static 'img/diagrams/grandchildren_female.svg' %} {% endif %} " id="grandchildren" class = "center" style = "height: 250px"></object>
 		<div id="second-table" class = "center"></div>
 	<div class="divider"></div>
 

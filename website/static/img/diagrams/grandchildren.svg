@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="524.61176pt"
-   height="310.44019pt"
-   viewBox="0 0 655.76459 388.05025"
+   width="510.9017pt"
+   height="464.24493pt"
+   viewBox="0 0 638.62703 580.3062"
    id="svg6868"
    version="1.1"
    inkscape:version="1.0.1 (c497b03c, 2020-09-10)"
@@ -24,15 +24,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.9899495"
-     inkscape:cx="418.80835"
-     inkscape:cy="128.62487"
+     inkscape:cx="396.7253"
+     inkscape:cy="325.17505"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     fit-margin-top="30"
+     fit-margin-top="50"
      fit-margin-left="50"
      fit-margin-right="50"
-     fit-margin-bottom="30"
+     fit-margin-bottom="75"
      units="pt"
      inkscape:window-width="1440"
      inkscape:window-height="766"
@@ -49,7 +49,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -57,7 +57,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(335.28653,-894.80162)">
+     transform="translate(325.00087,-755.04567)">
     <path
        transform="matrix(0.42114031,0,0,0.43528844,-87.084986,988.60818)"
        inkscape:randomized="0"
@@ -136,6 +136,89 @@
            y="18.928303" /></flowRegion><flowPara
          id="flowPara4198"
          style="font-size:40px;line-height:1.25">Father</flowPara></flowRoot>
+    <path
+       style="display:inline;fill:none;fill-rule:evenodd;stroke:#273253;stroke-width:3.04687;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -28.711207,847.753 H 12.316206"
+       id="path4247"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/sp16194/Desktop/kinship-diagram.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4251"
+       d="M -28.711207,855.5399 H 12.316206"
+       style="display:inline;fill:none;fill-rule:evenodd;stroke:#273253;stroke-width:3.04687;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="/Users/sp16194/Desktop/kinship-diagram.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       transform="matrix(0.42114031,0,0,0.43528844,67.128919,648.39863)"
+       inkscape:transform-center-y="-8.5718299"
+       inkscape:transform-center-x="0.074818462"
+       d="m -288.57146,512.36218 -68.74907,-0.3077 -68.74908,-0.3077 34.64101,-59.3846 34.64102,-59.38459 34.10806,59.69229 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="1.575272"
+       sodipodi:arg1="0.52807445"
+       sodipodi:r2="39.692696"
+       sodipodi:r1="79.385391"
+       sodipodi:cy="472.36218"
+       sodipodi:cx="-357.14288"
+       sodipodi:sides="3"
+       id="mFShape"
+       style="display:inline;fill:#57b5ed;fill-opacity:1;fill-rule:evenodd;stroke:#273253;stroke-width:4.39154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       sodipodi:type="star"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="/Users/sp16194/Desktop/kinship-diagram.png"
+       inkscape:label="#path4404" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4317-5-9"
+       d="m -8.3921537,855.8671 v 66.94106"
+       style="display:inline;fill:none;fill-rule:evenodd;stroke:#273253;stroke-width:3.0468749;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="/Users/sp16194/Desktop/kinship-diagram.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <ellipse
+       style="display:inline;fill:#1d1505;fill-opacity:1;fill-rule:evenodd;stroke:#273253;stroke-width:1.88027;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="mMShape"
+       cx="65.111954"
+       cy="845.3053"
+       rx="23.669672"
+       ry="26.141748"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="/Users/sp16194/Desktop/kinship-diagram.png"
+       inkscape:label="#ellipse4399-3-5-0-7" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#273253;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-85.643219"
+       y="903.04718"
+       id="mF"
+       inkscape:label="#text6768"
+       transform="scale(0.99368474,1.0063554)"><tspan
+         sodipodi:role="line"
+         id="tspan6770"
+         x="-85.643219"
+         y="903.04718"
+         style="font-size:36.0678px;line-height:1.25">F</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#273253;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="65.490448"
+       y="899.07233"
+       id="mM"
+       inkscape:label="#text6832"
+       transform="scale(0.99368474,1.0063554)"><tspan
+         sodipodi:role="line"
+         id="tspan6834"
+         x="65.490448"
+         y="899.07233"
+         style="font-size:36.0678px;line-height:1.25">M</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot5336"
@@ -234,7 +317,7 @@
        id="path4285-0"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#273253;stroke-width:3.04688;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;fill-rule:evenodd;stroke:#273253;stroke-width:3.0468749;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M -11.782948,1019.289 H 165.36877 v 10.586"
        id="path4287-2"
        inkscape:connector-curvature="0" />
