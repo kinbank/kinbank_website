@@ -24,13 +24,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
      inkscape:zoom="0.35"
-     inkscape:cx="703.16634"
+     inkscape:cx="724.59491"
      inkscape:cy="31.388637"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="890"
+     inkscape:window-width="1440"
+     inkscape:window-height="766"
      inkscape:window-x="0"
      inkscape:window-y="23"
      inkscape:window-maximized="1"
@@ -75,7 +75,7 @@
        sodipodi:cy="472.36218"
        sodipodi:cx="-357.14288"
        sodipodi:sides="3"
-       id="mMyBShape"
+       id="fMyBShape"
        style="display:inline;fill:#d3d3d3;fill-opacity:1;fill-rule:evenodd;stroke:#273253;stroke-width:2.75601;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        sodipodi:type="star"
        inkscape:export-xdpi="90"
@@ -87,7 +87,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#273253;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="426.45468"
        y="583.65295"
-       id="mMyB"
+       id="fMyB"
        inkscape:label="#text6800"
        transform="scale(0.99368474,1.0063554)"><tspan
          sodipodi:role="line"
@@ -97,7 +97,7 @@
          style="font-size:36.0678px;line-height:1.25">yB</tspan></text>
     <ellipse
        style="display:inline;fill:#d3d3d3;fill-opacity:1;fill-rule:evenodd;stroke:#273253;stroke-width:1.88027;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="mFyZShape"
+       id="fFyZShape"
        cx="-878.09094"
        cy="520.84717"
        rx="23.669672"
@@ -111,7 +111,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#273253;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="-886.07654"
        y="577.69086"
-       id="mFyZ"
+       id="fFyZ"
        inkscape:label="#text6800"
        transform="scale(0.99368474,1.0063554)"><tspan
          sodipodi:role="line"
@@ -134,7 +134,7 @@
        sodipodi:cy="472.36218"
        sodipodi:cx="-357.14288"
        sodipodi:sides="3"
-       id="mFyBShape"
+       id="fFyBShape"
        style="display:inline;fill:#d3d3d3;fill-opacity:1;fill-rule:evenodd;stroke:#273253;stroke-width:2.75601;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        sodipodi:type="star"
        inkscape:export-xdpi="90"
@@ -146,7 +146,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#273253;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="-592.00232"
        y="577.69086"
-       id="mFyB"
+       id="fFyB"
        inkscape:label="#text6800"
        transform="scale(0.99368474,1.0063554)"><tspan
          sodipodi:role="line"
@@ -156,7 +156,7 @@
          style="font-size:36.0678px;line-height:1.25">yB</tspan></text>
     <ellipse
        style="display:inline;fill:#d3d3d3;fill-opacity:1;fill-rule:evenodd;stroke:#273253;stroke-width:1.88027;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="mMyZShape"
+       id="fMyZShape"
        cx="138.89169"
        cy="524.84717"
        rx="23.669672"
@@ -170,7 +170,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#273253;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="137.37019"
        y="581.66559"
-       id="mMyZ"
+       id="fMyZ"
        inkscape:label="#text6800"
        transform="scale(0.99368474,1.0063554)"><tspan
          sodipodi:role="line"
@@ -209,7 +209,7 @@
        sodipodi:cy="472.36218"
        sodipodi:cx="-357.14288"
        sodipodi:sides="3"
-       id="mFShape"
+       id="fFShape"
        style="display:inline;fill:#d3d3d3;fill-opacity:1;fill-rule:evenodd;stroke:#273253;stroke-width:2.75601;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        sodipodi:type="star"
        inkscape:export-xdpi="90"
@@ -226,7 +226,7 @@
        inkscape:export-ydpi="90" />
     <ellipse
        style="display:inline;fill:#d3d3d3;fill-opacity:1;fill-rule:evenodd;stroke:#273253;stroke-width:1.88027;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="mMShape"
+       id="fMShape"
        cx="-136.05241"
        cy="464.85318"
        rx="23.669672"
@@ -240,7 +240,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#273253;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="-308.21317"
        y="525.89545"
-       id="mF"
+       id="fF"
        inkscape:label="#text6768"
        transform="scale(0.99368474,1.0063554)"><tspan
          sodipodi:role="line"
@@ -253,7 +253,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#273253;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="-136.95239"
        y="525.89545"
-       id="mM"
+       id="fM"
        inkscape:label="#text6832"
        transform="scale(0.99368474,1.0063554)"><tspan
          sodipodi:role="line"
@@ -261,28 +261,6 @@
          x="-136.95239"
          y="525.89545"
          style="font-size:36.0678px;line-height:1.25">M</tspan></text>
-    <path
-       transform="matrix(0.42114028,0,0,0.43528841,-71.298898,405.34512)"
-       inkscape:transform-center-y="-8.5718281"
-       inkscape:transform-center-x="0.07481844"
-       d="m -288.57146,512.36218 -68.74907,-0.3077 -68.74908,-0.3077 34.64101,-59.3846 34.64102,-59.38459 34.10806,59.69229 z"
-       inkscape:randomized="0"
-       inkscape:rounded="0"
-       inkscape:flatsided="false"
-       sodipodi:arg2="1.575272"
-       sodipodi:arg1="0.52807445"
-       sodipodi:r2="39.692696"
-       sodipodi:r1="79.385391"
-       sodipodi:cy="472.36218"
-       sodipodi:cx="-357.14288"
-       sodipodi:sides="3"
-       id="meBShape-5"
-       style="display:inline;fill:#e85243;fill-opacity:1;fill-rule:evenodd;stroke:#273253;stroke-width:2.75601;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       sodipodi:type="star"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"
-       inkscape:export-filename="/Users/sp16194/Desktop/kinship-diagram.png"
-       inkscape:label="#path4404" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#273253;stroke-width:3.08165;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -884.85444,346.2783 h 580.749"
@@ -323,7 +301,7 @@
        sodipodi:cy="472.36218"
        sodipodi:cx="-357.14288"
        sodipodi:sides="3"
-       id="mMeBShape"
+       id="fMeBShape"
        style="display:inline;fill:#d3d3d3;fill-opacity:1;fill-rule:evenodd;stroke:#273253;stroke-width:2.75601;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        sodipodi:type="star"
        inkscape:export-xdpi="90"
@@ -335,7 +313,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#273253;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="312.64954"
        y="449.24512"
-       id="mMeB"
+       id="fMeB"
        inkscape:label="#text6800"
        transform="scale(0.99368474,1.0063554)"><tspan
          sodipodi:role="line"
@@ -345,7 +323,7 @@
          style="font-size:36.0678px;line-height:1.25">eB</tspan></text>
     <ellipse
        style="display:inline;fill:#d3d3d3;fill-opacity:1;fill-rule:evenodd;stroke:#273253;stroke-width:1.88027;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="mFeZShape"
+       id="fFeZShape"
        cx="-755.55432"
        cy="395.25134"
        rx="23.669672"
@@ -359,7 +337,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#273253;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="-761.08673"
        y="449.24512"
-       id="mFeZ"
+       id="fFeZ"
        inkscape:label="#text6800"
        transform="scale(0.99368474,1.0063554)"><tspan
          id="tspan6802-0-0-2"
@@ -382,7 +360,7 @@
        sodipodi:cy="472.36218"
        sodipodi:cx="-357.14288"
        sodipodi:sides="3"
-       id="mFeBShape"
+       id="fFeBShape"
        style="display:inline;fill:#d3d3d3;fill-opacity:1;fill-rule:evenodd;stroke:#273253;stroke-width:2.75601;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        sodipodi:type="star"
        inkscape:export-xdpi="90"
@@ -394,7 +372,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#273253;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="-469.74475"
        y="451.23248"
-       id="mFeB"
+       id="fFeB"
        inkscape:label="#text6800"
        transform="scale(0.99368474,1.0063554)"><tspan
          sodipodi:role="line"
@@ -404,7 +382,7 @@
          style="font-size:36.0678px;line-height:1.25">eB</tspan></text>
     <ellipse
        style="display:inline;fill:#d3d3d3;fill-opacity:1;fill-rule:evenodd;stroke:#273253;stroke-width:1.88027;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="mMeZShape"
+       id="fMeZShape"
        cx="34.4785"
        cy="397.25134"
        rx="23.669672"
@@ -418,7 +396,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#273253;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="33.284283"
        y="451.23248"
-       id="mMeZ"
+       id="fMeZ"
        inkscape:label="#text6800"
        transform="scale(0.99368474,1.0063554)"><tspan
          sodipodi:role="line"
@@ -461,5 +439,16 @@
        d="m -755.57522,347.19225 v 17.11477"
        id="path6950-9-9-0-7"
        inkscape:connector-curvature="0" />
+    <ellipse
+       style="display:inline;fill:#e85243;fill-opacity:1;fill-rule:evenodd;stroke:#273253;stroke-width:1.88027;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="mMShape-0"
+       cx="-220.12932"
+       cy="600.94049"
+       rx="23.669672"
+       ry="26.141748"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="/Users/sp16194/Desktop/kinship-diagram.png"
+       inkscape:label="#ellipse4399-3-5-0-7" />
   </g>
 </svg>
