@@ -15,12 +15,12 @@
       
 <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
 
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
+
 <!-- Table Javascript & CSS -->
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/>
 <script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-
-<script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
-<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
 
 <script type="text/javascript">    
   $(document).ready( function () {
@@ -37,7 +37,6 @@
 
 <div id="map"></div>
 
-<!-- <script type='text/javascript' src="{% static "js/jquery.js" %}"></script> -->
 <script type='text/javascript' src="{% static 'js/maps.js' %}"></script>
 <script type="text/javascript">
       console.log(4 + 10);
@@ -48,6 +47,8 @@
 </script>
 
 <br> 
+
+{{ethonyms}}
 
 <table id="cults" class="display">
   <thead>

@@ -27,10 +27,8 @@ class DefaultListOrderedDict(OrderedDict):
 		return self[k]
 
 # Create your views here.
-# @login_required(login_url='/accounts/login/')
 def home(request):
 	# get terms
-	# print(BASE_DIR)
 	terms_list = []
 	while(len(terms_list) < 6):
 		# pick a language at random
@@ -98,7 +96,6 @@ def get_svginfo(parameters, pk):
 
 	# get colours (need a way of auto generating more colours.)
 	forms = list(set([x['form'] for x in parameter_list]))
-	# print(forms)
 	forms_cols = dict(zip(forms, colour_set))
 	for t in parameter_list:
 		if 'colour' not in t and t['form'] in forms_cols.keys():
@@ -108,7 +105,6 @@ def get_svginfo(parameters, pk):
 def get_kinterms(pk):
 	terms = Forms.objects.filter(glottocode = pk).values('parameter_id', 'form')
 	terms_list = list(terms)
-	# terms_list = list({t['parameter_id']:t for t in terms_list}.values())
 	data_items = []
 	for i, row in enumerate(terms_list):
 		element = terms_list[i]
