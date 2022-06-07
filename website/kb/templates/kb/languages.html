@@ -15,14 +15,18 @@
       
 <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
 
+<!-- Table Javascript & CSS -->
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/>
+<script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
 
 <script type="text/javascript">    
-
-
-    </script>
+  $(document).ready( function () {
+      $('#cults').DataTable();
+  } );
+</script>
 {% endblock %}
 
 
@@ -41,69 +45,7 @@
       };
 </script>
 
-<!-- <script >
-        mapboxgl.accessToken = 'pk.eyJ1Ijoic2FtLWJyaXN0b2wiLCJhIjoiY2thanA2N3M1MGNwdDJ5bzU1enFleXpwOSJ9._Ggbz1iaBqY2CNmfFeDWMQ';
-        var map = new mapboxgl.Map({
-        container: 'map', // container id
-        style: 'mapbox://styles/sam-bristol/ckajw2ywz2aik1itka7vmgfbh', // stylesheet location
-        center: [90, 0], // starting position [lng, lat]
-        zoom: 1.5 // starting zoom
-        });
 
-        var coordinates = JSON.parse("{{latlong|escapejs}}")
-
-
-        map.on('load', function() {
- 
-
-        // for (var i = 0; i < coordinates.length; i++) {
-        //     var item = coordinates[i];
-        //     // var marker = new mapboxgl.Marker()
-        //     //     .setLngLat([item.long, item.lat])
-        //     //     .addTo(map);
-        //     L.circle([item.long, item.lat], 4).addTo(map);
-        // }
-      // add data source to hold our data we want to display
-        map.addSource('circleData', {
-                type: 'geojson',
-                data: {
-                  type: 'FeatureCollection',
-                  features: [coordinates],
-                },
-              });
-
-      //   console.log("lucy")
-      //         // add a layer that displays the data
-      //   map.addLayer({
-      //               id: 'data',
-      //               type: 'circle',
-      //               source: 'circleData',
-      //               paint: {
-      //                 'circle-color': '#00b7bf',
-      //                 'circle-radius': 80,
-      //                 'circle-stroke-width': 10,
-      //                 'circle-stroke-color': '#333',
-      //              },
-      //       });
-
-      map.addLayer({
-            'id': 'data',
-            'type': 'circle',
-            'source': 'circleData',
-            'paint': {
-            // make circles larger as the user zooms from z12 to z22
-            'circle-radius': {
-            'base': 1.75,
-            'stops': [
-            [12, 2],
-            [22, 180]
-            ]
-            },
-        }
-        });
-
-  });
-</script> -->
 
 <div class = "alphabets">
     <ul class = "sortCultures">
@@ -137,7 +79,11 @@
 </div>	
 
 
-<table id="cults">
+<table id="cults" class="display">
+  <thead>
+    <th>Name</th>
+  </thead>
+  <tbody>
 	{% for key, value in ethonyms.items %}
 	  <tr id="{{key}}" class="letter-title"><td>{{key}}</td></tr>
 	  	{% for v in value %}
@@ -147,8 +93,28 @@
 	  			<tr class="empty"></tr>
 	  		{% endif %}
 	  	{% endfor %}
-	  
 	  {% endfor %}
+  </tbody>
  </table>
+
+
+ <table id="table_id" class="display">
+  <thead>
+      <tr>
+          <th>Column 1</th>
+          <th>Column 2</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Row 1 Data 1</td>
+          <td>Row 1 Data 2</td>
+      </tr>
+      <tr>
+          <td>Row 2 Data 1</td>
+          <td>Row 2 Data 2</td>
+      </tr>
+  </tbody>
+</table>
 
 {% endblock %}
