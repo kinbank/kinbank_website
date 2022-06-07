@@ -78,22 +78,17 @@
 	</ul>
 </div>	
 
+{{ethonyms}}
 
 <table id="cults" class="display">
   <thead>
     <th>Name</th>
   </thead>
   <tbody>
-	{% for key, value in ethonyms.items %}
-	  <tr id="{{key}}" class="letter-title"><td>{{key}}</td></tr>
-	  	{% for v in value %}
-	 		{% if v %}
-	  			<tr><td><a class="culture-link" href="{{v.glottocode}}">{{v.culture}}</a></td></tr>
-	  		{% elif value %}
-	  			<tr class="empty"></tr>
-	  		{% endif %}
-	  	{% endfor %}
-	  {% endfor %}
+	{% for e in ethonyms %}
+    {{ e.glottocode }}
+    <tr><td><a class="culture-link" href="{{e.glottocode}}">{{e.culture}}</a></td></tr>
+  {% endfor %}
   </tbody>
  </table>
 
