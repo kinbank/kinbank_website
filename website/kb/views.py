@@ -53,49 +53,13 @@ def home(request):
 	terms_json = json.dumps(terms_list, cls=DjangoJSONEncoder)
 	return render(request, 'kb/home.html', {'terms': terms_json, 'n_languages': n_languages})
 
-# def languages(request):
-# 	"""Culture Index"""
-# 	loca = []
-# 	locations = []
-# 	cultures = []
-# 	for c in Languages.objects.values('name', 'glottocode').distinct():
-# 		# if c['name']:
-# 		#     for e in c['name'].split('; '):
-# 		#         if len(e) > 0:
-# 		#             cultures.append({'culture': e}) #, 'slug': c.slug
-# 		cultures.append({'culture': c['name'], 'glottocode': c['glottocode']}) #, 'slug': c.slug
-# 		#cultures.sort()
-# 		cultures.sort(key=lambda x: x['culture'], reverse=False)
-
-# 		lat = Languages.objects.filter(name=c['name']).values_list('latitude', flat=True)[0]
-# 		longi = Languages.objects.filter(name=c['name']).values_list('longitude', flat=True)[0]
-
-# 		# if lat is not None and longi is not None:		
-# 		# 	loca.append(Feature(geometry=Point((lat, longi)), properties={"name": c['name'].replace("'", "\'"), "glottocode": c['glottocode']}))
-
-# 		if lat is not None and longi is not None:
-# 		    locations.append(
-# 		        {"lat": lat, "long": longi, "culture": c['name'].replace("'", "\'"), "glottocode": c['glottocode']}) # , "slug": c.slug
-
-# 	# locations = FeatureCollection(loca)
-# 	ethonymDict = DefaultListOrderedDict()
-# 	for a in ascii_uppercase:
-# 		ethonymDict[a].append(None)
-# 	for d in cultures:
-# 		ethonymDict[d['culture'][0]].append(d)
-
-# 	return render(request, 
-# 		'kb/languages.html',
-# 		{'ethonyms': OrderedDict(ethonymDict), 'latlong': json.dumps(locations)}
-# 		)
-
 def languages(request):
 	"""Culture Index"""
 	locations = []
 	cultures = []
-	languages = Languages.objects.values('name', 'glottocode').distinct()
+	languages = Languages.objects.values('name', 'glottocode', 'family', 'project').distinct()
 	for c in languages:
-		cultures.append({'culture': c['name'], 'glottocode': c['glottocode']}) 
+		cultures.append({'culture': c['name'], 'glottocode': c['glottocode'], 'family': c['family'], 'project': c['project']}) 
 		cultures.sort(key=lambda x: x['culture'], reverse=False)
 
 		lat = Languages.objects.filter(name=c['name']).values_list('latitude', flat=True)[0]
