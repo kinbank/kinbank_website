@@ -15,14 +15,20 @@
       
 <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
 
-
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
 
+<!-- Table Javascript & CSS -->
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/>
+<script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
 <script type="text/javascript">    
-
-
-    </script>
+  $(document).ready( function () {
+      $('#cults').DataTable({
+        paging: false
+      });
+  } );
+</script>
 {% endblock %}
 
 
@@ -31,7 +37,6 @@
 
 <div id="map"></div>
 
-<!-- <script type='text/javascript' src="{% static "js/jquery.js" %}"></script> -->
 <script type='text/javascript' src="{% static 'js/maps.js' %}"></script>
 <script type="text/javascript">
       console.log(4 + 10);
@@ -41,114 +46,25 @@
       };
 </script>
 
-<!-- <script >
-        mapboxgl.accessToken = 'pk.eyJ1Ijoic2FtLWJyaXN0b2wiLCJhIjoiY2thanA2N3M1MGNwdDJ5bzU1enFleXpwOSJ9._Ggbz1iaBqY2CNmfFeDWMQ';
-        var map = new mapboxgl.Map({
-        container: 'map', // container id
-        style: 'mapbox://styles/sam-bristol/ckajw2ywz2aik1itka7vmgfbh', // stylesheet location
-        center: [90, 0], // starting position [lng, lat]
-        zoom: 1.5 // starting zoom
-        });
+<br> 
 
-        var coordinates = JSON.parse("{{latlong|escapejs}}")
-
-
-        map.on('load', function() {
- 
-
-        // for (var i = 0; i < coordinates.length; i++) {
-        //     var item = coordinates[i];
-        //     // var marker = new mapboxgl.Marker()
-        //     //     .setLngLat([item.long, item.lat])
-        //     //     .addTo(map);
-        //     L.circle([item.long, item.lat], 4).addTo(map);
-        // }
-      // add data source to hold our data we want to display
-        map.addSource('circleData', {
-                type: 'geojson',
-                data: {
-                  type: 'FeatureCollection',
-                  features: [coordinates],
-                },
-              });
-
-      //   console.log("lucy")
-      //         // add a layer that displays the data
-      //   map.addLayer({
-      //               id: 'data',
-      //               type: 'circle',
-      //               source: 'circleData',
-      //               paint: {
-      //                 'circle-color': '#00b7bf',
-      //                 'circle-radius': 80,
-      //                 'circle-stroke-width': 10,
-      //                 'circle-stroke-color': '#333',
-      //              },
-      //       });
-
-      map.addLayer({
-            'id': 'data',
-            'type': 'circle',
-            'source': 'circleData',
-            'paint': {
-            // make circles larger as the user zooms from z12 to z22
-            'circle-radius': {
-            'base': 1.75,
-            'stops': [
-            [12, 2],
-            [22, 180]
-            ]
-            },
-        }
-        });
-
-  });
-</script> -->
-
-<div class = "alphabets">
-    <ul class = "sortCultures">
-      <li><a href="#A">A</a></li>
-        <li><a href="#B">B</a></li>
-        <li><a href="#C">C</a></li>
-        <li><a href="#D">D</a></li>
-        <li><a href="#E">E</a></li>
-        <li><a href="#F">F</a></li>
-        <li><a href="#G">G</a></li>
-        <li><a href="#H">H</a></li>
-        <li><a href="#I">I</a></li>
-        <li><a href="#J">J</a></li>
-        <li><a href="#K">K</a></li>
-        <li><a href="#L">L</a></li>
-        <li><a href="#M">M</a></li>
-        <li><a href="#N">N</a></li>
-        <li><a href="#O">O</a></li>
-        <li><a href="#P">P</a></li>
-        <li><a href="#Q">Q</a></li>
-        <li><a href="#R">R</a></li>
-        <li><a href="#S">S</a></li>
-        <li><a href="#T">T</a></li>
-        <li><a href="#U">U</a></li>
-        <li><a href="#V">V</a></li>
-        <li><a href="#W">W</a></li>
-        <li><a href="#X">X</a></li>
-        <li><a href="#Y">Y</a></li>
-        <li><a href="#Z">Z</a></li>
-	</ul>
-</div>	
-
-
-<table id="cults">
-	{% for key, value in ethonyms.items %}
-	  <tr id="{{key}}" class="letter-title"><td>{{key}}</td></tr>
-	  	{% for v in value %}
-	 		{% if v %}
-	  			<tr><td><a class="culture-link" href="{{v.glottocode}}">{{v.culture}}</a></td></tr>
-	  		{% elif value %}
-	  			<tr class="empty"></tr>
-	  		{% endif %}
-	  	{% endfor %}
-	  
-	  {% endfor %}
+<table id="cults" class="display">
+  <thead>
+    <th>Name</th>
+    <th>Glottocode</th>
+    <th>Language Family</th>
+    <th>Project</th>
+  </thead>
+  <tbody>
+	{% for e in ethonyms %}
+    <tr>
+      <td><a class="culture-link" href="{{e.glottocode}}">{{e.culture}}</a></td>
+      <td><a class="culture-link" href="{{e.glottocode}}">{{e.glottocode}}</a></td>
+      <td>{{e.family}}</td>
+      <td>{{e.project}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
  </table>
 
 {% endblock %}

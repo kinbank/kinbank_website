@@ -54,8 +54,6 @@ class Description(models.Model):
 class Sources(models.Model):
     category = models.TextField(db_column='CATEGORY', blank=True)  # Field name made lowercase.
     bibtexkey = models.TextField(db_column='BIBTEXKEY', blank=True, primary_key = True)  # Field name made lowercase.
-    #bibtexkey = models.ForeignKey(Forms, on_delete=models.CASCADE)
-    #bibtexkey = models.OneToOneField(Forms, on_delete=models.CASCADE, db_column='bibtexkey', primary_key = True)
     address = models.TextField(db_column='ADDRESS', blank=True, null=True)  # Field name made lowercase.
     annote = models.IntegerField(db_column='ANNOTE', blank=True, null=True)  # Field name made lowercase.
     author = models.TextField(db_column='AUTHOR', blank=True, null=True)  # Field name made lowercase.
@@ -155,7 +153,6 @@ class Forms(models.Model):
     form = models.TextField(db_column='Form', blank=True, null=True)  # Field name made lowercase.
     segments = models.IntegerField(db_column='Segments', blank=True, null=True)  # Field name made lowercase.
     comment = models.TextField(db_column='Comment', blank=True, null=True)  # Field name made lowercase.
-    #source = models.TextField(db_column='Source', blank=True, null=True)  # Field name made lowercase.
     source = models.ForeignKey(Sources, on_delete=models.CASCADE, db_column='source')
     cognacy = models.IntegerField(db_column='Cognacy', blank=True, null=True)  # Field name made lowercase.
     loan = models.IntegerField(db_column='Loan', blank=True, null=True)  # Field name made lowercase.

@@ -27,10 +27,8 @@ class DefaultListOrderedDict(OrderedDict):
 		return self[k]
 
 # Create your views here.
-# @login_required(login_url='/accounts/login/')
 def home(request):
 	# get terms
-	# print(BASE_DIR)
 	terms_list = []
 	while(len(terms_list) < 6):
 		# pick a language at random
@@ -53,45 +51,26 @@ def home(request):
 	terms_json = json.dumps(terms_list, cls=DjangoJSONEncoder)
 	return render(request, 'kb/home.html', {'terms': terms_json, 'n_languages': n_languages})
 
-# @login_required(login_url='/accounts/login/')
 def languages(request):
 	"""Culture Index"""
-	loca = []
 	locations = []
 	cultures = []
-	for c in Languages.objects.values('name', 'glottocode').distinct():
-		# if c['name']:
-		#     for e in c['name'].split('; '):
-		#         if len(e) > 0:
-		#             cultures.append({'culture': e}) #, 'slug': c.slug
-		cultures.append({'culture': c['name'], 'glottocode': c['glottocode']}) #, 'slug': c.slug
-		#cultures.sort()
+	languages = Languages.objects.values('name', 'glottocode', 'family', 'project').distinct()
+	for c in languages:
+		cultures.append({'culture': c['name'], 'glottocode': c['glottocode'], 'family': c['family'], 'project': c['project']}) 
 		cultures.sort(key=lambda x: x['culture'], reverse=False)
 
 		lat = Languages.objects.filter(name=c['name']).values_list('latitude', flat=True)[0]
 		longi = Languages.objects.filter(name=c['name']).values_list('longitude', flat=True)[0]
 
-		# if lat is not None and longi is not None:		
-		# 	loca.append(Feature(geometry=Point((lat, longi)), properties={"name": c['name'].replace("'", "\'"), "glottocode": c['glottocode']}))
-
-
 		if lat is not None and longi is not None:
 		    locations.append(
 		        {"lat": lat, "long": longi, "culture": c['name'].replace("'", "\'"), "glottocode": c['glottocode']}) # , "slug": c.slug
-
-	# locations = FeatureCollection(loca)
-	ethonymDict = DefaultListOrderedDict()
-	for a in ascii_uppercase:
-		ethonymDict[a].append(None)
-	for d in cultures:
-		ethonymDict[d['culture'][0]].append(d)
-
+	
 	return render(request, 
 		'kb/languages.html',
-		{'ethonyms': OrderedDict(ethonymDict), 'latlong': json.dumps(locations)}
+		{'ethonyms': cultures, 'latlong': json.dumps(locations)}
 		)
-
-
 
 def get_svginfo(parameters, pk):
 	terms = Forms.objects.filter(glottocode = pk, parameter_id__in = parameters).values('parameter_id', 'form')
@@ -117,7 +96,6 @@ def get_svginfo(parameters, pk):
 
 	# get colours (need a way of auto generating more colours.)
 	forms = list(set([x['form'] for x in parameter_list]))
-	# print(forms)
 	forms_cols = dict(zip(forms, colour_set))
 	for t in parameter_list:
 		if 'colour' not in t and t['form'] in forms_cols.keys():
@@ -127,7 +105,6 @@ def get_svginfo(parameters, pk):
 def get_kinterms(pk):
 	terms = Forms.objects.filter(glottocode = pk).values('parameter_id', 'form')
 	terms_list = list(terms)
-	# terms_list = list({t['parameter_id']:t for t in terms_list}.values())
 	data_items = []
 	for i, row in enumerate(terms_list):
 		element = terms_list[i]
