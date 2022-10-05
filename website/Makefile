@@ -23,7 +23,7 @@ open:
 
 data:
 	cd ./kinbank && git pull
-	python add_columnGlottocode.py
+	./myvenv/bin/python add_columnGlottocode.py
 	cp ./kinbank/kinbank/etc/languages.csv ./kinbank/kinbank/cldf/languages.csv
 	./myvenv/bin/csvs-to-sqlite ./kinbank/kinbank/cldf/*.csv ./kinbank.sqlite3
 	./myvenv/bin/csvs-to-sqlite  ./static/about.csv ./kinbank.sqlite3
