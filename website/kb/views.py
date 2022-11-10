@@ -106,16 +106,20 @@ def get_kinterms(pk):
 	terms = Forms.objects.filter(glottocode = pk).values('parameter_id', 'form')
 	terms_list = list(terms)
 	data_items = []
+	print(terms_list)
 	for i, row in enumerate(terms_list):
 		element = terms_list[i]
 		element['speaker'] = element['parameter_id'][0] 
 		# seperate kinterm
 		element['display_parameter'] = element['parameter_id'][1:]
 
+
+		# make kinterm display
 		if any(d['parameter_id'] == element['parameter_id'] for d in data_items):
 			for i, d in enumerate(data_items):
 				if d['parameter_id'] == element['parameter_id']:
-					data_items[i]["form"] = data_items[i]["form"] +", "+ element["form"]
+					# data_items[i]["form"] = data_items[i]["form"] +", "+ element["form"]
+					data_items
 		else:
 			data_items.append(element)
 
