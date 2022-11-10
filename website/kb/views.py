@@ -174,8 +174,6 @@ def language_detail(request, pk):
 	cousin 			= get_svginfo(cousin_diagram, pk)
 	grandchildren 	= get_svginfo(grandchild_diagram, pk)
 
-	kinterms 			= get_kinterms(pk)
-
 	grandparents_json 	= json.dumps(grandparents, cls=DjangoJSONEncoder)
 	parents_json 		= json.dumps(parents, cls=DjangoJSONEncoder)
 	children_json 		= json.dumps(children, cls=DjangoJSONEncoder)
@@ -183,8 +181,9 @@ def language_detail(request, pk):
 	cousin_json 		= json.dumps(cousin, cls=DjangoJSONEncoder)
 	granchild_json		= json.dumps(grandchildren, cls=DjangoJSONEncoder)
 
+	kinterms_raw		= get_kinterms(pk)
 	description = Description.objects.values()
-	kinterms = relabel_table(kinterms, description)
+	kinterms = relabel_table(kinterms_raw, description)
 
 	return render(request, 'kb/language_detail.html', 
 	{'metadata': metadata, 
@@ -196,6 +195,7 @@ def language_detail(request, pk):
 	'grandchildren': granchild_json,
 	'all': kinterms,
 	'ego': ego,
+	'test': kinterms_raw
 	})
 
 # @login_required(login_url='/accounts/login/')

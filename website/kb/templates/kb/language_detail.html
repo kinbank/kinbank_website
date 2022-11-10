@@ -54,6 +54,7 @@
 			var children 		= {{ children|safe }};
 			var cousin 			= {{ cousin|safe }};
 			var grandchildren 	= {{ grandchildren|safe }};
+			var raw				= {{ test|safe }}
 			
 			window.onload = function() {
 				fill_diagram(grandparents, 'grandparents');
