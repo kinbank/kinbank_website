@@ -11,10 +11,8 @@ function main(markers){
 	    subdomains: ['a','b','c']
 	}).addTo( map );
 
-	for ( var i=0; i < markers.length; ++i ) 
-	{
-
-	   L.circle( [markers[i].lat, markers[i].long] , {color: '#ED5C4D', opacity:.5})
+	for ( var i=0; i < markers.length; ++i ) {
+	   L.circleMarker( [markers[i].lat, markers[i].long] , {color: '#ED5C4D', opacity:.5, radius: 5})
 	      .bindPopup( '<a href="' + markers[i].glottocode + '" ">' + markers[i].culture + '</a>' )
 	      .addTo( map );
 	}
@@ -26,16 +24,6 @@ function main(markers){
 
 	map.on('zoomstart', function(e) {
 	   myZoom.start = map.getZoom();
-	});
-
-	map.on('zoomend', function(e) {
-	    myZoom.end = map.getZoom();
-	    var diff = myZoom.start - myZoom.end;
-	    if (diff > 0) {
-	        circle.setRadius(circle.getRadius() * 2);
-	    } else if (diff < 0) {
-	        circle.setRadius(circle.getRadius() / 2);
-	    }
 	});
 
 }

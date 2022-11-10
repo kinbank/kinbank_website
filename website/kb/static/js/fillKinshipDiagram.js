@@ -19,8 +19,23 @@ function fill_diagram(terms, diagram='kinshipdiagram'){
 
         if (shape != null && kincode != null){
             shape.style.fill = terms[i].colour;
+           
+            // trying to get mouse over for extr terms here
+            // if(terms[i].extra != null){
+            //     shape.addEventListener('click', function() {
+            //         svgDocument.getElementById("mM").style.fill = "#57B5ED";
+            //     })
+            // }
         }
     }
+
+    //  mouse over example code
+    // svgDocument.getElementById("mMShape")
+    //       .addEventListener('click', function(e) {
+    //       e.currentTarget.setAttribute('fill', '#ff00cc');
+    //     });
+
+
 
     language_name = svgDocument.getElementById('language_name')
     if(language_name != null){
@@ -28,4 +43,12 @@ function fill_diagram(terms, diagram='kinshipdiagram'){
         language_name.style.fontSize = "25px"
         language_name.style('fill', "#57B5ED") 
     }
+    
+    // change sex of speaker caoption 
+    // speaker_text = parameter.substr(parameter.length - 2);
+    // speaker_obj = svgDocument.getElementById("speaker");
+    // if (speaker_text != null){
+    //         speaker_obj.textContent = speaker_text;
+    //         speaker_obj.style.fontSize = "20px"
+    // }
 }

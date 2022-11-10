@@ -59,7 +59,6 @@ input:checked + .slider:before {
   transform: translateX(55px);
 }
 
-/*------ ADDED CSS ---------*/
 .slider:after
 {
  content:'OFF';
@@ -78,4 +77,3 @@ input:checked + .slider:after
   content:'ON';
 }
 
-/*--------- END --------*/
