@@ -74,9 +74,31 @@ def languages(request):
 
 def get_svginfo(parameters, pk):
 	terms = Forms.objects.filter(glottocode = pk, parameter_id__in = parameters).values('parameter_id', 'form')
+	
 	# re format 
 	terms_list = list(terms)
-	terms_list = list({t['parameter_id']:t for t in terms_list}.values())
+	
+	parameter_dict = dict.fromkeys(parameters)
+
+	for t in terms_list:
+		key = t['parameter_id']
+		value = t['form']
+
+		if parameter_dict[key] is None:
+			parameter_dict[key] = value
+	
+	print(parameter_dict)
+
+	# terms_list = list({t['parameter_id']:t for t in terms_list}.values())
+	
+
+	# output_list = []
+	# output_list [output_list.append("parameter" = p)for p in parameters]
+
+	terms_df = pd.DataFrame(list(terms))
+	fill_df = terms_df.drop_duplicates()
+
+	fill_dict = fill_df.to_dict('index')
 
 	parameter_list = defaultdict()
 	for t in terms_list:
@@ -100,6 +122,7 @@ def get_svginfo(parameters, pk):
 	for t in parameter_list:
 		if 'colour' not in t and t['form'] in forms_cols.keys():
 			t['colour'] = forms_cols[t['form']]
+	
 	return parameter_list
 
 def get_kinterms(pk):
