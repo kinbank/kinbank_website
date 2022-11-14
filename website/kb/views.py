@@ -78,6 +78,14 @@ def get_svginfo(parameters, pk):
 	# re format 
 	terms_list = list(terms)
 	
+	terms_df = pd.DataFrame(list(terms))
+
+	parameter_df = terms_df.drop_duplicates(subset = "parameter_id")
+	
+	# strings of alternative terms
+	# extra_df = 
+
+
 	parameter_dict = dict.fromkeys(parameters)
 
 	for t in terms_list:
@@ -89,26 +97,15 @@ def get_svginfo(parameters, pk):
 	
 	print(parameter_dict)
 
-	# terms_list = list({t['parameter_id']:t for t in terms_list}.values())
-	
-
-	# output_list = []
-	# output_list [output_list.append("parameter" = p)for p in parameters]
-
-	terms_df = pd.DataFrame(list(terms))
-	fill_df = terms_df.drop_duplicates()
-
-	fill_dict = fill_df.to_dict('index')
-
-	parameter_list = defaultdict()
-	for t in terms_list:
+	# parameter_list = defaultdict()
+	# for t in terms_list:
 		
-		key = t['parameter_id']
-		value = t['form']
-		if key in parameter_list:
-			parameter_list[key]['extra'] = parameter_list[key]['extra'] + "; " + value
-		else:
-			parameter_list[key] = {'parameter_id': key, 'form': value, 'extra': value}
+	# 	key = t['parameter_id']
+	# 	value = t['form']
+	# 	if key in parameter_list:
+	# 		parameter_list[key]['extra'] = parameter_list[key]['extra'] + "; " + value
+	# 	else:
+	# 		parameter_list[key] = {'parameter_id': key, 'form': value, 'extra': value}
 
 	for p in parameters:
 		if p not in parameter_list:
