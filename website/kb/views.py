@@ -97,15 +97,15 @@ def get_svginfo(parameters, pk):
 	
 	print(parameter_dict)
 
-	# parameter_list = defaultdict()
-	# for t in terms_list:
+	parameter_list = defaultdict()
+	for t in terms_list:
 		
-	# 	key = t['parameter_id']
-	# 	value = t['form']
-	# 	if key in parameter_list:
-	# 		parameter_list[key]['extra'] = parameter_list[key]['extra'] + "; " + value
-	# 	else:
-	# 		parameter_list[key] = {'parameter_id': key, 'form': value, 'extra': value}
+		key = t['parameter_id']
+		value = t['form']
+		if key in parameter_list:
+			parameter_list[key]['extra'] = parameter_list[key]['extra'] + "; " + value
+		else:
+			parameter_list[key] = {'parameter_id': key, 'form': value, 'extra': value}
 
 	for p in parameters:
 		if p not in parameter_list:
