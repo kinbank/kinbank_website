@@ -1,19 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Network</title>
-    <script
-      type="text/javascript"
-      src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"
-    ></script>
-    <style type="text/css">
-      #mynetwork {
-        width: 1000px;
-        height: 680px;
-        border: 1px solid lightgray;
-      }
-    </style>
-  </head>
+{% extends 'kb/base.html' %}
+{% load render_table from django_tables2 %}
+
+{% load static %}
+
+{% block extrahead %}
+
+<title>Network</title>
+<script
+  type="text/javascript"
+  src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"
+></script>
+<style type="text/css">
+  #mynetwork {
+    width: 1000px;
+    height: 680px;
+    border: 1px solid lightgray;
+  }
+</style>
+
+
+{% endblock %}
+
+{% block content %}
   <body onload="pageLoader()">
   <select id="familyDropdown" onchange="selectPattern()">
    <option value="all_families" selected>all Families</option>
@@ -184,5 +192,4 @@ function selectPattern() {
 
 //redrawAll();
     </script>
-  </body>
-</html>
+{% endblock %}
