@@ -66,3 +66,8 @@
 .familytree{
     max-width: 95%;
 }
+
+.easteregg, .easteregg:hover, .easteregg:visited{
+	color: #273253;
+	text-decoration: none;
+}
