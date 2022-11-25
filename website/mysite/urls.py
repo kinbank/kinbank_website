@@ -24,5 +24,6 @@ urlpatterns = [
 	path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('', include('kb.urls')),
-    path('kinship_networks/', TemplateView.as_view(template_name="networkGraph_family.html")),
+    path('family_networks/', TemplateView.as_view(template_name="networkGraph_family.html")),
+    path('language_networks/', TemplateView.as_view(template_name="networkGraph_language.html")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

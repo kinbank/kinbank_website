@@ -23,6 +23,18 @@
 
 {% block content %}
   <body onload="pageLoader()">
+
+    <div class="sidebar-nav">
+      <ul>
+          <li id="languages">
+              <a href="/language_networks">Language networks</a>
+          </li>
+          <li id="family">
+              <a style="color: #57B5ED" href="/family_networks/">Family networks</a>
+          </li>
+          <li></li>
+    </div>
+
   <select id="familyDropdown" onchange="selectPattern()">
    <option value="all_families" selected>all Families</option>
    <!-- here the list of options will be added for languge names --> 
