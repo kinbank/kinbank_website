@@ -1,8 +1,8 @@
+{% extends 'kb/base.html' %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-<head>
+{% block extrahead %}
 <title> Global Syncretism</title>
 
 <!--
@@ -61,9 +61,11 @@ input[type=checkbox] {
 }
 </style>
 
-</head>
+{% endblock %}
 
-<body style="background: #F2F2F2;" onload="pageLoader()">
+{% block content %}
+
+<body onload="pageLoader()">
 
 <h3>Select kin/pronoun types to see the pattern of syncretism</h3>
 
@@ -682,4 +684,4 @@ function selectPattern() {
 
 </script>
 </body>
-</html> 
+{% endblock %}
