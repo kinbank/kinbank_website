@@ -28,5 +28,4 @@ urlpatterns = [
     path('language_networks/', TemplateView.as_view(template_name="tools/networkGraph_language.html")),
     path('kinspector/', TemplateView.as_view(template_name="tools/kinspector_global.html")),
     path('syncretism_frequency/', TemplateView.as_view(template_name="tools/syncretism_frequency_global.html")),
-    path('syncretism_location/', TemplateView.as_view(template_name="tools/syncretism_location_global.html")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

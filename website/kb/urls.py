@@ -7,5 +7,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
     path('languages/', views.languages, name='languages'),
-    path('languages/<str:pk>/', views.language_detail, name='language_detail')
+    path('languages/<str:pk>/', views.language_detail, name='language_detail'),
+    path('syncretism_location/', views.syncretism_location_global, name = "tools/syncretism_location_global.html")
 ]

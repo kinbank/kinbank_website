@@ -125,7 +125,8 @@ def get_svginfo(parameters, pk):
 def get_kinterms(pk):
 	terms = Forms.objects.filter(glottocode = pk).values('parameter_id', 'form')
 	terms_list = list(terms)
-	
+	print(terms_list)
+
 	terms_df = pd.DataFrame.from_dict(terms_list)
 	unique_parameters = terms_df["parameter_id"].unique()
 	
@@ -156,7 +157,7 @@ def get_kinterms(pk):
 
 # for languages detail
 def language_detail(request, pk):
-	languages = get_list_or_404(Languages, glottocode=pk)
+	#languages = get_list_or_404(Languages, glottocode=pk)
 	metadata = Languages.objects.filter(glottocode = pk).first()
 	ego = 'm'
 
@@ -218,8 +219,26 @@ def language_detail(request, pk):
 	'test': kinterms_raw
 	})
 
-# @login_required(login_url='/accounts/login/')
 def about(request): 
 	about = About.objects.all()
 	n_languages = Forms.objects.values('language_id').distinct().count()
 	return render(request, 'kb/about.html', {'about': about, 'n_languages' : n_languages})
+
+def syncretism_location_global(request):
+	data = Forms.objects.values('id', 'form')
+
+	result = {}	
+
+	for item in data:
+		id_parts = item['id'].split('-')
+		if len(id_parts) == 3:
+			verb_id = id_parts[0][2:]
+			param_id = id_parts[1]
+			form = item['form']
+			if verb_id not in result:
+				result[verb_id] = {}
+			if param_id not in result[verb_id]:
+				result[verb_id][param_id] = []
+			result[verb_id][param_id].append(form)
+
+	return render(request, 'tools/syncretism_location_global.html', {'kinterms': result})
