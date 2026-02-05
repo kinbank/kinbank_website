@@ -28,7 +28,7 @@ DEBUG = True
 if os.getcwd() == '/website':
     DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.kinbank.net']
 
 
 # Application definition
@@ -115,8 +115,6 @@ TIME_ZONE = 'Europe/London'
 
 USE_I18N = True
 
-USE_L10N = True
-
 USE_TZ = True
 
 
@@ -127,3 +125,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static') # path for static files
 
 LOGIN_REDIRECT_URL = ''
+
+# Other Default Settings
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
