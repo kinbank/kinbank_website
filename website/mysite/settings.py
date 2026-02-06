@@ -28,7 +28,7 @@ DEBUG = True
 if os.getcwd() == '/website':
     DEBUG = False
 
-ALLOWED_HOSTS = ['www.kinbank.net']
+ALLOWED_HOSTS = ['www.kinbank.net', '127.0.0.1']
 
 
 # Application definition
