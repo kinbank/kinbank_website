@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_list_or_404
+from django.shortcuts import render
 from .models import Forms, Languages, About, Description
 import pandas as pd
 from collections import defaultdict, OrderedDict

@@ -1,7 +1,7 @@
 # Dockerfile
 
 # FROM directive instructing base image to build upon
-FROM python:3.7-buster
+FROM python:3.12-slim-bookworm
 
 # Install Source scripts
 RUN mkdir -p /opt/app
