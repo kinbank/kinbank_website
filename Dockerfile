@@ -9,7 +9,11 @@ RUN mkdir -p /opt/app/pip_cache
 RUN mkdir -p /opt/app/website
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-COPY requirements.txtwebsite/deploy/gunicorn_starter.sh /opt/app/
+RUN ls -l
+
+COPY website/deploy/gunicorn_starter.sh /opt/app/
+
+RUN ls -l /opt/app
 
 COPY website /opt/app/website/
 WORKDIR /opt/app/website
