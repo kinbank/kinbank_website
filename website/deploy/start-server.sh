@@ -5,5 +5,5 @@ if [ -n "$DJANGO_SUPERUSER_USERNAME" ] && [ -n "$DJANGO_SUPERUSER_PASSWORD" ] ; 
 fi
 echo $PWD
 # (cd ./website/; gunicorn mysite.wsgi --preload --bind 127.0.0.1:8010 --workers 3) &
-(cd /opt/app/website/deploy; gunicorn --bind 127.0.0.1:8010 mysite.wsgi:application) &
+(cd /opt/app/website/; gunicorn --bind 127.0.0.1:8010 mysite.wsgi:application) &
 nginx -g "daemon off;"
