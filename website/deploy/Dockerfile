@@ -11,7 +11,10 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 RUN ls -l
 
-COPY ./requirements.txt website/deploy/gunicorn_starter.sh /opt/app/
+COPY website/deploy/gunicorn_starter.sh /opt/app/
+
+RUN ls -l /opt/app
+
 COPY website /opt/app/website/
 WORKDIR /opt/app/website
 RUN pip install -r /opt/app/requirements.txt --cache-dir /opt/app/pip_cache
