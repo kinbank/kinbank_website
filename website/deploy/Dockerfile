@@ -9,7 +9,7 @@ RUN mkdir -p /opt/app/pip_cache
 RUN mkdir -p /opt/app/website
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-COPY requirements.txt gunicorn_starter.sh /opt/app/
+COPY requirements.txt website/deploy/gunicorn_starter.sh /opt/app/
 COPY website /opt/app/website/
 WORKDIR /opt/app/website
 RUN pip install -r /opt/app/requirements.txt --cache-dir /opt/app/pip_cache
@@ -31,7 +31,7 @@ RUN python /opt/app/website/manage.py migrate
 
 # run gunicorn
 EXPOSE $PORT
-ENTRYPOINT ["/opt/app/gunicorn_starter.sh"]
+ENTRYPOINT ["/opt/app/webiste/deploy/gunicorn_starter.sh"]
 
 #EXPOSE 8020
 #ENTRYPOINT ["/opt/app/gunicorn_starter.sh"]
