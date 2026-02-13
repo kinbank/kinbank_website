@@ -1,0 +1,127 @@
+{% extends 'kb/base.html' %}
+{% load static %}
+
+{% block extrahead %}
+
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div id="aboutText">
+Kinbank is a database of kinship terminologies to be used for exploring cross-linguistic diversity 
+in kinship organisation. The database includes {{ n_languages }} languages and a set of 100 core kin types between Grandparents and Grandchildren, and between Parent's siblings, and Parent's siblings’ children. A major advantage of Kinbank is the focused language family sampling and sampling based on occurrence in existing anthropological databases (e.g. <a href"www.dplace.org">d-place.org</a>), allowing us to test the relationship between languages and behaviour. This allows the use of phylogenetic methods to reconstruct the states of proto-kinship, account for common ancestry in models of kinship change, and test for correlated evolution between linguistic and behavioural patterns.
+</div>
+
+<div class="divider"></div>
+
+<div id="table-title" class="table-title" class="container text-right">
+	Get the data
+<a id="getdata-content" class="expand-button" href="">+</a>
+</div>
+<div class="data-table" id="getdata-content-table">
+	For each database, as well as the aggregated database can be found within the Github organization: 
+	<a href="https://github.com/kinbank/">https://github.com/kinbank/</a>
+	<br>
+	Archived versions of each database can be found by following the DOIs from their respected citations.
+	The citation for each database as as follows:
+	<br>
+	<em>Kinbank</em><br>
+	<a href = https://github.com/kinbank/kinbank>https://github.com/kinbank/kinbank</a>
+	
+	<br>
+	<em>Varikin</em><br>
+	Passmore, S., Sheard, C., Argyriou, P., Bowern, C., Calladine, J., Deb, A., … Jordan, F. M. (2022). Varikin: A global collection of kinship terminology [Data set]. Zenodo. https://doi.org/10.5281/zenodo.6562609
+	<a href = https://github.com/kinbank/varikin>https://github.com/kinbank/varikin</a>
+	<br>
+	
+	<em>Parabank</em><br>
+	Barth, W., Greenhill, S., Quinn, K., Passmore, S., Jordan, F. M., & Evans, N. D. (2022). Parabank: A global collection of kinship terminology [Data set]. Zenodo. https://doi.org/10.5281/zenodo.6562601
+	<a href = https://github.com/kinbank/parabank>https://github.com/kinbank/parabank</a>
+	<br>	
+	<em>Kinura</em><br>
+	Honkola, T., Metsäranta, N., Milanova, V., Passmore, S., & Jordan, F. M. (2022). Kinura: A database of kinship terminology from the Uralic Language family [Data set]. Zenodo. https://doi.org/10.5281/zenodo.6673055
+	<a href = https://github.com/kinbank/kinura>https://github.com/kinbank/kinura</a>
+	
+	<br>
+	<em>MPEGKin</em><br>
+	Birchall, J., Araujo, L. H., Passmore, S., & Jordan, F. M. (2022). MPEGKin: A database of kinship terminology from the Tupian and Cariban language families [Data set]. Zenodo. https://doi.org/10.5281/zenodo.6474213
+	<br>
+	<a href = https://github.com/kinbank/goeldi>https://github.com/kinbank/goeldi</a>
+</div>
+<div class="divider"></div>
+
+<div id="table-title" class="table-title" class="container text-right">
+Database Content
+<a id="database-content" class="expand-button" href="">+</a>
+</div>
+<div class="data-table" id="database-content-table">
+<p><b>Languages</b></p>
+Kinbank is a database containing 183,282 different data points across {{ n_languages }} languages. Kinbank is a collaborative project between the Australian National University, the University of Bristol, the Museu Paraense Emílio Goeldi, and the University of Helsinki. The collaborative effort has seen the digitisation of existing databases, such as Systems of Consanguinity and Affinity (Morgan, 1871), as well as the centralisation of ethnographic information, and the recording of native speakers to provide a broad global coverage of kinship terminology. Focused sampling for languages attached to existing cultural and linguistic databases (e.g. D-PLACE; Kirby et al., 2016), and to computational language phylogenies (e.g. Honkola et al., 2013) provides the platform or evolutionary and analytic approaches to kinship terminology. Finally, dense regional sampling in Tupian, Carib, and Uralic language families provides the opportunity to explore granular variation in kinship terminology. To access the data in its raw form visit: https://github.com/kinbank/. This link contains the aggregated dataset (Kinbank) and the separately citable datasets, Parabank, Kinbank, MPEGKin, and Kinura.  
+<p><b>Parameters</b></p>
+The primary search criteria for Kinbank were a core set of 115 kin types (88 genealogical kin and 27 kin by marriage (affines)). The sampling grid is available within the Kinbank Github repository: https://github.com/kinbank/kinbank. This database differentiates between kin types (a genealogical position in the etic grid) and kin terms (the word used to describe one or more genealogical positions). For example: kin types such as father's brother and mother's brother, are covered by a single kinterm <em>uncle</em> in English, but by two terms <em>ah-ta'</em> and <em>'-she</em>'-she, in Uncpapa Dakota (USA). The core set of kin types encompass the ‘nuclear’ family, up to grandparents and down to grandchildren, and from parents to their siblings and parent's siblings' children. Many languages have separate terms depending on the gender of the speaker and we collected all where available. Affinal terms were collected for spouses, spouses of siblings, and terms for spouse's nuclear family. Within ego's generation and ego's parent's generation, kin types are also distinguished by relative age, and age of linking relative, where appropriate. This set is derived from a genealogical grid of relatives and aims to capture a globally recurrent set of cross-culturally valid kin-members. 
+
+<p><b>Further Information</b></p>
+If you would like more information, please read the accompanying database article: Passmore et. al (In Prep). If you are interested in contributing to the data or want to ask us some questions please contact Dr Sam Passmore (email available in the "Team" tab). 
+</div>
+<div class="divider"></div>
+
+<div id="table-title" class="table-title">
+The Team
+<a id="the-team" class="expand-button" href="">+</a>
+</div>
+<div id="the-team-table" class="data-table">
+
+<table class="teamPhotos">
+	{% for value in about %}
+		<div class = "row">
+		<tr>
+		{% if value.img != None %}
+			<td style="width:10px;"> <img class="teamPhoto" src="{% static 'img/TeamPhotos/' %}{{ value.img }}"></td>
+		{% endif %}
+		<td class="person"> {{ value.name }} <br>
+		<div class="personDescription">
+		<em class="shortDesc">{{ value.position }}</em>
+		</div>
+		</td>
+		<td style="text-align:right; font-weight:normal;">
+		{% if value.webpage != None %}
+			<a href="{{ value.webpage }}" target="blank">Website</a>
+		{% endif %}
+		{% if value.email != None %}
+			<br><a href="mailto:{{ value.email }}">Email</a>
+		{% endif %}
+		{% if value.twitter != None %}
+			<br><a href="https://twitter.com/{{ value.twitter }}">@{{ value.twitter }}</a>
+		{% endif %}
+		</td>
+		</tr>
+		</div>
+	{% endfor %}
+</table>
+</div>
+
+<div class="divider"></div>
+
+<div id = "table-title" class="table-title">
+Funding and Affiliations
+<a id="funding" class="expand-button" href="">+</a>
+</div>
+<div id="funding-table" class="data-table">
+<p><b>Funding</b></p>
+Kinbank was built thanks to funding from the European Research Council, the ARC Centre of Excellence for the Dynamics of Language,
+ and the Max Planck Institute for the Science of Human History.
+
+Data collected by Varikin was funded thanks to the European Research Council. 
+
+Data collected by Parabank was funded thanks to the ARC Centre of Excellence for the Dynamics of Language,
+and the Max Planck Institute for the Science of Human History. 
+
+Data collected by MPEGKin was funded thanks to the British Academy International Partnership and Mobility Scheme and the European Research Council.
+
+Data collected by Kinura was funded thanks to the Kone Foundation. 
+
+{% endblock %}
+

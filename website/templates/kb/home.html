@@ -1,0 +1,40 @@
+{% extends 'kb/base.html' %}
+{% load static %}
+
+{% block extrahead %}
+
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+
+
+	<script type="text/javascript" src="{% static "js/fillKinshipDiagram.js" %}"></script>
+	<script type="text/javascript">
+			console.log(4 + 10);
+			var terms = {{ terms|safe }};
+			window.onload = function() {
+				fill_diagram(terms);
+			};
+	</script>
+
+{% endblock %}
+
+{% block logo %}
+{% endblock %}
+
+{% block content %}
+
+<div class="home-content">
+
+	<div class = "home-text">
+		<div class = "homelogo-container">
+	        <img id = "logo-img" src="{% static "img/logo-header.png" %}" height="57"/>
+	      	<div id = "home-text" class="logo-title">KI<a class = "easteregg" href="/language_networks">N</a>BA<a class = "easteregg" href="/language_networks">N</a>K</div>	
+      	</div>
+      	<p class="subtitle">Database of Kinship terminology</p>
+		<p class="description">Kinbank is a database of kinship terminologies ranging from grandparents to grandchildren, parent's siblings and their children. You will find terminologies for {{ n_languages }} languages, ranging from Aché to Zulu. </p>
+	</div>
+
+
+	<object type="image/svg+xml" data="{% static "img/diagrams/home_diagram.svg" %}" id="kinshipdiagram"></object>
+</div>
+{% endblock %}
