@@ -31,7 +31,7 @@ RUN python /opt/app/website/manage.py migrate
 
 # run gunicorn
 EXPOSE $PORT
-ENTRYPOINT ["/opt/app/webiste/deploy/gunicorn_starter.sh"]
+ENTRYPOINT ["/opt/app/website/deploy/gunicorn_starter.sh"]
 
 #EXPOSE 8020
 #ENTRYPOINT ["/opt/app/gunicorn_starter.sh"]
