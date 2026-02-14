@@ -25,8 +25,8 @@ RUN python /opt/app/website/scripts/add_columnGlottocode.py --forms-path /opt/ap
 
 # Build SQL site
 RUN csvs-to-sqlite /opt/app/website/kinbank/kinbank/cldf/*.csv /opt/app/website/kinbank.sqlite3
-RUN csvs-to-sqlite  /opt/app/website/kb/static/about.csv /opt/app/website/kinbank.sqlite3
-RUN csvs-to-sqlite  /opt/app/website/kb/static/website_parameters.csv /opt/app/website/kinbank.sqlite3
+RUN csvs-to-sqlite  /opt/app/website/static/about.csv /opt/app/website/kinbank.sqlite3
+RUN csvs-to-sqlite  /opt/app/website/static/website_parameters.csv /opt/app/website/kinbank.sqlite3
 RUN python /opt/app/website/manage.py makemigrations
 RUN python /opt/app/website/manage.py migrate
 RUN python /opt/app/website/manage.py collectstatic
