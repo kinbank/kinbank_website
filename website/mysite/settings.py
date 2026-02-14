@@ -124,6 +124,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static') # path for static files
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 LOGIN_REDIRECT_URL = ''
 
 # Other Default Settings
