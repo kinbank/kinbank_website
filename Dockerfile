@@ -29,6 +29,7 @@ RUN csvs-to-sqlite  /opt/app/website/kb/static/about.csv /opt/app/website/kinban
 RUN csvs-to-sqlite  /opt/app/website/kb/static/website_parameters.csv /opt/app/website/kinbank.sqlite3
 RUN python /opt/app/website/manage.py makemigrations
 RUN python /opt/app/website/manage.py migrate
+RUN python /opt/app/website/manage.py collectstatic
 
 # run gunicorn
 EXPOSE $PORT
