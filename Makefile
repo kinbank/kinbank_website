@@ -23,9 +23,9 @@ open:
 
 data:
 	cd ./kinbank && git pull
-	./myvenv/bin/python add_columnGlottocode.py
+	./myvenv/bin/python website/scripts/add_columnGlottocode.py --forms-path ./kinbank/kinbank/cldf/forms.csv
 	cp ./kinbank/kinbank/etc/languages.csv ./kinbank/kinbank/cldf/languages.csv
-	./myvenv/bin/csvs-to-sqlite ./kinbank/kinbank/cldf/*.csv ./kinbank.sqlite3
-	./myvenv/bin/csvs-to-sqlite  ./website/kb/static/about.csv ./kinbank.sqlite3
-	./myvenv/bin/csvs-to-sqlite  ./static/website_parameters.csv ./kinbank.sqlite3
+	./myvenv/bin/csvs-to-sqlite ./kinbank/kinbank/cldf/*.csv ./website/kinbank.sqlite3
+	./myvenv/bin/csvs-to-sqlite  ./website/static/about.csv ./website/kinbank.sqlite3
+	./myvenv/bin/csvs-to-sqlite  ./website/static/website_parameters.csv ./website/kinbank.sqlite3
 	echo "Remember to makemigrations and migrate"
