@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Forms, Languages, About, Description
+from .models import Forms, Languages, About, Description, Sources
 import pandas as pd
 from collections import defaultdict, OrderedDict
 from string import ascii_uppercase
@@ -11,6 +11,16 @@ from mysite.settings import BASE_DIR
 
 colour_set = ['#297AB1', '#57B5ED', '#71AB7F', '#FBBE4B', "#FF9438", "#8980D4", "#ED8F57",
 				'#BFD7E8', '#BCE1F8', '#C6DDCC', '#FDE5B7', '#FFD4AF', "#D0CCEE", "#F8D2BC"]
+
+def _format_citation(author, year):
+    year_str = str(year).strip() if year else 'n.d.'
+    if not author or not str(author).strip():
+        return year_str
+    authors = [a.strip() for a in str(author).split(' and ')]
+    last_name = authors[0].split(',')[0].strip()
+    suffix = ' et al.' if len(authors) > 1 else ''
+    return f"{last_name}{suffix}, {year_str}"
+
 
 # Helper functions
 def relabel_table(table, dd):
@@ -123,35 +133,65 @@ def get_svginfo(parameters, pk):
 	return parameter_list
 
 def get_kinterms(pk):
-	terms = Forms.objects.filter(glottocode = pk).values('parameter_id', 'form')
+	terms = Forms.objects.filter(glottocode=pk).values('parameter_id', 'form', 'source_id')
 	terms_list = list(terms)
-	print(terms_list)
+
+	# Collect all unique source IDs for this language's forms
+	all_source_ids = set()
+	for t in terms_list:
+		for sid in str(t.get('source_id') or '').split(';'):
+			sid = sid.strip()
+			if sid:
+				all_source_ids.add(sid)
+
+	# Resolve source IDs to formatted citations from the sources table
+	citations = {}
+	if all_source_ids:
+		for s in Sources.objects.filter(bibtexkey__in=all_source_ids).values('bibtexkey', 'author', 'year'):
+			citations[s['bibtexkey']] = _format_citation(s.get('author'), s.get('year'))
 
 	terms_df = pd.DataFrame.from_dict(terms_list)
 	unique_parameters = terms_df["parameter_id"].unique()
-	
-	# make rows of the display table
-	# Ensure that terms are not repeated
+
 	pd_list = []
 	for u in unique_parameters:
 		tt = terms_df[terms_df["parameter_id"] == u]
 		u_terms = set(tt["form"].unique())
 		u_string = ', '.join(u_terms)
-		pd_list.append(pd.DataFrame(data = [[u, u_string, u[0], u[1:]]], columns = ["parameter_id", "form", "speaker", "display_parameter"]))
-	
+		pd_list.append(pd.DataFrame(
+			data=[[u, u_string, u[0], u[1:]]],
+			columns=["parameter_id", "form", "speaker", "display_parameter"]
+		))
+
 	kinterm_df = pd.concat(pd_list)
 
 	kinterm_table = kinterm_df.pivot_table(
 		index='display_parameter',
-		columns='speaker', 
-		values='form', 
-		aggfunc = 'first')
+		columns='speaker',
+		values='form',
+		aggfunc='first'
+	)
 
-	# Nan should be empty strings
 	kinterm_table.fillna('-', inplace=True)
-
 	kinterm_table.index.name = 'Parameter'
 	kinterm_table.reset_index(inplace=True)
+
+	# Build source string per display_parameter, aggregated across both speakers
+	source_map = {}
+	for t in terms_list:
+		dp = t['parameter_id'][1:]
+		for sid in str(t.get('source_id') or '').split(';'):
+			sid = sid.strip()
+			if sid:
+				if dp not in source_map:
+					source_map[dp] = []
+				if sid not in source_map[dp]:
+					source_map[dp].append(sid)
+
+	kinterm_table['source'] = kinterm_table['Parameter'].map(
+		lambda p: '; '.join(citations.get(sid, sid) for sid in source_map.get(p, [])) or '-'
+	)
+
 	return kinterm_table.to_dict('records')
 	
 

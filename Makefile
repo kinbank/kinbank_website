@@ -28,4 +28,6 @@ data:
 	./myvenv/bin/csvs-to-sqlite ./kinbank/kinbank/cldf/*.csv ./website/kinbank.sqlite3
 	./myvenv/bin/csvs-to-sqlite  ./website/static/about.csv ./website/kinbank.sqlite3
 	./myvenv/bin/csvs-to-sqlite  ./website/static/website_parameters.csv ./website/kinbank.sqlite3
+	./myvenv/bin/python website/scripts/bib_to_csv.py --bib kinbank/kinbank/raw/sources.bib --out ./sources.csv
+	./myvenv/bin/csvs-to-sqlite ./sources.csv ./website/kinbank.sqlite3
 	echo "Remember to makemigrations and migrate"

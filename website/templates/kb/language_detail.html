@@ -209,6 +209,7 @@ Children and Niblings
 		  <th>Kin type</th>
 		  <th>Male Speaker</th>
 		  <th>Female Speaker</th>
+		  <th>Source</th>
 		</thead>
 		<tbody>
 		{% for kinterm in all %}
@@ -216,6 +217,7 @@ Children and Niblings
 			<td>{{kinterm.Parameter}}</td>
 			<td>{{kinterm.m}}</td>
 			<td>{{kinterm.f}}</td>
+			<td>{{kinterm.source}}</td>
 		  </tr>
 		{% endfor %}
 		</tbody>
