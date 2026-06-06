@@ -25,7 +25,7 @@ RUN cd /opt/app/website/kinbank && git pull
 RUN python /opt/app/website/scripts/add_columnGlottocode.py --forms-path /opt/app/website/kinbank/kinbank/cldf/forms.csv
 
 # Strip UTF-8 BOM from languages.csv so the ID column loads correctly into SQLite
-RUN python -c "p='/opt/app/website/kinbank/kinbank/cldf/languages.csv'; open(p,'w',encoding='utf-8').write(open(p,encoding='utf-8-sig').read())"
+RUN python -c "p='/opt/app/website/kinbank/kinbank/cldf/languages.csv'; content=open(p,encoding='utf-8-sig').read(); open(p,'w',encoding='utf-8').write(content)"
 
 # Build SQL site
 RUN csvs-to-sqlite /opt/app/website/kinbank/kinbank/cldf/*.csv /opt/app/website/kinbank.sqlite3
