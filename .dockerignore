@@ -1,0 +1,21 @@
+# Generated databases — always built fresh inside the container
+*.sqlite3
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+myvenv/
+
+# Local kinbank data clone — fetched fresh inside the container
+kinbank/
+
+# Dev / OS noise
+.DS_Store
+.git
+.gitignore
+.vercel
+*.Rproj
+.Rproj.user
