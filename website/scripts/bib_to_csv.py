@@ -17,7 +17,7 @@ with open(args.out, 'w', newline='', encoding='utf-8') as f:
         writer.writerow({
             'BIBTEXKEY': entry.get('ID', ''),
             'AUTHOR': entry.get('author', ''),
-            'YEAR': entry.get('year', ''),
+            'YEAR': entry.get('year', '') or entry.get('date', ''),
         })
 
 print(f"Wrote {len(db.entries)} entries to {args.out}")
